@@ -15,16 +15,19 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labboration3.labborationjavafx.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labboration3.labborationjavafx.controller.HelloController">
    <top>
       <HBox prefHeight="72.0" prefWidth="718.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <Button fx:id="circleButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="64.0" text="Circle" />
-            <Button fx:id="triangleButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="64.0" text="Triangle" />
-            <Button fx:id="rectangleButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="72.0" text="Rectangle" />
+            <MenuButton mnemonicParsing="false" prefHeight="37.0" prefWidth="103.0" text="Shape">
+              <items>
+                <MenuItem fx:id="circle" mnemonicParsing="false" text="Circle" />
+                <MenuItem mnemonicParsing="false" text="Rectangle" />
+              </items>
+            </MenuButton>
             <Button fx:id="lineButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="64.0" text="Line" />
             <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="64.0" text="Select" />
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="54.0" text="Fill" />
+            <Button fx:id="fill" mnemonicParsing="false" prefHeight="38.0" prefWidth="54.0" text="Fill" />
             <ColorPicker fx:id="colorButton" prefHeight="39.0" prefWidth="47.0" promptText="asd" />
             <MenuButton fx:id="loadSave" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" text="Load/Save">
               <items>
@@ -36,7 +39,7 @@
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@pictures/undo.jpg" />
+                        <Image url="@../pictures/undo.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -44,7 +47,7 @@
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="32.0">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@pictures/redo.jpg" />
+                        <Image url="@../pictures/redo.jpg" />
                   </ImageView>
                </graphic>
             </Button>
@@ -68,7 +71,7 @@
    <left>
       <Pane prefHeight="479.0" prefWidth="491.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <Canvas height="481.0" width="492.0" />
+            <Canvas fx:id="canvas" height="481.0" width="492.0" />
          </children>
       </Pane>
    </left>
