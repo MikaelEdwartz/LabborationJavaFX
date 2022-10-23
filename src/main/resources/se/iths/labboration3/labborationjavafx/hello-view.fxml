@@ -16,27 +16,28 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="551.0" prefWidth="723.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labboration3.labborationjavafx.controller.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labboration3.labborationjavafx.controller.HelloController">
    <top>
-      <HBox prefHeight="72.0" prefWidth="718.0" spacing="10.0" BorderPane.alignment="CENTER">
+      <HBox prefHeight="72.0" prefWidth="850.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
-            <MenuButton mnemonicParsing="false" prefHeight="37.0" prefWidth="103.0" text="Shape">
+            <HBox prefHeight="52.0" prefWidth="416.0">
+               <children>
+                  <Button fx:id="rectangleButton" mnemonicParsing="false" onMouseClicked="#paintRectangle" prefHeight="39.0" prefWidth="90.0" text="Rectangle" />
+                  <Button mnemonicParsing="false" onMouseClicked="#paintCircle" prefHeight="39.0" prefWidth="60.0" text="Circle" />
+                  <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="54.0" promptText="pick" />
+                  <TextField fx:id="brushSize" prefHeight="37.0" prefWidth="46.0" text="10" />
+                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="74.0" text="Select" />
+                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="107.0" text="Change color" />
+               </children>
+            </HBox>
+            <Pane prefHeight="52.0" prefWidth="312.0" />
+            <MenuButton fx:id="Options" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="115.0" text="Options">
               <items>
-                <MenuItem fx:id="circle" mnemonicParsing="false" text="Circle" />
-                <MenuItem mnemonicParsing="false" text="Rectangle" />
-              </items>
-            </MenuButton>
-            <Button fx:id="lineButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="64.0" text="Line" />
-            <Button fx:id="brush" mnemonicParsing="false" onMouseClicked="#paintBrush" prefHeight="38.0" prefWidth="64.0" text="Brush" />
-            <Button fx:id="fill" mnemonicParsing="false" prefHeight="38.0" prefWidth="54.0" text="Fill" />
-            <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="47.0" promptText="pick" />
-            <MenuButton fx:id="loadSave" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" text="Load/Save">
-              <items>
-                <MenuItem mnemonicParsing="false" text="Load" />
+                <MenuItem mnemonicParsing="false" text="Connect to server" />
                 <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Exit" />
               </items>
             </MenuButton>
-            <TextField fx:id="brushSize" prefHeight="37.0" prefWidth="35.0" text="10" />
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="32.0">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
@@ -65,15 +66,15 @@
    <right>
       <VBox prefHeight="445.0" prefWidth="232.0" BorderPane.alignment="CENTER">
          <children>
-            <ListView fx:id="chatScreen" prefHeight="455.0" prefWidth="227.0" />
-            <TextArea fx:id="chatSendBar" prefHeight="68.0" prefWidth="232.0" text="&#10;" />
+            <ListView fx:id="chatScreen" prefHeight="646.0" prefWidth="232.0" />
+            <TextArea fx:id="chatSendBar" prefHeight="96.0" prefWidth="232.0" text="&#10;" />
          </children>
       </VBox>
    </right>
    <left>
-      <Pane prefHeight="479.0" prefWidth="491.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
+      <Pane prefHeight="672.0" prefWidth="715.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <Canvas fx:id="canvas" height="481.0" width="492.0" />
+            <Canvas fx:id="canvas" height="672.0" width="715.0" />
          </children>
       </Pane>
    </left>

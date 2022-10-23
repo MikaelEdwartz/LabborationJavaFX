@@ -34,4 +34,12 @@ public class HelloController {
         context.fillOval(x,y, size, size);
     }
 
+
+    public void paintCircle(MouseEvent mouseEvent) {
+
+    }
+
+    public void paintRectangle(MouseEvent mouseEvent) {
+
+    }
 }
