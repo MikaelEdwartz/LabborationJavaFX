@@ -27,7 +27,7 @@
               </items>
             </MenuButton>
             <Button fx:id="lineButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="64.0" text="Line" />
-            <Button fx:id="brush" mnemonicParsing="false" onMouseClicked="#onHelloButtonClick" prefHeight="38.0" prefWidth="64.0" text="Brush" />
+            <Button fx:id="brush" mnemonicParsing="false" onMouseClicked="#paintBrush" prefHeight="38.0" prefWidth="64.0" text="Brush" />
             <Button fx:id="fill" mnemonicParsing="false" prefHeight="38.0" prefWidth="54.0" text="Fill" />
             <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="47.0" promptText="pick" />
             <MenuButton fx:id="loadSave" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" text="Load/Save">

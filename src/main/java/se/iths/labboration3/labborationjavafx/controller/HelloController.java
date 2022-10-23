@@ -4,9 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
-import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
 
 public class HelloController {
     public MenuButton loadSave;
@@ -24,18 +22,16 @@ public class HelloController {
     }
 
     @FXML
-    protected void onHelloButtonClick() {
-        canvas.setOnMouseDragged(event -> {
-            double size = Double.parseDouble(brushSize.getText());
-            double x = event.getX() - size / 2;
-            double y = event.getY() - size / 2;
-
-            context.setFill(colorPicker.getValue());
-            context.fillOval(x,y, size, size);
-
-        });
+    protected void paintBrush() {
+        canvas.setOnMouseDragged(this::getBrushSizeAndColor);
     }
 
-    public void paintBrush() {
+    private void getBrushSizeAndColor(MouseEvent event) {
+        double size = Double.parseDouble(brushSize.getText());
+        double x = event.getX() - size / 2;
+        double y = event.getY() - size / 2;
+        context.setFill(colorPicker.getValue());
+        context.fillOval(x,y, size, size);
     }
+
 }
