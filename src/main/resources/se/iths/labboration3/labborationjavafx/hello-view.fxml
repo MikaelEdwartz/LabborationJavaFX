@@ -8,6 +8,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -26,20 +27,21 @@
               </items>
             </MenuButton>
             <Button fx:id="lineButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="64.0" text="Line" />
-            <Button mnemonicParsing="false" prefHeight="38.0" prefWidth="64.0" text="Select" />
+            <Button fx:id="brush" mnemonicParsing="false" onMouseClicked="#onHelloButtonClick" prefHeight="38.0" prefWidth="64.0" text="Brush" />
             <Button fx:id="fill" mnemonicParsing="false" prefHeight="38.0" prefWidth="54.0" text="Fill" />
-            <ColorPicker fx:id="colorButton" prefHeight="39.0" prefWidth="47.0" promptText="asd" />
+            <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="47.0" promptText="pick" />
             <MenuButton fx:id="loadSave" mnemonicParsing="false" prefHeight="38.0" prefWidth="94.0" text="Load/Save">
               <items>
                 <MenuItem mnemonicParsing="false" text="Load" />
                 <MenuItem mnemonicParsing="false" text="Save" />
               </items>
             </MenuButton>
+            <TextField fx:id="brushSize" prefHeight="37.0" prefWidth="35.0" text="10" />
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="32.0">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../pictures/undo.jpg" />
+                        <Image url="@pictures/undo.jpg" />
                      </image>
                   </ImageView>
                </graphic>
@@ -47,7 +49,7 @@
             <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="32.0">
                <graphic>
                   <ImageView fitHeight="36.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-                        <Image url="@../pictures/redo.jpg" />
+                        <Image url="@pictures/redo.jpg" />
                   </ImageView>
                </graphic>
             </Button>
