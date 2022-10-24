@@ -9,25 +9,31 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="744.0" prefWidth="947.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labboration3.labborationjavafx.controller.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labboration3.labborationjavafx.controller.HelloController">
    <top>
       <HBox prefHeight="72.0" prefWidth="850.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
             <HBox prefHeight="52.0" prefWidth="416.0">
                <children>
-                  <Button fx:id="rectangleButton" mnemonicParsing="false" onMouseClicked="#paintRectangle" prefHeight="39.0" prefWidth="90.0" text="Rectangle" />
-                  <Button mnemonicParsing="false" onMouseClicked="#paintCircle" prefHeight="39.0" prefWidth="60.0" text="Circle" />
-                  <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="54.0" promptText="pick" />
-                  <TextField fx:id="brushSize" prefHeight="37.0" prefWidth="46.0" text="10" />
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="74.0" text="Select" />
+                  <Button fx:id="rectangleButton" mnemonicParsing="false" onAction="#setRectangleShape" prefHeight="39.0" prefWidth="90.0" text="Rectangle" />
+                  <Button fx:id="circleButton" mnemonicParsing="false" onAction="#setCircleShape" prefHeight="39.0" prefWidth="60.0" text="Circle" />
+                  <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="54.0" promptText="pick">
+                     <value>
+                        <Color />
+                     </value>
+                  </ColorPicker>
+                  <TextField fx:id="brushSize" prefHeight="37.0" prefWidth="46.0" text="50" />
                   <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="107.0" text="Change color" />
+                  <ToggleButton fx:id="eraser" mnemonicParsing="false" prefHeight="37.0" prefWidth="86.0" text="Eraser" />
                </children>
             </HBox>
             <Pane prefHeight="52.0" prefWidth="312.0" />
@@ -74,7 +80,7 @@
    <left>
       <Pane prefHeight="672.0" prefWidth="715.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <Canvas fx:id="canvas" height="672.0" width="715.0" />
+            <Canvas fx:id="canvas" height="672.0" onMouseClicked="#drawShape" width="715.0" />
          </children>
       </Pane>
    </left>

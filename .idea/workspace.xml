@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
+    <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="add Model">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/ShapeCreator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/HelloController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/HelloController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Circle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -94,7 +93,8 @@
       <workItem from="1666509879331" duration="170000" />
       <workItem from="1666510186971" duration="5041000" />
       <workItem from="1666539082965" duration="373000" />
-      <workItem from="1666539705423" duration="1489000" />
+      <workItem from="1666539705423" duration="2605000" />
+      <workItem from="1666542322884" duration="6951000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1666104453857</created>
@@ -138,7 +138,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666517393986</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="add Shape.java, Circle and Rectangle&#10;also small GUI changes">
+      <created>1666541520508</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1666541520508</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -150,6 +157,8 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="add paintBrush" />
     <MESSAGE value="add refactoring to paintBrush" />
-    <option name="LAST_COMMIT_MESSAGE" value="add refactoring to paintBrush" />
+    <MESSAGE value="add Shape.java, Circle and Rectangle&#10;also small GUI changes" />
+    <MESSAGE value="add Model" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Model" />
   </component>
 </project>
