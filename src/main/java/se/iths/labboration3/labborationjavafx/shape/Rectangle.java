@@ -1,5 +1,6 @@
 package se.iths.labboration3.labborationjavafx.shape;
 
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
 public class Rectangle extends Shape {
@@ -8,8 +9,10 @@ public class Rectangle extends Shape {
         super(color, x, y, size);
     }
 
+    @Override
+    public void draw(GraphicsContext context) {
 
-
+    }
 
 
 }

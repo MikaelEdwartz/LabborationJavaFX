@@ -9,7 +9,6 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
@@ -18,7 +17,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.paint.Color?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labboration3.labborationjavafx.controller.HelloController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labboration3.labborationjavafx.controller.PaintController">
    <top>
       <HBox prefHeight="72.0" prefWidth="850.0" spacing="10.0" BorderPane.alignment="CENTER">
          <children>
@@ -32,8 +31,7 @@
                      </value>
                   </ColorPicker>
                   <TextField fx:id="brushSize" prefHeight="37.0" prefWidth="46.0" text="50" />
-                  <Button mnemonicParsing="false" prefHeight="37.0" prefWidth="107.0" text="Change color" />
-                  <ToggleButton fx:id="eraser" mnemonicParsing="false" prefHeight="37.0" prefWidth="86.0" text="Eraser" />
+                  <Button fx:id="test" mnemonicParsing="false" onAction="#print" prefHeight="37.0" prefWidth="107.0" text="Change color" />
                </children>
             </HBox>
             <Pane prefHeight="52.0" prefWidth="312.0" />

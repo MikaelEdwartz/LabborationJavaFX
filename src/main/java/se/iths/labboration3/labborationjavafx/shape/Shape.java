@@ -2,15 +2,15 @@ package se.iths.labboration3.labborationjavafx.shape;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Shape {
+public abstract class Shape implements ShapeDrawer {
 
     private final SimpleDoubleProperty x = new SimpleDoubleProperty();
     private final SimpleDoubleProperty y = new SimpleDoubleProperty();
     private final SimpleDoubleProperty size = new SimpleDoubleProperty();
-    private final SimpleObjectProperty color = new SimpleObjectProperty<>();
-    private final SimpleObjectProperty borderColor = new SimpleObjectProperty<>();
+    private final SimpleObjectProperty<Color> color = new SimpleObjectProperty<>();
 
 
     protected Shape(Color color, double x, double y, double size){
@@ -18,7 +18,6 @@ public class Shape {
         setY(y);
         setSize(size);
         setColor(color);
-        setBorderColor(color);
 
     }
 
@@ -58,27 +57,18 @@ public class Shape {
         this.size.set(size);
     }
 
-    public Object getColor() {
-        return color.get();
+    public Color getColor() {
+        return (Color) color.get();
     }
 
     public SimpleObjectProperty colorProperty() {
         return color;
     }
 
-    public void setColor(Object color) {
+    public void setColor(Color color) {
         this.color.set(color);
     }
 
-    public Object getBorderColor() {
-        return borderColor.get();
-    }
-
-    public SimpleObjectProperty borderColorProperty() {
-        return borderColor;
-    }
-
-    public void setBorderColor(Object borderColor) {
-        this.borderColor.set(borderColor);
+    public void draw(GraphicsContext context) {
     }
 }
