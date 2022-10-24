@@ -11,7 +11,17 @@ public class Rectangle extends Shape {
 
     @Override
     public void draw(GraphicsContext context) {
+        double size = getSize();
+        double x = getX() - size / 2;
+        double y = getY() - size / 2;
+        context.setFill(getColor());
+        context.fillRect(x, y, size * 1.75, size);
+    }
 
+
+    @Override
+    public String toString() {
+        return super.toString();
     }
 
 

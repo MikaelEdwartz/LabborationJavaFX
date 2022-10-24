@@ -67,7 +67,7 @@ public class PaintController {
     }
 
     public void drawOnCanvas(){
-        context.fill();
+        context.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
 
         for(var shape : model.getShapes())
             shape.draw(context);
@@ -77,19 +77,23 @@ public class PaintController {
         double x = mouseEvent.getX();
         double y = mouseEvent.getY();
         Shape newShape = null;
+
         if (circle.get()) {
              newShape = circleOf(colorPicker.getValue(), x, y, model.getSize());
         }
+
         if (rectangle.get()) {
-             newShape = circleOf(colorPicker.getValue(), x, y, model.getSize());
+             newShape = rectangleOf(colorPicker.getValue(), x, y, model.getSize());
         }
         model.addToShapes(newShape);
+
     }
 
 
     public void print(ActionEvent actionEvent) {
         context.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
-        for(var m :model.getShapes())
-            System.out.println( "" + m.getX() + "-" + m.getY()+ "-" + m.getColor());
+
+        for(var m : model.getShapes())
+            System.out.println( "" + m.getX() + "-" + m.getY()+ "-" + m.getColor() +"-"+ m.getClass());
     }
 }

@@ -38,9 +38,12 @@ public class PaintModel {
     }
 
     public double getSize(){
-        return Double.parseDouble(sizeProperty().get());
+        return Double.parseDouble(getSize1());
     }
 
+    public String getSize1(){
+        return size.get();
+    }
     public StringProperty sizeProperty() {
         return size;
     }

@@ -30,7 +30,7 @@
                         <Color />
                      </value>
                   </ColorPicker>
-                  <TextField fx:id="brushSize" prefHeight="37.0" prefWidth="46.0" text="50" />
+                  <TextField fx:id="size" prefHeight="37.0" prefWidth="46.0" text="50" />
                   <Button fx:id="test" mnemonicParsing="false" onAction="#print" prefHeight="37.0" prefWidth="107.0" text="Change color" />
                </children>
             </HBox>
