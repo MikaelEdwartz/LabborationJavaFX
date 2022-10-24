@@ -14,6 +14,7 @@ public class PaintModel {
     this.rectangle  = new SimpleBooleanProperty(false);
     this.circle = new SimpleBooleanProperty(false);
 
+
     }
 
     public boolean isRectangle() {
@@ -31,6 +32,14 @@ public class PaintModel {
 
     public boolean isCircle() {
         return circle.get();
+    }
+    public void setCircleShape() {
+        circle.set(true);
+        rectangle.set(false);
+    }
+    public void setRectangleShape() {
+        circle.set(false);
+        rectangle.set(true);
     }
 
     public BooleanProperty circleProperty() {

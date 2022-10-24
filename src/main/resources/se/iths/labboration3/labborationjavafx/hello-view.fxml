@@ -24,8 +24,8 @@
          <children>
             <HBox prefHeight="52.0" prefWidth="416.0">
                <children>
-                  <Button fx:id="rectangleButton" mnemonicParsing="false" onAction="#setRectangleShape" prefHeight="39.0" prefWidth="90.0" text="Rectangle" />
-                  <Button fx:id="circleButton" mnemonicParsing="false" onAction="#setCircleShape" prefHeight="39.0" prefWidth="60.0" text="Circle" />
+                  <Button fx:id="rectangleButton" mnemonicParsing="false" onAction="#onRectangleClick" prefHeight="39.0" prefWidth="90.0" text="Rectangle" />
+                  <Button fx:id="circleButton" mnemonicParsing="false" onAction="#onCircleClick" prefHeight="39.0" prefWidth="60.0" text="Circle" />
                   <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="54.0" promptText="pick">
                      <value>
                         <Color />
