@@ -1,8 +1,8 @@
-package se.iths.labboration3.labborationjavafx.shape;
+package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.scene.paint.Color;
 
-public class ShapeCreator {
+public class shapeFactory {
 
     public static Rectangle rectangleOf(Color color, double x, double y, double size){
         return new Rectangle(color, x, y, size);

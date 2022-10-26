@@ -1,13 +1,15 @@
-package se.iths.labboration3.labborationjavafx.shape;
+package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
-public class Rectangle extends Shape {
+public class Circle extends Shape {
 
-    protected Rectangle(Color color, double x, double y, double size) {
+
+    protected Circle(Color color, double x, double y, double size) {
         super(color, x, y, size);
     }
+
 
     @Override
     public void draw(GraphicsContext context) {
@@ -15,14 +17,12 @@ public class Rectangle extends Shape {
         double x = getX() - size / 2;
         double y = getY() - size / 2;
         context.setFill(getColor());
-        context.fillRect(x, y, size * 1.75, size);
+        context.fillOval(x, y, size, size);
     }
-
 
     @Override
     public String toString() {
         return super.toString();
     }
-
-
 }
+

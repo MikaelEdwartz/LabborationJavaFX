@@ -9,10 +9,10 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import se.iths.labboration3.labborationjavafx.model.PaintModel;
-import se.iths.labboration3.labborationjavafx.shape.Shape;
-import se.iths.labboration3.labborationjavafx.shape.ShapeCreator;
+import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
+import se.iths.labboration3.labborationjavafx.model.shapes.shapeFactory;
 
-import static se.iths.labboration3.labborationjavafx.shape.ShapeCreator.*;
+import static se.iths.labboration3.labborationjavafx.model.shapes.shapeFactory.*;
 
 public class PaintController {
     public Canvas canvas;
@@ -20,7 +20,7 @@ public class PaintController {
     public PaintModel model;
     public BooleanProperty circle;
     public BooleanProperty rectangle;
-    public ShapeCreator shapeCreator;
+    public shapeFactory shapeFactory;
     public ColorPicker colorPicker;
     public TextField size;
 
@@ -31,7 +31,7 @@ public class PaintController {
         this.circle = new SimpleBooleanProperty();
         this.rectangle = new SimpleBooleanProperty();
         this.size = new TextField();
-        this.shapeCreator = new ShapeCreator();
+        this.shapeFactory = new shapeFactory();
 
     }
 
@@ -41,7 +41,6 @@ public class PaintController {
         rectangle.bindBidirectional(model.rectangleProperty());
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
         size.textProperty().bindBidirectional(model.sizeProperty());
-
         model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
     }
 
@@ -67,12 +66,20 @@ public class PaintController {
     }
 
     public void drawOnCanvas(){
-        context.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
-
-        for(var shape : model.getShapes())
-            shape.draw(context);
+        clearCanvas();
+        paintAllSavedShapesOnCanvas();
 
     }
+
+    private void paintAllSavedShapesOnCanvas() {
+        for(var shape : model.getShapes())
+            shape.draw(context);
+    }
+
+    private void clearCanvas() {
+        context.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
+    }
+
     public void drawShape(MouseEvent mouseEvent) {
         double x = mouseEvent.getX();
         double y = mouseEvent.getY();
@@ -91,7 +98,7 @@ public class PaintController {
 
 
     public void print(ActionEvent actionEvent) {
-        context.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
+        clearCanvas();
 
         for(var m : model.getShapes())
             System.out.println( "" + m.getX() + "-" + m.getY()+ "-" + m.getColor() +"-"+ m.getClass());

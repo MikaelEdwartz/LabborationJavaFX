@@ -1,9 +1,10 @@
-package se.iths.labboration3.labborationjavafx.shape;
+package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import se.iths.labboration3.labborationjavafx.shape.ShapeDrawer;
 
 public abstract class Shape implements ShapeDrawer {
 

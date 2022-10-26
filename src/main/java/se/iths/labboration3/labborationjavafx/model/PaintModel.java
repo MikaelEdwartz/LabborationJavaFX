@@ -5,7 +5,7 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
-import se.iths.labboration3.labborationjavafx.shape.Shape;
+import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 
 public class PaintModel {
     private final BooleanProperty rectangle;

@@ -5,11 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/Point.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/PaintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/PaintController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/hello-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/shape/ShapeCreator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/shapeFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +22,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -101,7 +104,10 @@
       <workItem from="1666510186971" duration="5041000" />
       <workItem from="1666539082965" duration="373000" />
       <workItem from="1666539705423" duration="2605000" />
-      <workItem from="1666542322884" duration="19442000" />
+      <workItem from="1666542322884" duration="19594000" />
+      <workItem from="1666695642541" duration="592000" />
+      <workItem from="1666773662624" duration="1523000" />
+      <workItem from="1666778892666" duration="315000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1666104453857</created>
@@ -173,7 +179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666609934249</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="add listener to Shapesizes">
+      <created>1666612430609</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1666612430609</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -190,6 +203,7 @@
     <MESSAGE value="add shape selector to model" />
     <MESSAGE value="add code" />
     <MESSAGE value="add shapes is now added to observable list that prints shapes when change is detected" />
-    <option name="LAST_COMMIT_MESSAGE" value="add shapes is now added to observable list that prints shapes when change is detected" />
+    <MESSAGE value="add listener to Shapesizes" />
+    <option name="LAST_COMMIT_MESSAGE" value="add listener to Shapesizes" />
   </component>
 </project>
