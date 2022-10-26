@@ -24,7 +24,8 @@ public class PaintController {
     public shapeFactory shapeFactory;
     public ColorPicker colorPicker;
     public TextField size;
-
+    public Menu saveOption;
+    static int i = 0;
 
 
     public PaintController() {
@@ -45,18 +46,6 @@ public class PaintController {
         model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
     }
 
-    public void paintCircle(MouseEvent mouseEvent) {
-
-    }
-
-    public void paintRectangle(MouseEvent mouseEvent) {
-        double size = Double.parseDouble(this.size.getText());
-        double x = mouseEvent.getX() - size / 2;
-        double y = mouseEvent.getY() - size / 2;
-        context.setFill(colorPicker.getValue());
-        context.fillRect(x, y, size * 1.75, size);
-
-    }
 
     public void onCircleClick() {
         model.setCircleShape();
@@ -68,13 +57,17 @@ public class PaintController {
 
     public void drawOnCanvas(){
         clearCanvas();
-        paintAllSavedShapesOnCanvas();
+        drawAllSavedShapesOnCanvas();
+
+
 
     }
 
-    private void paintAllSavedShapesOnCanvas() {
-        for(var shape : model.getShapes())
-            shape.draw(context);
+    private void drawAllSavedShapesOnCanvas() {
+        for(var shapes : model.getShapes())
+            shapes.draw(context);
+
+
     }
 
     private void clearCanvas() {
@@ -82,20 +75,26 @@ public class PaintController {
     }
 
     public void drawShape(MouseEvent mouseEvent) {
-        double x = mouseEvent.getX();
-        double y = mouseEvent.getY();
-        Shape newShape = null;
+
         var xy = new Point(mouseEvent.getX(), mouseEvent.getY());
-
-        if (circle.get()) {
-             newShape = circleOf(colorPicker.getValue(), xy, model.getSize());
+        if(!model.isRectangle() && !model.isCircle()) {
+            for(var shapes : model.getShapes())
+                if(shapes.isInside(xy))
+                    System.out.println(i++);
         }
 
-        if (rectangle.get()) {
-             newShape = rectangleOf(colorPicker.getValue(), xy, model.getSize());
-        }
+        Shape newShape = returnNewShape(xy);
         model.addToShapes(newShape);
 
+    }
+
+    private Shape returnNewShape(Point xy) {
+        if (circle.get())
+            return circleOf(colorPicker.getValue(), xy, model.getSize());
+        if (rectangle.get())
+            return rectangleOf(colorPicker.getValue(), xy, model.getSize());
+
+        return null;
     }
 
 
@@ -104,5 +103,19 @@ public class PaintController {
 
         for(var m : model.getShapes())
             System.out.println( "" + m.getX() + "-" + m.getY()+ "-" + m.getColor() +"-"+ m.getClass());
+    }
+
+    public void savePainting(ActionEvent actionEvent) {
+        System.out.println("Saved");
+    }
+
+
+
+    private void checkifInside() {
+
+    }
+
+    public void selection(ActionEvent actionEvent) {
+        model.setSelectionMode();
     }
 }

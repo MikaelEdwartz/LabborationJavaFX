@@ -13,10 +13,19 @@ public class Rectangle extends Shape {
     @Override
     public void draw(GraphicsContext context) {
         double size = getSize();
-        double x = getX() - size / 2;
+        double x = getX() - (size / 2)* 1.75;
         double y = getY() - size / 2;
         context.setFill(getColor());
         context.fillRect(x, y, size * 1.75, size);
+    }
+
+    @Override
+    public boolean isInside(Point mouseCoordinate) {
+
+        return     mouseCoordinate.x() >= getX()
+                && mouseCoordinate.x() <= (getX() + (getSize() * 1.75))
+                && mouseCoordinate.y() >= getY()
+                && mouseCoordinate.y() <= (getY() + getSize());
     }
 
 

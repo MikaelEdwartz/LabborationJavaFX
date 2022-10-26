@@ -84,6 +84,10 @@ public class PaintModel {
         circle.set(false);
         rectangle.set(true);
     }
+    public void setSelectionMode(){
+        circle.set(false);
+        rectangle.set(false);
+    }
 
     public BooleanProperty circleProperty() {
         return circle;

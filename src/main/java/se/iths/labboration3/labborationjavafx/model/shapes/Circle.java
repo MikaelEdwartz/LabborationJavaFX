@@ -20,7 +20,14 @@ public class Circle extends Shape {
         context.setFill(getColor());
         context.fillOval(x, y, size, size);
     }
+    @Override
+    public boolean isInside(Point coordinates){
+        double distanceX = coordinates.x() - getX();
+        double distanceY = coordinates.y() - getY();
+        double distance = Math.sqrt((distanceX * distanceX) + distanceY * distanceY);
 
+        return distance <= getSize()/2;
+    }
     @Override
     public String toString() {
         return super.toString();

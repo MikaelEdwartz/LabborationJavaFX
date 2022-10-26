@@ -5,7 +5,6 @@ import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 import se.iths.labboration3.labborationjavafx.model.Point;
-import se.iths.labboration3.labborationjavafx.shape.ShapeDrawer;
 
 public abstract class Shape implements ShapeDrawer {
 
@@ -72,4 +71,6 @@ public abstract class Shape implements ShapeDrawer {
 
     public void draw(GraphicsContext context) {
     }
+
+    public abstract boolean isInside(Point coordinates);
 }
