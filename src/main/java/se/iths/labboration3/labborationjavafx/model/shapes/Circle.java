@@ -2,12 +2,13 @@ package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import se.iths.labboration3.labborationjavafx.model.Point;
 
 public class Circle extends Shape {
 
 
-    protected Circle(Color color, double x, double y, double size) {
-        super(color, x, y, size);
+    protected Circle(Color color, Point coordinates, double size) {
+        super(color, coordinates, size);
     }
 
 

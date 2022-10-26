@@ -4,6 +4,7 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.shape.ShapeDrawer;
 
 public abstract class Shape implements ShapeDrawer {
@@ -14,12 +15,11 @@ public abstract class Shape implements ShapeDrawer {
     private final SimpleObjectProperty<Color> color = new SimpleObjectProperty<>();
 
 
-    protected Shape(Color color, double x, double y, double size){
-        setX(x);
-        setY(y);
-        setSize(size);
+    protected Shape(Color color, Point coordinates, double size){
         setColor(color);
-
+        setX(coordinates.x());
+        setY(coordinates.y());
+        setSize(size);
     }
 
     public double getX() {

@@ -9,6 +9,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import se.iths.labboration3.labborationjavafx.model.PaintModel;
+import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 import se.iths.labboration3.labborationjavafx.model.shapes.shapeFactory;
 
@@ -84,13 +85,14 @@ public class PaintController {
         double x = mouseEvent.getX();
         double y = mouseEvent.getY();
         Shape newShape = null;
+        var xy = new Point(mouseEvent.getX(), mouseEvent.getY());
 
         if (circle.get()) {
-             newShape = circleOf(colorPicker.getValue(), x, y, model.getSize());
+             newShape = circleOf(colorPicker.getValue(), xy, model.getSize());
         }
 
         if (rectangle.get()) {
-             newShape = rectangleOf(colorPicker.getValue(), x, y, model.getSize());
+             newShape = rectangleOf(colorPicker.getValue(), xy, model.getSize());
         }
         model.addToShapes(newShape);
 
