@@ -7,19 +7,22 @@ import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 
+
 public class PaintModel {
-    private final BooleanProperty rectangle;
-    private final BooleanProperty circle;
+    private final BooleanProperty rectangleSelected;
+    private final BooleanProperty circleSelected;
     private final ObservableList<Shape> shapes;
     private final ObjectProperty<Color> colorPicker;
     private final StringProperty size;
 
     public PaintModel(){
-    this.rectangle  = new SimpleBooleanProperty(false);
-    this.circle = new SimpleBooleanProperty(false);
+    this.rectangleSelected = new SimpleBooleanProperty(false);
+    this.circleSelected = new SimpleBooleanProperty(false);
     this.colorPicker = new SimpleObjectProperty<>(Color.BLACK);
     this.size = new SimpleStringProperty("50");
     this.shapes = FXCollections.observableArrayList(PaintModel::getShapeAttribute);
+
+
 
     }
     private static Observable[] getShapeAttribute(Shape shape) {
@@ -34,7 +37,6 @@ public class PaintModel {
     public void addToShapes(Shape shape){
         if(!(shape == null))
             this.shapes.add(shape);
-
     }
 
     public double getSize(){
@@ -60,40 +62,40 @@ public class PaintModel {
         return shapes;
     }
 
-    public boolean isRectangle() {
-        return rectangle.get();
+    public boolean getRectangleSelected() {
+        return rectangleSelected.get();
     }
 
 
-    public BooleanProperty rectangleProperty() {
-        return rectangle;
+    public BooleanProperty rectangleSelectedProperty() {
+        return rectangleSelected;
     }
 
-    public void setRectangle(boolean rectangle) {
-        this.rectangle.set(rectangle);
+    public void setRectangleSelected(boolean rectangleSelected) {
+        this.rectangleSelected.set(rectangleSelected);
     }
 
-    public boolean isCircle() {
-        return circle.get();
+    public boolean getCircleSelected() {
+        return circleSelected.get();
     }
     public void setCircleShape() {
-        circle.set(true);
-        rectangle.set(false);
+        circleSelected.set(true);
+        rectangleSelected.set(false);
     }
     public void setRectangleShape() {
-        circle.set(false);
-        rectangle.set(true);
+        circleSelected.set(false);
+        rectangleSelected.set(true);
     }
     public void setSelectionMode(){
-        circle.set(false);
-        rectangle.set(false);
+        circleSelected.set(false);
+        rectangleSelected.set(false);
     }
 
-    public BooleanProperty circleProperty() {
-        return circle;
+    public BooleanProperty circleSelectedProperty() {
+        return circleSelected;
     }
 
-    public void setCircle(boolean circle) {
-        this.circle.set(circle);
+    public void setCircleSelected(boolean circleSelected) {
+        this.circleSelected.set(circleSelected);
     }
 }

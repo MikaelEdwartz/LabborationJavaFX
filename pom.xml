@@ -61,7 +61,7 @@
                         <id>default-cli</id>
                         <configuration>
                             <mainClass>
-                                se.iths.labboration3.labborationjavafx/se.iths.labboration3.labborationjavafx.HelloApplication
+                                se.iths.labboration3.labborationjavafx/se.iths.labboration3.labborationjavafx.PaintApplication
                             </mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>

@@ -8,6 +8,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
 import se.iths.labboration3.labborationjavafx.model.PaintModel;
 import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
@@ -34,13 +35,12 @@ public class PaintController {
         this.rectangle = new SimpleBooleanProperty();
         this.size = new TextField();
         this.shapeFactory = new shapeFactory();
-
     }
 
     public void initialize() {
         context = canvas.getGraphicsContext2D();
-        circle.bindBidirectional(model.circleProperty());
-        rectangle.bindBidirectional(model.rectangleProperty());
+        circle.bindBidirectional(model.circleSelectedProperty());
+        rectangle.bindBidirectional(model.rectangleSelectedProperty());
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
         size.textProperty().bindBidirectional(model.sizeProperty());
         model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
@@ -64,8 +64,8 @@ public class PaintController {
     }
 
     private void drawAllSavedShapesOnCanvas() {
-        for(var shapes : model.getShapes())
-            shapes.draw(context);
+        for(var shape : model.getShapes())
+            shape.draw(context);
 
 
     }
@@ -75,12 +75,12 @@ public class PaintController {
     }
 
     public void drawShape(MouseEvent mouseEvent) {
-
         var xy = new Point(mouseEvent.getX(), mouseEvent.getY());
-        if(!model.isRectangle() && !model.isCircle()) {
+
+        if(!model.getRectangleSelected() && !model.getCircleSelected()) {
             for(var shapes : model.getShapes())
                 if(shapes.isInside(xy))
-                    System.out.println(i++);
+                    System.out.println(xy + " " +shapes);
         }
 
         Shape newShape = returnNewShape(xy);
@@ -99,10 +99,13 @@ public class PaintController {
 
 
     public void print(ActionEvent actionEvent) {
-        clearCanvas();
-
+        model.getShapes().get(i++).setColor(colorPicker.getValue());
+        context.setFill(Color.RED);
+        context.fillRect(model.getShapes().get(0).getX(),model.getShapes().get(0).getY(),model.getShapes().get(0).getSize(),model.getShapes().get(0).getSize());
         for(var m : model.getShapes())
-            System.out.println( "" + m.getX() + "-" + m.getY()+ "-" + m.getColor() +"-"+ m.getClass());
+            System.out.println( "X1:" + m.getX() + "  Y1:"
+                    + m.getY()+ "  X2:" + m.getSize()*1.75
+                    +"   Y2:"+ m.getSize());
     }
 
     public void savePainting(ActionEvent actionEvent) {

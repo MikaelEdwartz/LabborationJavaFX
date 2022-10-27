@@ -6,32 +6,45 @@ import se.iths.labboration3.labborationjavafx.model.Point;
 
 public class Rectangle extends Shape {
 
-    protected Rectangle(Color color, Point coordinates, double size) {
+    public Rectangle(Color color, Point coordinates, double size) {
         super(color, coordinates, size);
     }
+
+    public Rectangle(Color color, double x, double y, double size) {
+        super(color, x, y, size);
+    }
+
 
     @Override
     public void draw(GraphicsContext context) {
         double size = getSize();
-        double x = getX() - (size / 2)* 1.75;
-        double y = getY() - size / 2;
+        double x = getX() - (size)/2;
+        double y = getY() - size /2;
         context.setFill(getColor());
-        context.fillRect(x, y, size * 1.75, size);
+        context.fillRect(x, y, size * 2, size);
     }
 
     @Override
     public boolean isInside(Point mouseCoordinate) {
 
-        return     mouseCoordinate.x() >= getX()
-                && mouseCoordinate.x() <= (getX() + (getSize() * 1.75))
-                && mouseCoordinate.y() >= getY()
-                && mouseCoordinate.y() <= (getY() + getSize());
+        double leftX = getX() - getSize();
+        double topY = getY() - getSize();
+        double mouseX = mouseCoordinate.x();
+        double mouseY = mouseCoordinate.y();
+
+        return mouseX >= leftX &&
+                mouseX <= leftX + 1.5*getSize() &&
+                mouseY >= topY &&
+                mouseY <= topY + 1.5*getSize();
+
+
+
     }
 
 
     @Override
     public String toString() {
-        return super.toString();
+        return getColor() + super.getClass().toString();
     }
 
 

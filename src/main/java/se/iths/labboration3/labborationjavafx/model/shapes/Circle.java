@@ -25,12 +25,12 @@ public class Circle extends Shape {
         double distanceX = coordinates.x() - getX();
         double distanceY = coordinates.y() - getY();
         double distance = Math.sqrt((distanceX * distanceX) + distanceY * distanceY);
-
+//namnbyte
         return distance <= getSize()/2;
     }
     @Override
     public String toString() {
-        return super.toString();
+        return getColor() + super.getClass().toString();
     }
 }
 
