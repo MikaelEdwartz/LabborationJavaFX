@@ -18,24 +18,24 @@ public class Rectangle extends Shape {
     @Override
     public void draw(GraphicsContext context) {
         double size = getSize();
-        double x = getX() - (size)/2;
-        double y = getY() - size /2;
+        double x = getX() - ((size)/2)*1.75;
+        double y = getY() - size/2;
         context.setFill(getColor());
-        context.fillRect(x, y, size * 2, size);
+        context.fillRect(x, y, size * 1.75, size);
     }
 
     @Override
     public boolean isInside(Point mouseCoordinate) {
 
-        double leftX = getX() - getSize();
-        double topY = getY() - getSize();
+        double leftX = getX() - (getSize()/2)*1.75;
+        double topY = getY() - getSize()/2;
         double mouseX = mouseCoordinate.x();
         double mouseY = mouseCoordinate.y();
 
         return mouseX >= leftX &&
-                mouseX <= leftX + 1.5*getSize() &&
+                mouseX <= leftX + (getSize())*1.75 &&
                 mouseY >= topY &&
-                mouseY <= topY + 1.5*getSize();
+                mouseY <= topY + getSize();
 
 
 
