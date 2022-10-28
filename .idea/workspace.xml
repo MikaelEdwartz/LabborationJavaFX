@@ -5,6 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -104,7 +105,7 @@
       <workItem from="1666778892666" duration="7743000" />
       <workItem from="1666854809012" duration="12300000" />
       <workItem from="1666882592634" duration="752000" />
-      <workItem from="1666898167868" duration="4717000" />
+      <workItem from="1666898167868" duration="6040000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1666104453857</created>
@@ -218,7 +219,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666954486471</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="add collision detection for Rectangle">
+      <created>1666954926139</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1666954926139</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -252,6 +260,7 @@
     <MESSAGE value="add collistionDetection for circle&#10;rectangle collision started" />
     <MESSAGE value="add code for rectangle collision detection" />
     <MESSAGE value="Changed from booleanProperty to Enum for selectedShape" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changed from booleanProperty to Enum for selectedShape" />
+    <MESSAGE value="add collision detection for Rectangle" />
+    <option name="LAST_COMMIT_MESSAGE" value="add collision detection for Rectangle" />
   </component>
 </project>
