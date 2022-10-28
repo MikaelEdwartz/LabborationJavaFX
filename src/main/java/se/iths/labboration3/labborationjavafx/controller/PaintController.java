@@ -20,8 +20,7 @@ public class PaintController {
     public Canvas canvas;
     public GraphicsContext context;
     public PaintModel model;
-    public BooleanProperty circle;
-    public BooleanProperty rectangle;
+    public BooleanProperty selectorOption;
     public shapeFactory shapeFactory;
     public ColorPicker colorPicker;
     public TextField size;
@@ -31,16 +30,14 @@ public class PaintController {
 
     public PaintController() {
         this.model = new PaintModel();
-        this.circle = new SimpleBooleanProperty();
-        this.rectangle = new SimpleBooleanProperty();
+        this.selectorOption = new SimpleBooleanProperty();
         this.size = new TextField();
         this.shapeFactory = new shapeFactory();
     }
 
     public void initialize() {
         context = canvas.getGraphicsContext2D();
-        circle.bindBidirectional(model.circleSelectedProperty());
-        rectangle.bindBidirectional(model.rectangleSelectedProperty());
+        selectorOption.bindBidirectional(model.selectorOptionProperty());
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
         size.textProperty().bindBidirectional(model.sizeProperty());
         model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
@@ -58,9 +55,6 @@ public class PaintController {
     public void drawOnCanvas(){
         clearCanvas();
         drawAllSavedShapesOnCanvas();
-
-
-
     }
 
     private void drawAllSavedShapesOnCanvas() {
@@ -74,27 +68,23 @@ public class PaintController {
         context.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
     }
 
-    public void drawShape(MouseEvent mouseEvent) {
-        var xy = new Point(mouseEvent.getX(), mouseEvent.getY());
+    public void onCanvasClick(MouseEvent mouseEvent) {
+        var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
 
-        if(!model.getRectangleSelected() && !model.getCircleSelected()) {
-            for(var shapes : model.getShapes())
-                if(shapes.isInside(xy))
-                    System.out.println(xy + " " +shapes);
-        }
-
-        Shape newShape = returnNewShape(xy);
-        model.addToShapes(newShape);
+        if(!selectorOption.get())
+            model.addToShapes(returnNewShape(mouseXY));
+        checkifInsideCircle(mouseXY);
 
     }
 
-    private Shape returnNewShape(Point xy) {
-        if (circle.get())
-            return circleOf(colorPicker.getValue(), xy, model.getSize());
-        if (rectangle.get())
-            return rectangleOf(colorPicker.getValue(), xy, model.getSize());
+    private void checkifInsideCircle(Point mouseXY) {
+        for(var shapes : model.getShapes())
+            if(shapes.isInside(mouseXY))
+                System.out.println(mouseXY + " " +shapes);
+    }
 
-        return null;
+    private Shape returnNewShape(Point xy) {
+        return shapeOf(colorPicker.getValue(), xy, model.getSize(), model.getSelectedShape());
     }
 
 

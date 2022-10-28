@@ -31,7 +31,7 @@
    <left>
       <Pane prefHeight="668.0" prefWidth="715.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
          <children>
-            <Canvas fx:id="canvas" height="671.0" layoutY="1.0" onMouseClicked="#drawShape" width="715.0" />
+            <Canvas fx:id="canvas" height="671.0" layoutY="1.0" onMouseClicked="#onCanvasClick" width="715.0" />
          </children>
       </Pane>
    </left>

@@ -9,20 +9,17 @@ import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 
 
 public class PaintModel {
-    private final BooleanProperty rectangleSelected;
-    private final BooleanProperty circleSelected;
+    private final BooleanProperty selectorOption;
     private final ObservableList<Shape> shapes;
     private final ObjectProperty<Color> colorPicker;
     private final StringProperty size;
+    private SelectedShapeToDraw selectedShape;
 
     public PaintModel(){
-    this.rectangleSelected = new SimpleBooleanProperty(false);
-    this.circleSelected = new SimpleBooleanProperty(false);
+    this.selectorOption = new SimpleBooleanProperty(false);
     this.colorPicker = new SimpleObjectProperty<>(Color.BLACK);
     this.size = new SimpleStringProperty("50");
     this.shapes = FXCollections.observableArrayList(PaintModel::getShapeAttribute);
-
-
 
     }
     private static Observable[] getShapeAttribute(Shape shape) {
@@ -37,6 +34,10 @@ public class PaintModel {
     public void addToShapes(Shape shape){
         if(!(shape == null))
             this.shapes.add(shape);
+    }
+
+    public SelectedShapeToDraw getSelectedShape() {
+        return selectedShape;
     }
 
     public double getSize(){
@@ -62,40 +63,28 @@ public class PaintModel {
         return shapes;
     }
 
-    public boolean getRectangleSelected() {
-        return rectangleSelected.get();
+    public boolean getSelectorOption() {
+        return selectorOption.get();
     }
 
-
-    public BooleanProperty rectangleSelectedProperty() {
-        return rectangleSelected;
-    }
-
-    public void setRectangleSelected(boolean rectangleSelected) {
-        this.rectangleSelected.set(rectangleSelected);
-    }
-
-    public boolean getCircleSelected() {
-        return circleSelected.get();
-    }
     public void setCircleShape() {
-        circleSelected.set(true);
-        rectangleSelected.set(false);
+        selectedShape = SelectedShapeToDraw.CIRCLE;
+        setSelectionMode(false);
     }
     public void setRectangleShape() {
-        circleSelected.set(false);
-        rectangleSelected.set(true);
+        selectedShape = SelectedShapeToDraw.RECTANGLE;
+        setSelectionMode(false);
     }
     public void setSelectionMode(){
-        circleSelected.set(false);
-        rectangleSelected.set(false);
+        this.selectorOption.set(true);
+
+    }
+    public void setSelectionMode(boolean option){
+        this.selectorOption.set(option);
+
+    }
+    public BooleanProperty selectorOptionProperty() {
+        return selectorOption;
     }
 
-    public BooleanProperty circleSelectedProperty() {
-        return circleSelected;
-    }
-
-    public void setCircleSelected(boolean circleSelected) {
-        this.circleSelected.set(circleSelected);
-    }
 }

@@ -4,15 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="add collistionDetection for circle&#10;rectangle collision started">
+    <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="changed from boolean pro">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/SelectedShapeToDraw.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/HelloApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/PaintApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/PaintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/PaintController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Circle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/shapeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/shapeFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/hello-view.fxml" afterDir="false" />
     </list>
@@ -26,6 +22,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -111,7 +108,8 @@
       <workItem from="1666773662624" duration="1523000" />
       <workItem from="1666778892666" duration="7743000" />
       <workItem from="1666854809012" duration="12300000" />
-      <workItem from="1666882592634" duration="714000" />
+      <workItem from="1666882592634" duration="752000" />
+      <workItem from="1666898167868" duration="4415000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1666104453857</created>
@@ -211,7 +209,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666790047161</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add code for rectangle collision detection">
+      <created>1666883532099</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1666883532099</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -232,6 +237,7 @@
     <MESSAGE value="refactoring and add point record" />
     <MESSAGE value="refactor constructor from double, double to Point for x and y coordinates" />
     <MESSAGE value="add collistionDetection for circle&#10;rectangle collision started" />
-    <option name="LAST_COMMIT_MESSAGE" value="add collistionDetection for circle&#10;rectangle collision started" />
+    <MESSAGE value="add code for rectangle collision detection" />
+    <option name="LAST_COMMIT_MESSAGE" value="add code for rectangle collision detection" />
   </component>
 </project>
