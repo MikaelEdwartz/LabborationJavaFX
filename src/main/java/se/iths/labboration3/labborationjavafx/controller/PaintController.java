@@ -56,25 +56,25 @@ public class PaintController {
         clearCanvas();
         drawAllSavedShapesOnCanvas();
     }
-
-    private void drawAllSavedShapesOnCanvas() {
-        for(var shape : model.getShapes())
-            shape.draw(context);
-
-
-    }
-
     private void clearCanvas() {
         context.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
     }
+    private void drawAllSavedShapesOnCanvas() {
+        model.getShapes().forEach(this::draw);
+    }
+    private void draw(Shape shape) {
+        shape.draw(context);
+    }
+
+
 
     public void onCanvasClick(MouseEvent mouseEvent) {
         var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
 
         if(!selectorOption.get())
             model.addToShapes(returnNewShape(mouseXY));
-        checkifInsideCircle(mouseXY);
 
+        checkifInsideCircle(mouseXY);
     }
 
     private void checkifInsideCircle(Point mouseXY) {
@@ -111,4 +111,6 @@ public class PaintController {
     public void selection(ActionEvent actionEvent) {
         model.setSelectionMode();
     }
+
+
 }
