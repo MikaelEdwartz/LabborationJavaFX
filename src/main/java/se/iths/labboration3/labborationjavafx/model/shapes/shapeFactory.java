@@ -2,7 +2,7 @@ package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.scene.paint.Color;
 import se.iths.labboration3.labborationjavafx.model.Point;
-import se.iths.labboration3.labborationjavafx.model.SelectedShapeToDraw;
+import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShapeToDraw;
 
 public class shapeFactory {
 

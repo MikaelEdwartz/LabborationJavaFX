@@ -5,30 +5,31 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
+import se.iths.labboration3.labborationjavafx.model.Enums.ChangeOption;
+import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShapeToDraw;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 
 import java.util.ArrayList;
 import java.util.List;
 
 
-public class PaintModel {
+public class Paint {
     private final BooleanProperty selectorOption;
     private final ObservableList<Shape> shapes;
     private final ObjectProperty<Color> colorPicker;
     private final StringProperty size;
     private SelectedShapeToDraw selectedShape;
-    private final List<Shape> undoChanges;
     private final List<Integer> changeList;
 
 
-    public PaintModel(){
+    public Paint(){
     this.selectorOption = new SimpleBooleanProperty(false);
     this.colorPicker = new SimpleObjectProperty<>(Color.BLACK);
     this.size = new SimpleStringProperty("50");
-    this.shapes = FXCollections.observableArrayList(PaintModel::getShapeAttribute);
-    this.undoChanges = new ArrayList<>();
+    this.shapes = FXCollections.observableArrayList(Paint::getShapeAttribute);
     this.changeList = new ArrayList<>();
     }
+
     private static Observable[] getShapeAttribute(Shape shape) {
         return new Observable[]{
                 shape.colorProperty(),

@@ -1,4 +1,4 @@
-package se.iths.labboration3.labborationjavafx.model;
+package se.iths.labboration3.labborationjavafx.model.Enums;
 
 public enum SelectedShapeToDraw {
     CIRCLE,

@@ -8,26 +8,25 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import se.iths.labboration3.labborationjavafx.model.ChangeOption;
-import se.iths.labboration3.labborationjavafx.model.PaintModel;
+import se.iths.labboration3.labborationjavafx.model.Enums.ChangeOption;
 import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 import se.iths.labboration3.labborationjavafx.model.shapes.shapeFactory;
 
 import static se.iths.labboration3.labborationjavafx.model.shapes.shapeFactory.*;
 
-public class PaintController {
+public class Paint {
     public Canvas canvas;
     public GraphicsContext context;
-    public PaintModel model;
+    public se.iths.labboration3.labborationjavafx.model.Paint model;
     public BooleanProperty selectorOption;
     public shapeFactory shapeFactory;
     public ColorPicker colorPicker;
     public TextField size;
     public Button undoButton;
 
-    public PaintController() {
-        this.model = new PaintModel();
+    public Paint() {
+        this.model = new se.iths.labboration3.labborationjavafx.model.Paint();
         this.selectorOption = new SimpleBooleanProperty();
         this.size = new TextField();
         this.shapeFactory = new shapeFactory();
