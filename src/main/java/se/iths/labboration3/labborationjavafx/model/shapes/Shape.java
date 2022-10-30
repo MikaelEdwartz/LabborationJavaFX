@@ -12,6 +12,7 @@ public abstract class Shape implements ShapeDrawer {
     private final SimpleDoubleProperty y = new SimpleDoubleProperty();
     private final SimpleDoubleProperty size = new SimpleDoubleProperty();
     private final SimpleObjectProperty<Color> color = new SimpleObjectProperty<>();
+    private final SimpleObjectProperty<Color> borderColor = new SimpleObjectProperty<>();
 
 
     protected Shape(Color color, Point coordinates, double size){
@@ -19,8 +20,20 @@ public abstract class Shape implements ShapeDrawer {
         setX(coordinates.x());
         setY(coordinates.y());
         setSize(size);
+        setBorderColor(color);
     }
 
+    public Color getBorderColor() {
+        return borderColor.get();
+    }
+
+    public SimpleObjectProperty<Color> borderColorProperty() {
+        return borderColor;
+    }
+
+    public void setBorderColor(Color borderColor) {
+        this.borderColor.set(borderColor);
+    }
 
     public double getX() {
         return x.get();

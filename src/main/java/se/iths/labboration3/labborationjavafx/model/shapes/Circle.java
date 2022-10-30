@@ -7,10 +7,9 @@ import se.iths.labboration3.labborationjavafx.model.Point;
 public class Circle extends Shape {
 
 
-    protected Circle(Color color, Point coordinates, double size) {
+    public Circle(Color color, Point coordinates, double size) {
         super(color, coordinates, size);
     }
-
 
     @Override
     public void draw(GraphicsContext context) {

@@ -10,15 +10,14 @@ public class Rectangle extends Shape {
         super(color, coordinates, size);
     }
 
-
-
-
     @Override
     public void draw(GraphicsContext context) {
         double size = getSize();
         double x = getX() - size / 2 * 1.75;
         double y = getY() - size / 2 ;
 
+        context.setFill(getBorderColor());
+        context.fillRect(x-2.5, y-2.5, size* 1.75 +5, size +5);
         context.setFill(getColor());
         context.fillRect(x, y, size * 1.75, size);
     }

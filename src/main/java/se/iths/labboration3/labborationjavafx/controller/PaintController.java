@@ -79,16 +79,16 @@ public class PaintController {
     public void onCanvasClick(MouseEvent mouseEvent) {
         var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
 
-        if(!selectorOption.get())
-            model.addToShapes(returnNewShape(mouseXY));
-        else
+        if(selectorOption.get())
             checkifInsideCircle(mouseXY);
+        else
+            model.addToShapes(returnNewShape(mouseXY));
     }
 
     private void checkifInsideCircle(Point mouseXY) {
         for (int i = 0; i < model.getShapes().size(); i++)
             if(model.getShapes().get(i).isInside(mouseXY))
-                model.addShapesToChangeList(i);
+                model.checkIfSelectedAndAddOrRemove(i);
     }
 
     private Shape returnNewShape(Point xy) {

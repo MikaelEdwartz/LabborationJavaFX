@@ -10,6 +10,7 @@ import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 
 public class PaintModel {
@@ -35,7 +36,8 @@ public class PaintModel {
                 shape.colorProperty(),
                 shape.xProperty(),
                 shape.yProperty(),
-                shape.sizeProperty()
+                shape.sizeProperty(),
+                shape.borderColorProperty()
         };
     }
 
@@ -109,9 +111,28 @@ public class PaintModel {
     }
 
 
-    public void addShapesToChangeList(int i){
+    public void checkIfSelectedAndAddOrRemove(int i){
+        if(alreadySelected(i))
+            removeFromChangeList(i);
+        else
+            addToChangeList(i);
+
+    }
+
+    private void addToChangeList(int i) {
+        this.shapes.get(i).setBorderColor(Color.ORANGERED);
         this.changeList.add(i);
     }
+
+    private void removeFromChangeList(int i) {
+        this.shapes.get(i).setBorderColor(this.shapes.get(i).getColor());
+        this.changeList.remove(i);
+    }
+
+    private boolean alreadySelected(int i) {
+        return this.changeList.contains(i);
+    }
+
 
     public void clearChangeList(){
         this.changeList.clear();
@@ -120,10 +141,13 @@ public class PaintModel {
 
     public void changeSelectedShapes(ChangeOption selectedOption){
         for (var index : this.changeList)
-            switch (selectedOption) {
-                case SIZE -> this.shapes.get(index).setSize(getSize());
-                case COLOR -> this.shapes.get(index).setColor(getColorPicker());
-            }
+            changeSelectedAttribute(selectedOption, index);
+    }
 
+    private void changeSelectedAttribute(ChangeOption selectedOption, Integer index) {
+        switch (selectedOption) {
+            case SIZE -> this.shapes.get(index).setSize(getSize());
+            case COLOR -> this.shapes.get(index).setColor(getColorPicker());
+        }
     }
 }
