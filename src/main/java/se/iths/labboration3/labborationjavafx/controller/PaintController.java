@@ -8,7 +8,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.paint.Color;
+import se.iths.labboration3.labborationjavafx.model.ChangeOption;
 import se.iths.labboration3.labborationjavafx.model.PaintModel;
 import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
@@ -26,6 +26,8 @@ public class PaintController {
     public TextField size;
     public Menu saveOption;
     static int i = 0;
+    public Button undoButton;
+    public Button changeSize;
 
 
     public PaintController() {
@@ -41,6 +43,12 @@ public class PaintController {
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
         size.textProperty().bindBidirectional(model.sizeProperty());
         model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
+        model.getShapes().addListener((ListChangeListener<Shape>) onChange -> addToUndoList(onChange));
+    }
+
+    private void addToUndoList(ListChangeListener.Change<? extends Shape> shape) {
+
+        model.addToUndoListChanges(shape);
     }
 
 
@@ -73,14 +81,14 @@ public class PaintController {
 
         if(!selectorOption.get())
             model.addToShapes(returnNewShape(mouseXY));
-
-        checkifInsideCircle(mouseXY);
+        else
+            checkifInsideCircle(mouseXY);
     }
 
     private void checkifInsideCircle(Point mouseXY) {
-        for(var shapes : model.getShapes())
-            if(shapes.isInside(mouseXY))
-                System.out.println(mouseXY + " " +shapes);
+        for (int i = 0; i < model.getShapes().size(); i++)
+            if(model.getShapes().get(i).isInside(mouseXY))
+                model.addShapesToChangeList(i);
     }
 
     private Shape returnNewShape(Point xy) {
@@ -88,15 +96,6 @@ public class PaintController {
     }
 
 
-    public void print(ActionEvent actionEvent) {
-        model.getShapes().get(i++).setColor(colorPicker.getValue());
-        context.setFill(Color.RED);
-        context.fillRect(model.getShapes().get(0).getX(),model.getShapes().get(0).getY(),model.getShapes().get(0).getSize(),model.getShapes().get(0).getSize());
-        for(var m : model.getShapes())
-            System.out.println( "X1:" + m.getX() + "  Y1:"
-                    + m.getY()+ "  X2:" + m.getSize()*1.75
-                    +"   Y2:"+ m.getSize());
-    }
 
     public void savePainting(ActionEvent actionEvent) {
         System.out.println("Saved");
@@ -108,9 +107,20 @@ public class PaintController {
 
     }
 
-    public void selection(ActionEvent actionEvent) {
+    public void selection() {
         model.setSelectionMode();
     }
 
 
+    public void undoLast(ActionEvent actionEvent) {
+        model.removeLastChange();
+    }
+
+    public void changeSize() {
+        model.changeSelectedShapes(ChangeOption.SIZE);
+    }
+
+    public void changeColor() {
+        model.changeSelectedShapes(ChangeOption.COLOR);
+    }
 }

@@ -20,12 +20,7 @@ public abstract class Shape implements ShapeDrawer {
         setY(coordinates.y());
         setSize(size);
     }
-    public Shape(Color color, double x, double y, double size){
-        setColor(color);
-        setX(x);
-        setY(y);
-        setSize(size);
-    }
+
 
     public double getX() {
         return x.get();

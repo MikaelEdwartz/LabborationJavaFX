@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="refactor collision methods in Rectangle.Java">
+    <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="add stream in draw method">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/Changer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/PaintApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/PaintApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/PaintController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/PaintController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/hello-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +51,7 @@
     &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.notifications&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;tasks.timeTracking&quot;
   }
 }</component>
   <component name="RecentsManager">
@@ -107,7 +110,11 @@
       <workItem from="1666854809012" duration="12300000" />
       <workItem from="1666882592634" duration="752000" />
       <workItem from="1666898167868" duration="7240000" />
-      <workItem from="1666962606402" duration="361000" />
+      <workItem from="1666962606402" duration="524000" />
+      <workItem from="1666964104377" duration="18000" />
+      <workItem from="1667032585649" duration="41000" />
+      <workItem from="1667032630861" duration="1648000" />
+      <workItem from="1667122797099" duration="2197000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1666104453857</created>
@@ -235,7 +242,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666958142916</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="add stream in draw method">
+      <created>1666962989916</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1666962989916</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -271,6 +285,7 @@
     <MESSAGE value="Changed from booleanProperty to Enum for selectedShape" />
     <MESSAGE value="add collision detection for Rectangle" />
     <MESSAGE value="refactor collision methods in Rectangle.Java" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor collision methods in Rectangle.Java" />
+    <MESSAGE value="add stream in draw method" />
+    <option name="LAST_COMMIT_MESSAGE" value="add stream in draw method" />
   </component>
 </project>
