@@ -24,11 +24,7 @@ public class PaintController {
     public shapeFactory shapeFactory;
     public ColorPicker colorPicker;
     public TextField size;
-    public Menu saveOption;
-    static int i = 0;
     public Button undoButton;
-    public Button changeSize;
-
 
     public PaintController() {
         this.model = new PaintModel();
@@ -43,14 +39,7 @@ public class PaintController {
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
         size.textProperty().bindBidirectional(model.sizeProperty());
         model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
-        model.getShapes().addListener((ListChangeListener<Shape>) onChange -> addToUndoList(onChange));
     }
-
-    private void addToUndoList(ListChangeListener.Change<? extends Shape> shape) {
-
-        model.addToUndoListChanges(shape);
-    }
-
 
     public void onCircleClick() {
         model.setCircleShape();
@@ -60,62 +49,61 @@ public class PaintController {
         model.setRectangleShape();
     }
 
+    public void onCanvasClick(MouseEvent mouseEvent) {
+        var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
+        selectOrCreateShape(mouseXY);
+    }
+
+    private void createAndAddNewShape(Point mouseXY) {
+        var newShape = returnNewShape(mouseXY);
+        model.addToShapes(newShape);
+    }
+
+    private Shape returnNewShape(Point xy) {
+        return shapeOf(colorPicker.getValue(), xy, model.getSizeAsDouble(), model.getSelectedShape());
+    }
+
     public void drawOnCanvas(){
         clearCanvas();
         drawAllSavedShapesOnCanvas();
     }
+
     private void clearCanvas() {
         context.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
     }
+
     private void drawAllSavedShapesOnCanvas() {
         model.getShapes().forEach(this::draw);
     }
+
     private void draw(Shape shape) {
         shape.draw(context);
     }
 
-
-
-    public void onCanvasClick(MouseEvent mouseEvent) {
-        var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
-
+    private void selectOrCreateShape(Point mouseXY) {
         if(selectorOption.get())
             ifSelected(mouseXY);
         else
-            model.addToShapes(returnNewShape(mouseXY));
+            createAndAddNewShape(mouseXY);
     }
 
     private void ifSelected(Point mouseXY) {
-        checkifInsideCircle(mouseXY);
-
+        checkIfInsideShape(mouseXY);
     }
 
-    private void checkifInsideCircle(Point mouseXY) {
+    private void checkIfInsideShape(Point mouseXY) {
         for (int i = 0; i < model.getShapes().size(); i++)
-            if(model.getShapes().get(i).isInside(mouseXY))
-                model.checkIfSelectedAndAddOrRemove(i);
+            checkIfSelectedIfInside(mouseXY, i);
     }
 
-    private Shape returnNewShape(Point xy) {
-        return shapeOf(colorPicker.getValue(), xy, model.getSize(), model.getSelectedShape());
-    }
-
-
-
-    public void savePainting(ActionEvent actionEvent) {
-        System.out.println("Saved");
-    }
-
-
-
-    private void checkifInside() {
-
+    private void checkIfSelectedIfInside(Point mouseXY, int i) {
+        if(model.getShapes().get(i).isInside(mouseXY))
+            model.checkIfSelectedAndAddOrRemove(i);
     }
 
     public void selection() {
         model.setSelectionMode();
     }
-
 
     public void undoLast(ActionEvent actionEvent) {
         model.removeLastChange();
