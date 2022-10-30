@@ -16,10 +16,18 @@ public class Rectangle extends Shape {
         double x = getX() - size / 2 * 1.75;
         double y = getY() - size / 2 ;
 
-        context.setFill(getBorderColor());
-        context.fillRect(x-2.5, y-2.5, size* 1.75 +5, size +5);
+        drawBorder(context, size, x, y);
+        fillInsideBorder(context, size, x, y);
+    }
+
+    private void fillInsideBorder(GraphicsContext context, double size, double x, double y) {
         context.setFill(getColor());
         context.fillRect(x, y, size * 1.75, size);
+    }
+
+    private void drawBorder(GraphicsContext context, double size, double x, double y) {
+        context.setFill(getBorderColor());
+        context.fillRect(x -2.5, y -2.5, size * 1.75 + 5, size + 5);
     }
 
     @Override

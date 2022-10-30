@@ -21,6 +21,7 @@ public class PaintModel {
     private SelectedShapeToDraw selectedShape;
     private final List<Shape> undoChanges;
     private final List<Integer> changeList;
+    private static int counter = -1;
 
     public PaintModel(){
     this.selectorOption = new SimpleBooleanProperty(false);
@@ -112,15 +113,17 @@ public class PaintModel {
 
 
     public void checkIfSelectedAndAddOrRemove(int i){
+
         if(alreadySelected(i))
             removeFromChangeList(i);
         else
             addToChangeList(i);
 
+
     }
 
     private void addToChangeList(int i) {
-        this.shapes.get(i).setBorderColor(Color.ORANGERED);
+        this.shapes.get(i).setBorderColor(Color.VIOLET);
         this.changeList.add(i);
     }
 
@@ -140,8 +143,19 @@ public class PaintModel {
 
 
     public void changeSelectedShapes(ChangeOption selectedOption){
+        setChange(selectedOption);
+        setMatchingBorderColor();
+        clearChangeList();
+    }
+
+    private void setChange(ChangeOption selectedOption) {
         for (var index : this.changeList)
             changeSelectedAttribute(selectedOption, index);
+    }
+
+    private void setMatchingBorderColor() {
+        for (Integer integer : this.changeList)
+            this.shapes.get(integer).setBorderColor(this.shapes.get(integer).getColor());
     }
 
     private void changeSelectedAttribute(ChangeOption selectedOption, Integer index) {

@@ -10,7 +10,6 @@
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Circle.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,7 +113,8 @@
       <workItem from="1666964104377" duration="18000" />
       <workItem from="1667032585649" duration="41000" />
       <workItem from="1667032630861" duration="1648000" />
-      <workItem from="1667122797099" duration="4587000" />
+      <workItem from="1667122797099" duration="4638000" />
+      <workItem from="1667136163785" duration="2110000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1666104453857</created>
@@ -256,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667125234084</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="add borderColor for selected visibility on Rectangle.java">
+      <created>1667127421095</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1667127421095</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -294,6 +301,7 @@
     <MESSAGE value="refactor collision methods in Rectangle.Java" />
     <MESSAGE value="add stream in draw method" />
     <MESSAGE value="Add option to change color and size on selected shapes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add option to change color and size on selected shapes" />
+    <MESSAGE value="add borderColor for selected visibility on Rectangle.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="add borderColor for selected visibility on Rectangle.java" />
   </component>
 </project>

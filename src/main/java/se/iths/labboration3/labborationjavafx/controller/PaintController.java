@@ -80,9 +80,14 @@ public class PaintController {
         var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
 
         if(selectorOption.get())
-            checkifInsideCircle(mouseXY);
+            ifSelected(mouseXY);
         else
             model.addToShapes(returnNewShape(mouseXY));
+    }
+
+    private void ifSelected(Point mouseXY) {
+        checkifInsideCircle(mouseXY);
+
     }
 
     private void checkifInsideCircle(Point mouseXY) {
