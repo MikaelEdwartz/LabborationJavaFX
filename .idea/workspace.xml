@@ -5,11 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/SVGHandler.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/se/iths/labboration3/labborationjavafx/model/PaintTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/Paint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/shapeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/shapeFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -76,7 +77,7 @@
       <recent name="se.iths.labboration3.labborationjavafx.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PaintTest">
+  <component name="RunManager" selected="Application.PaintApplication">
     <configuration name="PaintApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labboration3.labborationjavafx.PaintApplication" />
       <module name="LabborationJavaFX" />
@@ -107,8 +108,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PaintTest" />
         <item itemvalue="Application.PaintApplication" />
+        <item itemvalue="JUnit.PaintTest" />
       </list>
     </recent_temporary>
   </component>
@@ -141,7 +142,7 @@
       <workItem from="1667032585649" duration="41000" />
       <workItem from="1667032630861" duration="1648000" />
       <workItem from="1667122797099" duration="4638000" />
-      <workItem from="1667136163785" duration="9458000" />
+      <workItem from="1667136163785" duration="18573000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1666104453857</created>
@@ -318,7 +319,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667204003494</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="add tests and refactor shapeFactory">
+      <created>1667208744684</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1667208744684</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -360,6 +368,23 @@
     <MESSAGE value="add borderColor now matches color after change" />
     <MESSAGE value="add some refactoring in model and controller" />
     <MESSAGE value="add bugfix for select shape methods" />
-    <option name="LAST_COMMIT_MESSAGE" value="add bugfix for select shape methods" />
+    <MESSAGE value="add tests and refactor shapeFactory" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tests and refactor shapeFactory" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java</url>
+          <line>111</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

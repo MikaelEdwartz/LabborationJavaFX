@@ -34,7 +34,7 @@ public class Paint {
         selectorOption.bindBidirectional(model.selectorOptionProperty());
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
         size.textProperty().bindBidirectional(model.sizeProperty());
-        model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
+        //model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
     }
 
     public void onCircleClick() {
@@ -48,11 +48,13 @@ public class Paint {
     public void onCanvasClick(MouseEvent mouseEvent) {
         var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
         selectOrCreateShape(mouseXY);
+        drawOnCanvas();
     }
 
     private void createAndAddNewShape(Point mouseXY) {
         var newShape = returnNewShape(mouseXY);
         model.addToShapes(newShape);
+        model.addChangesToUndoList();
     }
 
     private Shape returnNewShape(Point xy) {
@@ -103,13 +105,18 @@ public class Paint {
 
     public void undoLast() {
         model.removeLastChange();
+        drawOnCanvas();
     }
 
     public void changeSize() {
+        model.addChangesToUndoList();
         model.changeSelectedShapes(ChangeOption.SIZE);
+        drawOnCanvas();
     }
 
     public void changeColor() {
+        model.addChangesToUndoList();
         model.changeSelectedShapes(ChangeOption.COLOR);
+        drawOnCanvas();
     }
 }

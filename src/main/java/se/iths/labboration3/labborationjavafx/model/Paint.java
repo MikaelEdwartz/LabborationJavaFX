@@ -9,7 +9,9 @@ import se.iths.labboration3.labborationjavafx.model.Enums.ChangeOption;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShapeToDraw;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Deque;
 import java.util.List;
 
 
@@ -20,6 +22,7 @@ public class Paint {
     private final StringProperty size;
     private SelectedShapeToDraw selectedShape;
     private final List<Integer> changeList;
+    private final List<List<Shape>> undoList = new ArrayList<>();
 
 
     public Paint(){
@@ -107,9 +110,39 @@ public class Paint {
     }
 
     public void removeLastChange() {
-        shapes.remove(shapes.size()-1);
+        if(undoList.isEmpty())
+            return;
+
+        shapes.clear();
+        undoList.remove(undoList.size()-1);
+
+        for(var shape : undoList.get(undoList.size()-1))
+            shapes.add(shape.getCopyOfShape());
+
+
+
+//        shapes.addAll(undoList.get(undoList.size()-1));
+//        undoList.remove(undoList.size()-1);
+
     }
 
+    public void addChangesToUndoList() {
+        List<Shape> tempList = new ArrayList<>();
+        for (var shape : getShapes())
+            tempList.add(shape.getCopyOfShape());
+
+        undoList.add(tempList);
+    }
+
+    public void asd(){
+
+
+
+
+
+
+
+    }
 
 
     public void checkIfSelectedAndAddOrRemove(int i){
@@ -167,13 +200,23 @@ public class Paint {
 
     private void changeSelectedAttribute(ChangeOption selectedOption, Integer index) {
         switch (selectedOption) {
-            case SIZE -> this.shapes.get(index).setSize(getSizeAsDouble());
-            case COLOR -> this.shapes.get(index).setColor(getColorPicker());
+            case SIZE -> setNewSize(index);
+            case COLOR -> getaVoid(index);
         }
+    }
+
+    private void getaVoid(Integer index) {
+        this.shapes.get(index).setColor(getColorPicker());
+    }
+
+    private void setNewSize(Integer index) {
+        this.shapes.get(index).setSize(getSizeAsDouble());
     }
 
     private void setMatchingBorderColor() {
         for (Integer integer : this.changeList)
             this.shapes.get(integer).setBorderColor(this.shapes.get(integer).getColor());
     }
+
+
 }

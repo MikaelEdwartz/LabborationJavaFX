@@ -23,6 +23,7 @@ public abstract class Shape implements ShapeDrawer {
         setBorderColor(color);
     }
 
+
     public Color getBorderColor() {
         return borderColor.get();
     }
@@ -87,4 +88,7 @@ public abstract class Shape implements ShapeDrawer {
     }
 
     public abstract boolean isInside(Point coordinates);
+
+
+    public abstract Shape getCopyOfShape();
 }

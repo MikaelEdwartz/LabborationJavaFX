@@ -29,6 +29,12 @@ public class Circle extends Shape {
 //namnbyte
         return distance <= getSize()/2;
     }
+
+    @Override
+    public Shape getCopyOfShape() {
+        return new Circle(getColor(), new Point(getX(), getY()), getSize());
+    }
+
     @Override
     public String toString() {
         return getColor() + super.getClass().toString();

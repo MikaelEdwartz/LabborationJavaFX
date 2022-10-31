@@ -50,6 +50,10 @@ public class Rectangle extends Shape {
 
     }
 
+    @Override
+    public Shape getCopyOfShape() {
+        return new Rectangle(getColor(), new Point(getX(),getY()), getSize());
+    }
 
 
     @Override
