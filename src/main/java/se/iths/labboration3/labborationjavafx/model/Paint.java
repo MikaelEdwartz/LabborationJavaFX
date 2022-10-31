@@ -56,6 +56,7 @@ public class Paint {
 
     public String getSize(){
         return size.get();
+
     }
     public StringProperty sizeProperty() {
         return size;
@@ -77,6 +78,12 @@ public class Paint {
         return selectorOption.get();
     }
 
+    public void setSelectedShape(SelectedShapeToDraw shape){
+        switch (shape) {
+            case CIRCLE -> setCircleShape();
+            case RECTANGLE -> setRectangleShape();
+        }
+    }
     public void setCircleShape() {
         selectedShape = SelectedShapeToDraw.CIRCLE;
         setSelectionMode(false);
@@ -102,6 +109,8 @@ public class Paint {
     public void removeLastChange() {
         shapes.remove(shapes.size()-1);
     }
+
+
 
     public void checkIfSelectedAndAddOrRemove(int i){
         if(alreadySelected(i))

@@ -3,15 +3,14 @@ package se.iths.labboration3.labborationjavafx.controller;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ListChangeListener;
-import javafx.event.ActionEvent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import se.iths.labboration3.labborationjavafx.model.Enums.ChangeOption;
+import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShapeToDraw;
 import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
-import se.iths.labboration3.labborationjavafx.model.shapes.shapeFactory;
 
 import static se.iths.labboration3.labborationjavafx.model.shapes.shapeFactory.*;
 
@@ -20,7 +19,6 @@ public class Paint {
     public GraphicsContext context;
     public se.iths.labboration3.labborationjavafx.model.Paint model;
     public BooleanProperty selectorOption;
-    public shapeFactory shapeFactory;
     public ColorPicker colorPicker;
     public TextField size;
     public Button undoButton;
@@ -29,7 +27,6 @@ public class Paint {
         this.model = new se.iths.labboration3.labborationjavafx.model.Paint();
         this.selectorOption = new SimpleBooleanProperty();
         this.size = new TextField();
-        this.shapeFactory = new shapeFactory();
     }
 
     public void initialize() {
@@ -41,11 +38,11 @@ public class Paint {
     }
 
     public void onCircleClick() {
-        model.setCircleShape();
+        model.setSelectedShape(SelectedShapeToDraw.CIRCLE);
     }
 
     public void onRectangleClick() {
-        model.setRectangleShape();
+        model.setSelectedShape(SelectedShapeToDraw.RECTANGLE);
     }
 
     public void onCanvasClick(MouseEvent mouseEvent) {
@@ -104,7 +101,7 @@ public class Paint {
         model.setSelectionMode();
     }
 
-    public void undoLast(ActionEvent actionEvent) {
+    public void undoLast() {
         model.removeLastChange();
     }
 
