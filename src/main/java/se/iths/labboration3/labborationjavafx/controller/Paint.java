@@ -35,6 +35,7 @@ public class Paint {
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
         size.textProperty().bindBidirectional(model.sizeProperty());
         //model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
+        model.addChangesToUndoList();
     }
 
     public void onCircleClick() {
@@ -109,14 +110,14 @@ public class Paint {
     }
 
     public void changeSize() {
-        model.addChangesToUndoList();
         model.changeSelectedShapes(ChangeOption.SIZE);
+        model.addChangesToUndoList();
         drawOnCanvas();
     }
 
     public void changeColor() {
-        model.addChangesToUndoList();
         model.changeSelectedShapes(ChangeOption.COLOR);
+        model.addChangesToUndoList();
         drawOnCanvas();
     }
 }
