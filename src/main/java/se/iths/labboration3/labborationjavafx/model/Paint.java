@@ -116,7 +116,24 @@ public class Paint {
 
     private void removeFromChangeList(int i) {
         this.shapes.get(i).setBorderColor(this.shapes.get(i).getColor());
-        this.changeList.remove(i);
+        removeClickedShapeFromList(i);
+    }
+
+    private void removeClickedShapeFromList(int i) {
+        List<Integer> tempList = getListWithoutClickedShape(i);
+        this.changeList.clear();
+        this.changeList.addAll(tempList);
+    }
+
+    private List<Integer> getListWithoutClickedShape(int i) {
+        return this.changeList
+                .stream()
+                .filter(s -> sameNumber(i, s))
+                .toList();
+    }
+
+    private static boolean sameNumber(int i, Integer s) {
+        return !(s == i);
     }
 
     private void addToChangeList(int i) {
