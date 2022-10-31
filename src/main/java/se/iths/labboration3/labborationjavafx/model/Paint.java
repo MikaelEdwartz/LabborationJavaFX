@@ -133,10 +133,12 @@ public class Paint {
 
     public void addChangesToUndoList() {
         List<Shape> tempList = new ArrayList<>();
-        for (var shape : getShapes())
-            tempList.add(shape.getCopyOfShape());
-
+        copyShapesToTempList(tempList);
         undoList.add(tempList);
+    }
+
+    private void copyShapesToTempList(List<Shape> tempList) {
+        getShapes().forEach(shape -> tempList.add(shape.getCopyOfShape()));
     }
 
     public void checkIfSelectedAndAddOrRemove(int i){

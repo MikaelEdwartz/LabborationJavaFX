@@ -112,7 +112,7 @@ public class Paint {
     public void changeSize() {
         model.changeSelectedShapes(ChangeOption.SIZE);
         model.addChangesToUndoList();
-        drawOnCanvas();
+      //  drawOnCanvas();
     }
 
     public void changeColor() {
