@@ -1,7 +1,6 @@
 package se.iths.labboration3.labborationjavafx.model.Enums;
 
-public enum SelectedShapeToDraw {
+public enum SelectedShape {
     CIRCLE,
     RECTANGLE
-
 }

@@ -2,29 +2,30 @@ package se.iths.labboration3.labborationjavafx.controller;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
-import javafx.collections.ListChangeListener;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import se.iths.labboration3.labborationjavafx.model.Enums.ChangeOption;
-import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShapeToDraw;
+import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
+import se.iths.labboration3.labborationjavafx.model.PaintModel;
 import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
+import se.iths.labboration3.labborationjavafx.model.shapes.ShapeDrawer;
 
-import static se.iths.labboration3.labborationjavafx.model.shapes.shapeFactory.*;
+import static se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory.*;
 
 public class Paint {
     public Canvas canvas;
     public GraphicsContext context;
-    public se.iths.labboration3.labborationjavafx.model.Paint model;
+    public PaintModel model;
     public BooleanProperty selectorOption;
     public ColorPicker colorPicker;
     public TextField size;
     public Button undoButton;
 
     public Paint() {
-        this.model = new se.iths.labboration3.labborationjavafx.model.Paint();
+        this.model = new PaintModel();
         this.selectorOption = new SimpleBooleanProperty();
         this.size = new TextField();
     }
@@ -39,11 +40,11 @@ public class Paint {
     }
 
     public void onCircleClick() {
-        model.setSelectedShape(SelectedShapeToDraw.CIRCLE);
+        model.setSelectedShape(SelectedShape.CIRCLE);
     }
 
     public void onRectangleClick() {
-        model.setSelectedShape(SelectedShapeToDraw.RECTANGLE);
+        model.setSelectedShape(SelectedShape.RECTANGLE);
     }
 
     public void onCanvasClick(MouseEvent mouseEvent) {
@@ -76,7 +77,7 @@ public class Paint {
     }
 
     private void draw(Shape shape) {
-        shape.draw(context);
+        ShapeDrawer.draw(shape, context);
     }
 
     private void selectOrCreateShape(Point mouseXY) {
@@ -107,12 +108,13 @@ public class Paint {
     public void undoLast() {
         model.removeLastChange();
         drawOnCanvas();
+
     }
 
     public void changeSize() {
         model.changeSelectedShapes(ChangeOption.SIZE);
         model.addChangesToUndoList();
-      //  drawOnCanvas();
+        drawOnCanvas();
     }
 
     public void changeColor() {

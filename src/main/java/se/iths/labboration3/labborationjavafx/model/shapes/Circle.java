@@ -2,24 +2,24 @@ package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.Point;
 
 public class Circle extends Shape {
 
-
-    public Circle(Color color, Point coordinates, double size) {
-        super(color, coordinates, size);
+    public Circle(Color color, Point coordinates, double size, SelectedShape shape) {
+        super(color, coordinates, size, shape);
     }
 
     @Override
     public void draw(GraphicsContext context) {
-        double size = getSize();
-        double x = getX() - size / 2;
-        double y = getY() - size / 2;
-        context.setFill(getBorderColor());
-        context.fillOval(x - 2.5, y - 2.5, size + 5, size + 5);
-        context.setFill(getColor());
-        context.fillOval(x, y, size, size);
+//        double size = getSize();
+//        double x = getX() - size / 2;
+//        double y = getY() - size / 2;
+//        context.setFill(getBorderColor());
+//        context.fillOval(x - 2.5, y - 2.5, size + 5, size + 5);
+//        context.setFill(getColor());
+//        context.fillOval(x, y, size, size);
     }
     @Override
     public boolean isInside(Point coordinates){
@@ -32,12 +32,13 @@ public class Circle extends Shape {
 
     @Override
     public Shape getCopyOfShape() {
-        return new Circle(getColor(), new Point(getX(), getY()), getSize());
+        return new Circle(getColor(), new Point(getX(), getY()), getSize(), getShape());
     }
 
     @Override
     public String toString() {
         return getColor() + super.getClass().toString();
+
     }
 }
 

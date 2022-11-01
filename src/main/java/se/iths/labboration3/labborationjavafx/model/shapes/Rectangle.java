@@ -2,22 +2,23 @@ package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.Point;
 
 public class Rectangle extends Shape {
 
-    public Rectangle(Color color, Point coordinates, double size) {
-        super(color, coordinates, size);
+    public Rectangle(Color color, Point coordinates, double size, SelectedShape shape) {
+        super(color, coordinates, size, shape);
     }
 
     @Override
     public void draw(GraphicsContext context) {
-        double size = getSize();
-        double x = getX() - size / 2 * 1.75;
-        double y = getY() - size / 2 ;
-
-        drawBorder(context, size, x, y);
-        fillInsideBorder(context, size, x, y);
+//        double size = getSize();
+//        double x = getX() - size / 2 * 1.75;
+//        double y = getY() - size / 2 ;
+//
+//        drawBorder(context, size, x, y);
+//        fillInsideBorder(context, size, x, y);
     }
 
     private void fillInsideBorder(GraphicsContext context, double size, double x, double y) {
@@ -52,7 +53,7 @@ public class Rectangle extends Shape {
 
     @Override
     public Shape getCopyOfShape() {
-        return new Rectangle(getColor(), new Point(getX(),getY()), getSize());
+        return new Rectangle(getColor(), new Point(getX(),getY()), getSize(), getShape());
     }
 
 

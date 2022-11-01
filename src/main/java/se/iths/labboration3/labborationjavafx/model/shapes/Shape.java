@@ -4,23 +4,29 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
+import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.Point;
 
-public abstract class Shape implements ShapeDrawer {
+public abstract class Shape implements ShapeInterface {
 
     private final SimpleDoubleProperty x = new SimpleDoubleProperty();
     private final SimpleDoubleProperty y = new SimpleDoubleProperty();
     private final SimpleDoubleProperty size = new SimpleDoubleProperty();
     private final SimpleObjectProperty<Color> color = new SimpleObjectProperty<>();
     private final SimpleObjectProperty<Color> borderColor = new SimpleObjectProperty<>();
+    private final SelectedShape shape;
 
+    public SelectedShape getShape() {
+        return shape;
+    }
 
-    protected Shape(Color color, Point coordinates, double size){
+    protected Shape(Color color, Point coordinates, double size, SelectedShape shape){
         setColor(color);
         setX(coordinates.x());
         setY(coordinates.y());
         setSize(size);
         setBorderColor(color);
+        this.shape = shape;
     }
 
 

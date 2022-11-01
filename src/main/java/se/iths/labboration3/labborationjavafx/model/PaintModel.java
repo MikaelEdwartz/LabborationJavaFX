@@ -6,30 +6,28 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
 import se.iths.labboration3.labborationjavafx.model.Enums.ChangeOption;
-import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShapeToDraw;
+import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 
-import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.Deque;
 import java.util.List;
 
 
-public class Paint {
+public class PaintModel {
     private final BooleanProperty selectorOption;
     private final ObservableList<Shape> shapes;
     private final ObjectProperty<Color> colorPicker;
     private final StringProperty size;
-    private SelectedShapeToDraw selectedShape;
+    private SelectedShape selectedShape;
     private final List<Integer> changeList;
     private final List<List<Shape>> undoList = new ArrayList<>();
 
 
-    public Paint(){
+    public PaintModel(){
     this.selectorOption = new SimpleBooleanProperty(false);
     this.colorPicker = new SimpleObjectProperty<>(Color.BLACK);
     this.size = new SimpleStringProperty("50");
-    this.shapes = FXCollections.observableArrayList(Paint::getShapeAttribute);
+    this.shapes = FXCollections.observableArrayList(PaintModel::getShapeAttribute);
     this.changeList = new ArrayList<>();
     }
 
@@ -49,7 +47,7 @@ public class Paint {
             this.shapes.add(shape);
     }
 
-    public SelectedShapeToDraw getSelectedShape() {
+    public SelectedShape getSelectedShape() {
         return selectedShape;
     }
 
@@ -81,19 +79,19 @@ public class Paint {
         return selectorOption.get();
     }
 
-    public void setSelectedShape(SelectedShapeToDraw shape){
+    public void setSelectedShape(SelectedShape shape){
         switch (shape) {
             case CIRCLE -> setCircleShape();
             case RECTANGLE -> setRectangleShape();
         }
     }
     public void setCircleShape() {
-        selectedShape = SelectedShapeToDraw.CIRCLE;
+        selectedShape = SelectedShape.CIRCLE;
         setSelectionMode(false);
     }
 
     public void setRectangleShape() {
-        selectedShape = SelectedShapeToDraw.RECTANGLE;
+        selectedShape = SelectedShape.RECTANGLE;
         setSelectionMode(false);
     }
 

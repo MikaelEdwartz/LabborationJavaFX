@@ -5,8 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/ShapeInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/Paint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/Enums/SelectedShapeToDraw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/Enums/SelectedShape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Circle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Circle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/ShapeDrawer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/ShapeDrawer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/shapeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/ShapeFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/se/iths/labboration3/labborationjavafx/model/PaintTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/iths/labboration3/labborationjavafx/model/PaintModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,8 +27,8 @@
       <list>
         <option value="Interface" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -35,25 +44,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "editing.templates"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editing.templates&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="circle" />
@@ -86,7 +95,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaintTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PaintModelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LabborationJavaFX" />
       <extension name="coverage">
         <pattern>
@@ -95,7 +104,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="se.iths.labboration3.labborationjavafx.model" />
-      <option name="MAIN_CLASS_NAME" value="se.iths.labboration3.labborationjavafx.model.PaintTest" />
+      <option name="MAIN_CLASS_NAME" value="se.iths.labboration3.labborationjavafx.model.PaintModelTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -104,7 +113,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.PaintApplication" />
-        <item itemvalue="JUnit.PaintTest" />
+        <item itemvalue="JUnit.PaintModelTest" />
       </list>
     </recent_temporary>
   </component>
@@ -137,7 +146,8 @@
       <workItem from="1667032585649" duration="41000" />
       <workItem from="1667032630861" duration="1648000" />
       <workItem from="1667122797099" duration="4638000" />
-      <workItem from="1667136163785" duration="20517000" />
+      <workItem from="1667136163785" duration="20602000" />
+      <workItem from="1667296611916" duration="4312000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1666104453857</created>
@@ -335,7 +345,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667219398322</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="add cleanup">
+      <created>1667219879950</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1667219879950</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +370,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add FXML graphics" />
     <MESSAGE value="refactor" />
     <MESSAGE value="add paintBrush" />
     <MESSAGE value="add refactoring to paintBrush" />
@@ -378,6 +394,7 @@
     <MESSAGE value="add tests and refactor shapeFactory" />
     <MESSAGE value="add code" />
     <MESSAGE value="add undo functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="add undo functionality" />
+    <MESSAGE value="add cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="add cleanup" />
   </component>
 </project>
