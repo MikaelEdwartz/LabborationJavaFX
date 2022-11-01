@@ -65,7 +65,7 @@
                      <children>
                         <Button fx:id="rectangleButton" mnemonicParsing="false" onAction="#onRectangleClick" prefHeight="33.0" prefWidth="89.0" text="Rectangle" />
                         <Button fx:id="circleButton" mnemonicParsing="false" onAction="#onCircleClick" prefHeight="39.0" prefWidth="60.0" text="Circle" />
-                        <Button fx:id="setSelectionMode" mnemonicParsing="false" onAction="#selection" prefHeight="34.0" prefWidth="54.0" text="Select" />
+                        <Button fx:id="setSelectionMode" mnemonicParsing="false" onAction="#onSelectionClick" prefHeight="34.0" prefWidth="54.0" text="Select" />
                         <Button fx:id="test" mnemonicParsing="false" onAction="#changeSize" prefHeight="33.0" prefWidth="91.0" text="Change Size" />
                         <Button fx:id="colorChanger" mnemonicParsing="false" onAction="#changeColor" prefHeight="33.0" prefWidth="99.0" text="Change Color" />
                         <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="54.0" promptText="pick">

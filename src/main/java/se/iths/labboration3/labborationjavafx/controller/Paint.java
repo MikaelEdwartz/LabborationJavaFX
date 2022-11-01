@@ -2,6 +2,7 @@ package se.iths.labboration3.labborationjavafx.controller;
 
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
+import javafx.collections.ListChangeListener;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
@@ -24,6 +25,7 @@ public class Paint {
     public TextField size;
     public Button undoButton;
 
+
     public Paint() {
         this.model = new PaintModel();
         this.selectorOption = new SimpleBooleanProperty();
@@ -35,7 +37,7 @@ public class Paint {
         selectorOption.bindBidirectional(model.selectorOptionProperty());
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
         size.textProperty().bindBidirectional(model.sizeProperty());
-        //model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
+        model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
         model.addChangesToUndoList();
     }
 
@@ -46,11 +48,20 @@ public class Paint {
     public void onRectangleClick() {
         model.setSelectedShape(SelectedShape.RECTANGLE);
     }
-
+    public void onSelectionClick() {
+        model.setSelectionMode();
+    }
     public void onCanvasClick(MouseEvent mouseEvent) {
         var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
         selectOrCreateShape(mouseXY);
         drawOnCanvas();
+
+    }
+    private void selectOrCreateShape(Point mouseXY) {
+        if(selectorOption.get())
+            checkIfInsideShape(mouseXY);
+        else
+            createAndAddNewShape(mouseXY);
     }
 
     private void createAndAddNewShape(Point mouseXY) {
@@ -73,53 +84,34 @@ public class Paint {
     }
 
     private void drawAllSavedShapesOnCanvas() {
-        model.getShapes().forEach(this::draw);
+        model.getShapes().forEach(this::drawShapeOnCanvas);
     }
 
-    private void draw(Shape shape) {
+    private void drawShapeOnCanvas(Shape shape) {
         ShapeDrawer.draw(shape, context);
-    }
-
-    private void selectOrCreateShape(Point mouseXY) {
-        if(selectorOption.get())
-            ifSelected(mouseXY);
-        else
-            createAndAddNewShape(mouseXY);
-    }
-
-    private void ifSelected(Point mouseXY) {
-        checkIfInsideShape(mouseXY);
     }
 
     private void checkIfInsideShape(Point mouseXY) {
         for (int i = 0; i < model.getShapes().size(); i++)
-            checkIfSelectedIfInside(mouseXY, i);
+            checkIfSelectedIsInside(mouseXY, i);
     }
 
-    private void checkIfSelectedIfInside(Point mouseXY, int i) {
-        if(model.getShapes().get(i).isInside(mouseXY))
+    private void checkIfSelectedIsInside(Point mouseXY, int i) {
+        if(model.getShapes().get(i).insideShape(mouseXY))
             model.checkIfSelectedAndAddOrRemove(i);
-    }
-
-    public void selection() {
-        model.setSelectionMode();
     }
 
     public void undoLast() {
         model.removeLastChange();
-        drawOnCanvas();
-
     }
 
     public void changeSize() {
         model.changeSelectedShapes(ChangeOption.SIZE);
         model.addChangesToUndoList();
-        drawOnCanvas();
     }
 
     public void changeColor() {
         model.changeSelectedShapes(ChangeOption.COLOR);
         model.addChangesToUndoList();
-        drawOnCanvas();
     }
 }

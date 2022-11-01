@@ -12,55 +12,27 @@ public class Rectangle extends Shape {
     }
 
     @Override
-    public void draw(GraphicsContext context) {
-//        double size = getSize();
-//        double x = getX() - size / 2 * 1.75;
-//        double y = getY() - size / 2 ;
-//
-//        drawBorder(context, size, x, y);
-//        fillInsideBorder(context, size, x, y);
-    }
-
-    private void fillInsideBorder(GraphicsContext context, double size, double x, double y) {
-        context.setFill(getColor());
-        context.fillRect(x, y, size * 1.75, size);
-    }
-
-    private void drawBorder(GraphicsContext context, double size, double x, double y) {
-        context.setFill(getBorderColor());
-        context.fillRect(x -2.5, y -2.5, size * 1.75 + 5, size + 5);
-    }
-
-    @Override
-    public boolean isInside(Point mouseCoordinate) {
-
-        double leftXBorder = getX() - getSize() / 2 * 1.75;
-        double rightXBorder = leftXBorder + getSize() * 1.75;
-        double topYBorder = getY() - getSize() / 2;
-        double bottomYBorder = topYBorder + getSize();
-
-        double mouseX = mouseCoordinate.x();
-        double mouseY = mouseCoordinate.y();
-
-        return mouseX >= leftXBorder &&
-                mouseX <= rightXBorder &&
-                mouseY >= topYBorder &&
-                mouseY <= bottomYBorder;
-
-
-
-    }
-
-    @Override
-    public Shape getCopyOfShape() {
+    public Shape copyOf() {
         return new Rectangle(getColor(), new Point(getX(),getY()), getSize(), getShape());
     }
 
-
     @Override
-    public String toString() {
-        return getColor() + super.getClass().toString();
+    public boolean insideShape(Point mouseCoordinate) {
+        return insideXAxis(mouseCoordinate.x()) && insideYAxis(mouseCoordinate.y());
+
     }
 
+    private boolean insideYAxis(double mouseY) {
+        double topYBorder = getY() - getSize() / 2;
+        double bottomYBorder = topYBorder + getSize();
+        return mouseY >= topYBorder && mouseY <= bottomYBorder;
 
+    }
+
+    private boolean insideXAxis(double mouseX) {
+        double leftXBorder = getX() - getSize() / 2 * 1.75;
+        double rightXBorder = leftXBorder + getSize() * 1.75;
+        return mouseX >= leftXBorder && mouseX <= rightXBorder;
+
+    }
 }

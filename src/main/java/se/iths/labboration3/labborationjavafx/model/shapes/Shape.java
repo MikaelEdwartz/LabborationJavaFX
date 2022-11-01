@@ -2,12 +2,12 @@ package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.scene.canvas.GraphicsContext;
+
 import javafx.scene.paint.Color;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.Point;
 
-public abstract class Shape implements ShapeInterface {
+public abstract class Shape {
 
     private final SimpleDoubleProperty x = new SimpleDoubleProperty();
     private final SimpleDoubleProperty y = new SimpleDoubleProperty();
@@ -28,7 +28,6 @@ public abstract class Shape implements ShapeInterface {
         setBorderColor(color);
         this.shape = shape;
     }
-
 
     public Color getBorderColor() {
         return borderColor.get();
@@ -79,7 +78,7 @@ public abstract class Shape implements ShapeInterface {
     }
 
     public Color getColor() {
-        return (Color) color.get();
+        return color.get();
     }
 
     public SimpleObjectProperty colorProperty() {
@@ -90,11 +89,7 @@ public abstract class Shape implements ShapeInterface {
         this.color.set(color);
     }
 
-    public void draw(GraphicsContext context) {
-    }
+    public abstract boolean insideShape(Point coordinates);
 
-    public abstract boolean isInside(Point coordinates);
-
-
-    public abstract Shape getCopyOfShape();
+    public abstract Shape copyOf();
 }

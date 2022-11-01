@@ -23,12 +23,14 @@ public class PaintModel {
     private final List<List<Shape>> undoList = new ArrayList<>();
 
 
+
     public PaintModel(){
     this.selectorOption = new SimpleBooleanProperty(false);
     this.colorPicker = new SimpleObjectProperty<>(Color.BLACK);
     this.size = new SimpleStringProperty("50");
     this.shapes = FXCollections.observableArrayList(PaintModel::getShapeAttribute);
     this.changeList = new ArrayList<>();
+
     }
 
     private static Observable[] getShapeAttribute(Shape shape) {
@@ -79,8 +81,8 @@ public class PaintModel {
         return selectorOption.get();
     }
 
-    public void setSelectedShape(SelectedShape shape){
-        switch (shape) {
+    public void setSelectedShape(SelectedShape selectedShape){
+        switch (selectedShape) {
             case CIRCLE -> setCircleShape();
             case RECTANGLE -> setRectangleShape();
         }
@@ -121,7 +123,7 @@ public class PaintModel {
 
     private void revertToListBeforeChange() {
         for (var shape : undoList.get(undoList.size() - 1))
-            shapes.add(shape.getCopyOfShape());
+            shapes.add(shape.copyOf());
     }
 
     private void removeLastElementFromUndoList() {
@@ -136,7 +138,7 @@ public class PaintModel {
     }
 
     private void copyShapesToTempList(List<Shape> tempList) {
-        getShapes().forEach(shape -> tempList.add(shape.getCopyOfShape()));
+        getShapes().forEach(shape -> tempList.add(shape.copyOf()));
     }
 
     public void checkIfSelectedAndAddOrRemove(int i){
