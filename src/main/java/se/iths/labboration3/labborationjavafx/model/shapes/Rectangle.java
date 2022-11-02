@@ -13,7 +13,7 @@ public class Rectangle extends Shape {
 
     @Override
     public Shape copyOf() {
-        return new Rectangle(getColor(), new Point(getX(),getY()), getSize(), getShape());
+        return new Rectangle(getColor(), new Point(getX(), getY()), getSize(), getShape());
     }
 
     @Override
@@ -38,10 +38,10 @@ public class Rectangle extends Shape {
     @Override
     public String getAsSVG() {
 
-        return "<rect x=\"" + getX() + "\" " +
-                "y=\"" + getY() + "\" " +
-                "width=\"" + getSize() + "\" " +
+        return "<rect x=\"" + (getX() - getSize() / 2) + "\" " +
+                "y=\"" + (getY() - getSize() / 2) + "\" " +
+                "width=\"" + getSize() * 1.75 + "\" " +
                 "height=\"" + getSize() + "\" " +
-                "fill=\"#" + getColor() + "\" />";
+                "fill=\"#" + getColor().toString().substring(2, 10) + "\" />";
     }
 }
