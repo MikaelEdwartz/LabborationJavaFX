@@ -21,97 +21,83 @@
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labboration3.labborationjavafx.controller.Paint">
    <right>
-      <VBox prefHeight="445.0" prefWidth="232.0" BorderPane.alignment="CENTER">
-         <children>
-            <ListView fx:id="chatScreen" prefHeight="646.0" prefWidth="232.0" />
-            <TextArea fx:id="chatSendBar" prefHeight="96.0" prefWidth="232.0" text="&#10;" />
-         </children>
-      </VBox>
+       <VBox prefHeight="445.0" prefWidth="232.0" BorderPane.alignment="CENTER">
+           <ListView prefHeight="646.0" prefWidth="232.0"/>
+           <TextArea prefHeight="96.0" prefWidth="232.0" text="&#10;"/>
+       </VBox>
    </right>
-   <left>
-      <Pane prefHeight="668.0" prefWidth="715.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
-         <children>
-            <Canvas fx:id="canvas" height="671.0" layoutY="1.0" onMouseClicked="#onCanvasClick" width="715.0" />
-         </children>
-      </Pane>
-   </left>
-   <top>
-      <VBox prefHeight="60.0" prefWidth="949.0" BorderPane.alignment="CENTER">
-         <children>
+    <Pane prefHeight="668.0" prefWidth="715.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
+        <Canvas fx:id="canvas" height="671.0" layoutY="1.0" onMouseClicked="#onCanvasClick" width="715.0"/>
+    </Pane>
+    <top>
+        <VBox prefHeight="60.0" prefWidth="949.0" BorderPane.alignment="CENTER">
             <MenuBar prefHeight="8.0" prefWidth="949.0">
-              <menus>
                 <Menu mnemonicParsing="false" text="File">
-                  <items>
-                    <MenuItem fx:id="saveToFile" mnemonicParsing="false" onAction="#save" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Load" />
-                  </items>
+                    <MenuItem mnemonicParsing="false" onAction="#save" text="Save"/>
+                    <MenuItem mnemonicParsing="false" text="Load"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Server">
-                  <items>
-                    <MenuItem mnemonicParsing="false" text="Connect to server" />
-                        <MenuItem mnemonicParsing="false" text="Disconnect from server" />
-                  </items>
+                    <MenuItem mnemonicParsing="false" text="Connect to server"/>
+                    <MenuItem mnemonicParsing="false" text="Disconnect from server"/>
                 </Menu>
-                  <Menu mnemonicParsing="false" text="Help">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-              </menus>
+                <Menu mnemonicParsing="false" text="Help">
+                    <MenuItem mnemonicParsing="false" text="Action 1"/>
+                </Menu>
             </MenuBar>
             <HBox prefHeight="29.0" prefWidth="949.0" spacing="10.0">
-               <children>
-                  <HBox prefHeight="33.0" prefWidth="502.0">
-                     <children>
-                        <Button fx:id="rectangleButton" mnemonicParsing="false" onAction="#onRectangleClick" prefHeight="33.0" prefWidth="89.0" text="Rectangle" />
-                        <Button fx:id="circleButton" mnemonicParsing="false" onAction="#onCircleClick" prefHeight="39.0" prefWidth="60.0" text="Circle" />
-                        <Button fx:id="setSelectionMode" mnemonicParsing="false" onAction="#onSelectionClick" prefHeight="34.0" prefWidth="54.0" text="Select" />
-                        <Button fx:id="test" mnemonicParsing="false" onAction="#changeSize" prefHeight="33.0" prefWidth="91.0" text="Change Size" />
-                        <Button fx:id="colorChanger" mnemonicParsing="false" onAction="#changeColor" prefHeight="33.0" prefWidth="99.0" text="Change Color" />
-                        <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="54.0" promptText="pick">
-                           <value>
-                              <Color />
-                           </value>
-                        </ColorPicker>
-                        <TextField fx:id="size" prefHeight="37.0" prefWidth="46.0" text="50" />
-                     </children>
-                     <HBox.margin>
-                        <Insets />
-                     </HBox.margin>
-                  </HBox>
-                  <Pane prefHeight="33.0" prefWidth="269.0" />
-                  <MenuButton fx:id="Options" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="115.0" text="Options">
+                <opaqueInsets>
+                    <Insets/>
+                </opaqueInsets>
+                <padding>
+                    <Insets right="10.0"/>
+                </padding>
+                <HBox prefHeight="33.0" prefWidth="502.0">
+                    <HBox.margin>
+                        <Insets/>
+                    </HBox.margin>
+                    <Button mnemonicParsing="false" onAction="#onRectangleClick"
+                            prefHeight="33.0" prefWidth="89.0" text="Rectangle"/>
+                    <Button mnemonicParsing="false" onAction="#onCircleClick"
+                            prefHeight="39.0" prefWidth="60.0" text="Circle"/>
+                    <Button mnemonicParsing="false" onAction="#onSelectionClick"
+                            prefHeight="34.0" prefWidth="54.0" text="Select"/>
+                    <Button mnemonicParsing="false" onAction="#changeSize" prefHeight="33.0"
+                            prefWidth="91.0" text="Change Size"/>
+                    <Button mnemonicParsing="false" onAction="#changeColor"
+                            prefHeight="33.0" prefWidth="99.0" text="Change Color"/>
+                    <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="54.0" promptText="pick">
+                        <value>
+                            <Color/>
+                        </value>
+                    </ColorPicker>
+                    <TextField fx:id="size" prefHeight="37.0" prefWidth="46.0" text="50"/>
+                </HBox>
+                <Pane prefHeight="33.0" prefWidth="269.0"/>
+                <MenuButton contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0"
+                            prefWidth="115.0" text="Options">
                     <items>
-                      <MenuItem mnemonicParsing="false" text="Connect to server" />
-                      <MenuItem mnemonicParsing="false" text="Save" />
-                        <MenuItem mnemonicParsing="false" text="Exit" />
+                        <MenuItem mnemonicParsing="false" text="Connect to server"/>
+                        <MenuItem mnemonicParsing="false" text="Save"/>
+                        <MenuItem mnemonicParsing="false" text="Exit"/>
                     </items>
-                  </MenuButton>
-                  <Button fx:id="undoButton" minHeight="-Infinity" minWidth="-Infinity" onAction="#undoLast" prefHeight="33.0" prefWidth="32.0">
-                     <graphic>
+                </MenuButton>
+                <Button fx:id="undoButton" minHeight="-Infinity" minWidth="-Infinity" onAction="#undoLast"
+                        prefHeight="33.0" prefWidth="32.0">
+                    <graphic>
                         <ImageView fitHeight="36.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@pictures/undo.jpg" />
-                           </image>
+                            <Image url="@pictures/undo.jpg"/>
                         </ImageView>
-                     </graphic>
-                  </Button>
-                  <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0" prefWidth="32.0">
-                     <graphic>
+                    </graphic>
+                </Button>
+                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0"
+                        prefWidth="32.0">
+                    <graphic>
                         <ImageView fitHeight="36.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
-                              <Image url="@pictures/redo.jpg" />
+                            <Image url="@pictures/redo.jpg"/>
                         </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <padding>
-                  <Insets right="10.0" />
-               </padding>
+                    </graphic>
+                </Button>
             </HBox>
-         </children>
-      </VBox>
+        </VBox>
    </top>
 </BorderPane>
