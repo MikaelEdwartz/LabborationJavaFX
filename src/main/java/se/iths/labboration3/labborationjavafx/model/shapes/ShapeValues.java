@@ -1,7 +1,8 @@
 package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.paint.Color;
+import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 
-public record ShapeValues(GraphicsContext context, double size, double x, double y) {
+
+public record ShapeValues(GraphicsContext context, double x, double y, double size, SelectedShape shape) {
 }
