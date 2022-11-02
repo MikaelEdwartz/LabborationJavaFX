@@ -74,7 +74,7 @@
       <recent name="se.iths.labboration3.labborationjavafx.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PaintApplication">
+  <component name="RunManager" selected="JUnit.PaintModelTest">
     <configuration name="PaintApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labboration3.labborationjavafx.PaintApplication" />
       <module name="LabborationJavaFX" />
@@ -105,8 +105,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PaintApplication" />
         <item itemvalue="JUnit.PaintModelTest" />
+        <item itemvalue="Application.PaintApplication" />
       </list>
     </recent_temporary>
   </component>

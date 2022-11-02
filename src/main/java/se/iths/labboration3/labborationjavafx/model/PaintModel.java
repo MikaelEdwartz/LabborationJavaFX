@@ -213,6 +213,4 @@ public class PaintModel {
         for (Integer integer : this.changeList)
             this.shapes.get(integer).setBorderColor(this.shapes.get(integer).getColor());
     }
-
-
 }
