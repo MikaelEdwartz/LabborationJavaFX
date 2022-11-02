@@ -8,6 +8,7 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import se.iths.labboration3.labborationjavafx.FileSaver;
 import se.iths.labboration3.labborationjavafx.model.Enums.ChangeOption;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.PaintModel;
@@ -123,7 +124,7 @@ public class Paint {
     }
 
     public void save() {
-        FileSaver.save(model, stage);
+        new FileSaver().save(model, stage);
     }
 
 }

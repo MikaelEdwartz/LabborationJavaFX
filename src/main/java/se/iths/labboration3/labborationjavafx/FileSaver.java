@@ -1,4 +1,4 @@
-package se.iths.labboration3.labborationjavafx.controller;
+package se.iths.labboration3.labborationjavafx;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -13,20 +13,20 @@ import java.util.List;
 
 public class FileSaver {
 
-    static FileChooser fileChooser = new FileChooser();
+    FileChooser fileChooser;
 
-    public static void save(PaintModel model, Stage stage) {
+    public void save(PaintModel model, Stage stage) {
         setUpSaveWindow();
         Path path = fileChooser.showSaveDialog(stage.getOwner()).toPath();
         writeSVGToPath(model, path);
     }
 
-    private static void setUpSaveWindow() {
+    private void setUpSaveWindow() {
         fileChooser.setInitialFileName("Painting");
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("SVG", "*.svg"));
     }
 
-    private static void writeSVGToPath(PaintModel model, Path path) {
+    private void writeSVGToPath(PaintModel model, Path path) {
         try {
             Files.write(path, getSVGAsStrings(model));
         } catch (IOException e) {
@@ -34,23 +34,23 @@ public class FileSaver {
         }
     }
 
-    private static List<String> getSVGAsStrings(PaintModel model) {
+    private List<String> getSVGAsStrings(PaintModel model) {
         List<String> svg = new ArrayList<>();
         getCompleteSVGString(model, svg);
         return svg;
     }
 
-    private static void getCompleteSVGString(PaintModel model, List<String> svg) {
+    private void getCompleteSVGString(PaintModel model, List<String> svg) {
         svg.add("<svg width=\"1540.0\" height=\"740.0\" xmlns=\"http://www.w3.org/2000/svg\" version=\"1.1\">");
         addAllShapes(svg, model);
         svg.add("</svg>");
     }
 
-    private static void addAllShapes(List<String> svg, PaintModel model) {
+    private void addAllShapes(List<String> svg, PaintModel model) {
         model.getShapes().forEach(shape -> addShapeAsSVG(svg, shape));
     }
 
-    private static void addShapeAsSVG(List<String> svg, Shape shape) {
+    private void addShapeAsSVG(List<String> svg, Shape shape) {
         svg.add(shape.getAsSVG());
     }
 }
