@@ -29,5 +29,14 @@ public class Circle extends Shape {
         double distanceX = coordinates.x() - getX();
         return distanceX * distanceX;
     }
+
+    @Override
+    public String getAsSVG() {
+        return "<circle cx=\"" + getX() + "\" "
+                + "cy=\"" + getY() + "\" "
+                + "r=\"" + getSize() + "\" "
+                + "fill=\"" + getColor().toString() + "\" />";
+    }
+
 }
 

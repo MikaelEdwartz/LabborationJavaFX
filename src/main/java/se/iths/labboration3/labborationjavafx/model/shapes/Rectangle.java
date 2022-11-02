@@ -33,6 +33,15 @@ public class Rectangle extends Shape {
         double leftXBorder = getX() - getSize() / 2 * 1.75;
         double rightXBorder = leftXBorder + getSize() * 1.75;
         return mouseX >= leftXBorder && mouseX <= rightXBorder;
+    }
 
+    @Override
+    public String getAsSVG() {
+
+        return "<rect x=\"" + getX() + "\" " +
+                "y=\"" + getY() + "\" " +
+                "width=\"" + getSize() + "\" " +
+                "height=\"" + getSize() + "\" " +
+                "fill=\"#" + getColor() + "\" />";
     }
 }

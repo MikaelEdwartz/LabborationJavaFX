@@ -92,4 +92,6 @@ public abstract class Shape {
     public abstract boolean insideShape(Point coordinates);
 
     public abstract Shape copyOf();
+
+    public abstract String getAsSVG();
 }

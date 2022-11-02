@@ -42,7 +42,7 @@
               <menus>
                 <Menu mnemonicParsing="false" text="File">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Save" />
+                    <MenuItem fx:id="saveToFile" mnemonicParsing="false" onAction="#save" text="Save" />
                         <MenuItem mnemonicParsing="false" text="Load" />
                   </items>
                 </Menu>

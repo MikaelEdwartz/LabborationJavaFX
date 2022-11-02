@@ -30,7 +30,6 @@ public class PaintModel {
     this.size = new SimpleStringProperty("50");
     this.shapes = FXCollections.observableArrayList(PaintModel::getShapeAttribute);
     this.changeList = new ArrayList<>();
-
     }
 
     private static Observable[] getShapeAttribute(Shape shape) {
@@ -59,8 +58,8 @@ public class PaintModel {
 
     public String getSize(){
         return size.get();
-
     }
+
     public StringProperty sizeProperty() {
         return size;
     }
@@ -87,6 +86,7 @@ public class PaintModel {
             case RECTANGLE -> setRectangleShape();
         }
     }
+
     public void setCircleShape() {
         selectedShape = SelectedShape.CIRCLE;
         setSelectionMode(false);
