@@ -222,17 +222,17 @@ public class PaintModel {
 
     private void setNewColor(Integer index) {
         this.shapes.get(index).setColor(getColorPicker());
-        sendChangeToServerifConnected(index);
+        sendChangeToServerIfConnected(index);
     }
 
-    private void sendChangeToServerifConnected(Integer index) {
+    private void sendChangeToServerIfConnected(Integer index) {
         if (server.isConnected())
             server.sendToServer(this.shapes.get(index));
     }
 
     private void setNewSize(Integer index) {
         this.shapes.get(index).setSize(getSizeAsDouble());
-        sendChangeToServerifConnected(index);
+        sendChangeToServerIfConnected(index);
     }
 
     private void setMatchingBorderColor() {
