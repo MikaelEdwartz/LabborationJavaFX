@@ -5,9 +5,11 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
+import se.iths.labboration3.labborationjavafx.Server;
 import se.iths.labboration3.labborationjavafx.model.Enums.ChangeOption;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
+import se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,15 +23,17 @@ public class PaintModel {
     private SelectedShape selectedShape;
     private final List<Integer> changeList;
     private final List<List<Shape>> undoList = new ArrayList<>();
+    private final Server server;
 
 
-
-    public PaintModel(){
-    this.selectorOption = new SimpleBooleanProperty(false);
-    this.colorPicker = new SimpleObjectProperty<>(Color.BLACK);
-    this.size = new SimpleStringProperty("50");
-    this.shapes = FXCollections.observableArrayList(PaintModel::getShapeAttribute);
-    this.changeList = new ArrayList<>();
+    public PaintModel() {
+        this.selectorOption = new SimpleBooleanProperty(false);
+        this.colorPicker = new SimpleObjectProperty<>(Color.BLACK);
+        this.size = new SimpleStringProperty("50");
+        this.shapes = FXCollections.observableArrayList(PaintModel::getShapeAttribute);
+        this.changeList = new ArrayList<>();
+        this.selectedShape = SelectedShape.RECTANGLE;
+        server = new Server();
     }
 
     private static Observable[] getShapeAttribute(Shape shape) {
@@ -42,21 +46,33 @@ public class PaintModel {
         };
     }
 
-    public void addToShapes(Shape shape){
-        clearChangeList();
-        if(!(shape == null))
+    public void checkIfConnectedAndAddToShapes(Shape shape) {
+        if (shape == null)
+            return;
+
+
+        if (server.isConnected())
+            server.sendToServer(shape);
+        else
             this.shapes.add(shape);
+    }
+
+    public void addToShapes(String line) {
+        if (line == null || line.contains("joined") || line.contains("left"))
+            return;
+
+        this.shapes.add(ShapeFactory.svgToShape(line));
     }
 
     public SelectedShape getSelectedShape() {
         return selectedShape;
     }
 
-    public double getSizeAsDouble(){
+    public double getSizeAsDouble() {
         return Double.parseDouble(getSize());
     }
 
-    public String getSize(){
+    public String getSize() {
         return size.get();
     }
 
@@ -214,5 +230,14 @@ public class PaintModel {
     private void setMatchingBorderColor() {
         for (Integer integer : this.changeList)
             this.shapes.get(integer).setBorderColor(this.shapes.get(integer).getColor());
+    }
+
+    public Server getServer() {
+        return server;
+    }
+
+    public Runnable connectToServer() {
+        server.connect(this);
+        return null;
     }
 }

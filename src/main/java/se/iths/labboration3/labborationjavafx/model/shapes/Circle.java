@@ -34,8 +34,8 @@ public class Circle extends Shape {
     public String getAsSVG() {
         return "<circle cx=\"" + getX() + "\" "
                 + "cy=\"" + getY() + "\" "
-                + "r=\"" + getSize() /2   + "\" "
-                + "fill=\"#" + getColor().toString().substring(2, 10) + "\" />";
+                + "r=\"" + getSize() / 2 + "\" "
+                + "fill=\"#" + getColor().toString().substring(2, 10) + "\"/>";
     }
 
 }

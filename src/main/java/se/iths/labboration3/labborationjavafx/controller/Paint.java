@@ -1,5 +1,6 @@
 package se.iths.labboration3.labborationjavafx.controller;
 
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ListChangeListener;
@@ -70,7 +71,7 @@ public class Paint {
 
     private void createAndAddNewShape(Point mouseXY) {
         var newShape = returnNewShape(mouseXY);
-        model.addToShapes(newShape);
+        model.checkIfConnectedAndAddToShapes(newShape);
         model.addChangesToUndoList();
     }
 
@@ -115,8 +116,9 @@ public class Paint {
     }
 
     public void changeColor() {
-        model.changeSelectedShapes(ChangeOption.COLOR);
-        model.addChangesToUndoList();
+        model.connectToServer();
+        //model.changeSelectedShapes(ChangeOption.COLOR);
+        //model.addChangesToUndoList();
     }
 
     public void setStage(Stage stage) {
@@ -125,6 +127,12 @@ public class Paint {
 
     public void save() {
         new FileSaver().save(model, stage);
+    }
+
+    public void connectToServer() {
+        Thread.ofPlatform().start(() -> {
+            Platform.runLater(model.connectToServer());
+        });
     }
 
 }
