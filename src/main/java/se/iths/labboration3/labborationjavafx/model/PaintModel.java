@@ -129,6 +129,8 @@ public class PaintModel {
     private void removeLastElementFromUndoList() {
         if(undoList.size() > 0)
             undoList.remove(undoList.size() - 1);
+
+
     }
 
     public void addChangesToUndoList() {
@@ -197,11 +199,11 @@ public class PaintModel {
     private void changeSelectedAttribute(ChangeOption selectedOption, Integer index) {
         switch (selectedOption) {
             case SIZE -> setNewSize(index);
-            case COLOR -> getaVoid(index);
+            case COLOR -> setNewColor(index);
         }
     }
 
-    private void getaVoid(Integer index) {
+    private void setNewColor(Integer index) {
         this.shapes.get(index).setColor(getColorPicker());
     }
 
