@@ -16,7 +16,6 @@ public class Server {
     private BufferedReader reader;
     private final BooleanProperty connected = new SimpleBooleanProperty(false);
 
-
     public void connect(PaintModel model) {
         this.model = model;
         if (connectedDisconnect())
@@ -34,15 +33,15 @@ public class Server {
     }
 
     private boolean connectedDisconnect() {
-        if (connected.get()) {
+        if (isConnected()) {
             connected.set(false);
             return true;
         }
-        return false;
+        return isConnected();
     }
 
     private void initializeServer() throws IOException {
-        Socket socket = new Socket("127.0.0.1", 8000);
+        Socket socket = new Socket("localhost", 8000);
         OutputStream output = socket.getOutputStream();
         writer = new PrintWriter(output, true);
         InputStream input = socket.getInputStream();
@@ -53,7 +52,7 @@ public class Server {
     private void readFromNetwork() {
         try {
             while (true) {
-                sendShapesToServer();
+                saveShapesFromNetworkToList();
             }
         } catch (IOException e) {
             System.out.println(e.getMessage());
@@ -61,7 +60,7 @@ public class Server {
 
     }
 
-    private void sendShapesToServer() throws IOException {
+    private void saveShapesFromNetworkToList() throws IOException {
         String line = reader.readLine();
         Platform.runLater(() -> model.addToShapes(line));
     }
@@ -78,32 +77,7 @@ public class Server {
         this.model = model;
     }
 
-    public PrintWriter getWriter() {
-        return writer;
-    }
-
-    public void setWriter(PrintWriter writer) {
-        this.writer = writer;
-    }
-
-    public BufferedReader getReader() {
-        return reader;
-    }
-
-    public void setReader(BufferedReader reader) {
-        this.reader = reader;
-    }
-
     public boolean isConnected() {
         return connected.get();
     }
-
-    public BooleanProperty connectedProperty() {
-        return connected;
-    }
-
-    public void setConnected(boolean connected) {
-        this.connected.set(connected);
-    }
-
 }

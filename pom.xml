@@ -66,9 +66,12 @@
                             <mainClass>
                                 se.iths.labboration3.labborationjavafx/se.iths.labboration3.labborationjavafx.PaintApplication
                             </mainClass>
-                            <launcher>app</launcher>
-                            <jlinkZipName>app</jlinkZipName>
-                            <jlinkImageName>app</jlinkImageName>
+                            <launcher>PaintApplication</launcher>
+                            <jlinkZipName>PaintApplication</jlinkZipName>
+                            <jlinkImageName>PaintApplication</jlinkImageName>
+                            <options>
+                                <option>--enable-preview</option>
+                            </options>
                             <noManPages>true</noManPages>
                             <stripDebug>true</stripDebug>
                             <noHeaderFiles>true</noHeaderFiles>

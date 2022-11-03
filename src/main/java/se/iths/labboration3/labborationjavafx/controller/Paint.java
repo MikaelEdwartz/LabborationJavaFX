@@ -1,5 +1,6 @@
 package se.iths.labboration3.labborationjavafx.controller;
 
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ListChangeListener;
@@ -117,9 +118,8 @@ public class Paint {
     }
 
     public void changeColor() {
-
-        //model.changeSelectedShapes(ChangeOption.COLOR);
-        //model.addChangesToUndoList();
+        model.changeSelectedShapes(ChangeOption.COLOR);
+        model.addChangesToUndoList();
     }
 
     public void setStage(Stage stage) {
