@@ -1,6 +1,5 @@
 package se.iths.labboration3.labborationjavafx.controller;
 
-import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ListChangeListener;
@@ -28,6 +27,7 @@ public class Paint {
     public TextField size;
     public Button undoButton;
     private Stage stage;
+    public MenuItem connectString;
 
 
 
@@ -44,6 +44,7 @@ public class Paint {
         size.textProperty().bindBidirectional(model.sizeProperty());
         model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
         model.addChangesToUndoList();
+        connectString.textProperty().bindBidirectional(model.connectToServerProperty());
     }
 
     public void onCircleClick() {
@@ -116,7 +117,7 @@ public class Paint {
     }
 
     public void changeColor() {
-        model.connectToServer();
+
         //model.changeSelectedShapes(ChangeOption.COLOR);
         //model.addChangesToUndoList();
     }
@@ -129,10 +130,10 @@ public class Paint {
         new FileSaver().save(model, stage);
     }
 
+
     public void connectToServer() {
-        Thread.ofPlatform().start(() -> {
-            Platform.runLater(model.connectToServer());
-        });
+        model.connectToServer();
+        model.changeConnectionString();
     }
 
 }

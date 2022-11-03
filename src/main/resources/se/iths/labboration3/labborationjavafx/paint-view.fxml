@@ -37,8 +37,8 @@
                     <MenuItem mnemonicParsing="false" text="Load"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Server">
-                    <MenuItem mnemonicParsing="false" text="Connect to server"/>
-                    <MenuItem mnemonicParsing="false" text="Disconnect from server"/>
+                    <MenuItem fx:id="connectString" mnemonicParsing="false" onAction="#connectToServer"
+                              text="Connect to server"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                     <MenuItem mnemonicParsing="false" text="Action 1"/>
@@ -55,16 +55,16 @@
                     <HBox.margin>
                         <Insets/>
                     </HBox.margin>
-                    <Button mnemonicParsing="false" onAction="#onRectangleClick"
-                            prefHeight="33.0" prefWidth="89.0" text="Rectangle"/>
-                    <Button mnemonicParsing="false" onAction="#onCircleClick"
-                            prefHeight="39.0" prefWidth="60.0" text="Circle"/>
-                    <Button mnemonicParsing="false" onAction="#onSelectionClick"
-                            prefHeight="34.0" prefWidth="54.0" text="Select"/>
-                    <Button mnemonicParsing="false" onAction="#changeSize" prefHeight="33.0"
-                            prefWidth="91.0" text="Change Size"/>
-                    <Button mnemonicParsing="false" onAction="#changeColor"
-                            prefHeight="33.0" prefWidth="99.0" text="Change Color"/>
+                    <Button mnemonicParsing="false" onAction="#onRectangleClick" prefHeight="33.0" prefWidth="89.0"
+                            text="Rectangle"/>
+                    <Button mnemonicParsing="false" onAction="#onCircleClick" prefHeight="39.0" prefWidth="60.0"
+                            text="Circle"/>
+                    <Button mnemonicParsing="false" onAction="#onSelectionClick" prefHeight="34.0" prefWidth="54.0"
+                            text="Select"/>
+                    <Button mnemonicParsing="false" onAction="#changeSize" prefHeight="33.0" prefWidth="91.0"
+                            text="Change Size"/>
+                    <Button mnemonicParsing="false" onAction="#changeColor" prefHeight="33.0" prefWidth="99.0"
+                            text="Change Color"/>
                     <ColorPicker fx:id="colorPicker" prefHeight="39.0" prefWidth="54.0" promptText="pick">
                         <value>
                             <Color/>
@@ -73,8 +73,8 @@
                     <TextField fx:id="size" prefHeight="37.0" prefWidth="46.0" text="50"/>
                 </HBox>
                 <Pane prefHeight="33.0" prefWidth="269.0"/>
-                <MenuButton contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0"
-                            prefWidth="115.0" text="Options">
+                <MenuButton contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="115.0"
+                            text="Options">
                     <items>
                         <MenuItem mnemonicParsing="false" text="Connect to server"/>
                         <MenuItem mnemonicParsing="false" text="Save"/>

@@ -24,6 +24,7 @@ public class PaintModel {
     private final List<Integer> changeList;
     private final List<List<Shape>> undoList = new ArrayList<>();
     private final Server server;
+    private final StringProperty connectToServer;
 
 
     public PaintModel() {
@@ -34,6 +35,7 @@ public class PaintModel {
         this.changeList = new ArrayList<>();
         this.selectedShape = SelectedShape.RECTANGLE;
         server = new Server();
+        connectToServer = new SimpleStringProperty("Connect To Server");
     }
 
     private static Observable[] getShapeAttribute(Shape shape) {
@@ -236,8 +238,26 @@ public class PaintModel {
         return server;
     }
 
-    public Runnable connectToServer() {
+    public void connectToServer() {
         server.connect(this);
-        return null;
+    }
+
+    public String getConnectToServer() {
+        return connectToServer.get();
+    }
+
+    public StringProperty connectToServerProperty() {
+        return connectToServer;
+    }
+
+    public void setConnectToServer(String connectToServer) {
+        this.connectToServer.set(connectToServer);
+    }
+
+    public void changeConnectionString() {
+        if (server.isConnected())
+            connectToServer.set("Disconnect From Server");
+        else
+            connectToServer.set("Connect To Server");
     }
 }

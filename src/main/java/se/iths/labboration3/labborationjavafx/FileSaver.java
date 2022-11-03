@@ -13,7 +13,7 @@ import java.util.List;
 
 public class FileSaver {
 
-    FileChooser fileChooser;
+    FileChooser fileChooser = new FileChooser();
 
     public void save(PaintModel model, Stage stage) {
         setUpSaveWindow();

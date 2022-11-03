@@ -11,7 +11,6 @@ import java.net.Socket;
 
 
 public class Server {
-    private Socket socket;
     private PaintModel model;
     private PrintWriter writer;
     private BufferedReader reader;
@@ -20,22 +19,30 @@ public class Server {
 
     public void connect(PaintModel model) {
         this.model = model;
-        if (connected.get()) {
-            connected.set(false);
+        if (connectedDisconnect())
             return;
-        }
+        runServer();
+    }
 
+    private void runServer() {
         try {
             initializeServer();
-            readFromNetwork();
+            Thread.ofPlatform().start(this::readFromNetwork);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
+    }
 
+    private boolean connectedDisconnect() {
+        if (connected.get()) {
+            connected.set(false);
+            return true;
+        }
+        return false;
     }
 
     private void initializeServer() throws IOException {
-        socket = new Socket("127.0.0.1", 8000);
+        Socket socket = new Socket("127.0.0.1", 8000);
         OutputStream output = socket.getOutputStream();
         writer = new PrintWriter(output, true);
         InputStream input = socket.getInputStream();
@@ -44,18 +51,19 @@ public class Server {
     }
 
     private void readFromNetwork() {
-        Thread.ofPlatform().start(() -> {
-            try {
-                while (true) {
-                    String line = reader.readLine();
-                    System.out.println(line);
-                    Platform.runLater(() -> model.addToShapes(line));
-                }
-
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
+        try {
+            while (true) {
+                sendShapesToServer();
             }
-        });
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+    }
+
+    private void sendShapesToServer() throws IOException {
+        String line = reader.readLine();
+        Platform.runLater(() -> model.addToShapes(line));
     }
 
     public void sendToServer(Shape shape) {
