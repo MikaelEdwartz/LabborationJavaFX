@@ -7,6 +7,8 @@ import javafx.scene.paint.Color;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.Point;
 
+import java.util.UUID;
+
 public abstract class Shape {
 
     private final SimpleDoubleProperty x = new SimpleDoubleProperty();
@@ -15,6 +17,7 @@ public abstract class Shape {
     private final SimpleObjectProperty<Color> color = new SimpleObjectProperty<>();
     private final SimpleObjectProperty<Color> borderColor = new SimpleObjectProperty<>();
     private final SelectedShape shape;
+    private final String id;
 
     public SelectedShape getShape() {
         return shape;
@@ -27,6 +30,7 @@ public abstract class Shape {
         setSize(size);
         setBorderColor(color);
         this.shape = shape;
+        this.id = String.valueOf(UUID.randomUUID());
     }
 
     public Color getBorderColor() {
@@ -87,6 +91,10 @@ public abstract class Shape {
 
     public void setColor(Color color) {
         this.color.set(color);
+    }
+
+    public String getId() {
+        return id;
     }
 
     public abstract boolean insideShape(Point coordinates);

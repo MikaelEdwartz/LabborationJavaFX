@@ -33,8 +33,6 @@ public class Paint {
     private Stage stage;
     public MenuItem connectString;
 
-
-
     public Paint() {
         this.model = new PaintModel();
         this.selectorOption = new SimpleBooleanProperty();
@@ -47,11 +45,9 @@ public class Paint {
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
         size.textProperty().bindBidirectional(model.sizeProperty());
         model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
-
         model.addChangesToUndoList();
         connectString.textProperty().bindBidirectional(model.connectToServerProperty());
     }
-
 
     public void onCircleClick() {
         model.setSelectedShape(SelectedShape.CIRCLE);
@@ -67,17 +63,14 @@ public class Paint {
         var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
         selectOrCreateShape(mouseXY);
         drawOnCanvas();
-
     }
+
     private void selectOrCreateShape(Point mouseXY) {
         if(selectorOption.get())
             checkIfInsideShapes(mouseXY);
         else
             createAndAddNewShape(mouseXY);
-
-
     }
-
 
     private void createAndAddNewShape(Point mouseXY) {
         var newShape = returnNewShape(mouseXY);
@@ -106,19 +99,11 @@ public class Paint {
         ShapeDrawer.draw(shape, context);
     }
 
-    private void checkIfInsideShape(Point mouseXY) {
-        for (int i = 0; i < model.getShapes().size(); i++)
-            checkIfSelectedIsInside(mouseXY, i);
-    }
-
-    private void checkIfSelectedIsInside(Point mouseXY, int i) {
-        if (model.getShapes().get(i).insideShape(mouseXY))
-            model.checkIfSelectedAndAddOrRemove(i);
-    }
-
     private void checkIfSelectedIsInside(Point mouseXY, Shape shape) {
-        if (shape.insideShape(mouseXY))
+        if (shape.insideShape(mouseXY)) {
             model.checkIfSelectedAndAddOrRemove(shape);
+            System.out.println(shape.insideShape(mouseXY));
+        }
     }
 
     private void checkIfInsideShapes(Point mouseXY) {

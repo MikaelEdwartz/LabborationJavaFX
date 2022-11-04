@@ -5,6 +5,8 @@ import javafx.scene.paint.Color;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.Point;
 
+import java.util.UUID;
+
 public class Rectangle extends Shape {
 
     public Rectangle(Color color, Point coordinates, double size, SelectedShape shape) {
@@ -38,7 +40,8 @@ public class Rectangle extends Shape {
     @Override
     public String getAsSVG() {
 
-        return "<rect x=\"" + (getX() - getSize() / 2) + "\" " +
+        return "<rect \"id=\"" + super.getId() + "\" +" +
+                "x=\"" + (getX() - getSize() / 2) + "\" " +
                 "y=\"" + (getY() - getSize() / 2) + "\" " +
                 "width=\"" + getSize() * 1.75 + "\" " +
                 "height=\"" + getSize() + "\" " +

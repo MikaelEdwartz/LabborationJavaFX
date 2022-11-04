@@ -40,10 +40,10 @@ public class ShapeFactory {
     }
 
     private static Shape getRectangle(String[] svgString) {
-        double size = Double.parseDouble(svgString[3].substring(1, 5)) / 2;
-        double x = Double.parseDouble(svgString[1].substring(1, 5)) + size / 2;
-        double y = Double.parseDouble(svgString[2].substring(1, 5)) + size / 2;
-        Color color = Color.valueOf(svgString[5].substring(1, 8));
+        double size = Double.parseDouble(svgString[4].substring(1, 5)) / 2;
+        double x = Double.parseDouble(svgString[2].substring(1, 5)) + size / 2;
+        double y = Double.parseDouble(svgString[3].substring(1, 5)) + size / 2;
+        Color color = Color.valueOf(svgString[6].substring(1, 8));
         return shapeOf(color, new Point(x, y), size, SelectedShape.RECTANGLE);
     }
 

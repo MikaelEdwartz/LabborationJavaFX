@@ -6,9 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/FileSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/FileSaver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Rectangle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/Shape.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/ShapeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/ShapeFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +171,7 @@
       <workItem from="1667498976192" duration="2719000" />
       <workItem from="1667507950998" duration="1000" />
       <workItem from="1667508063175" duration="698000" />
-      <workItem from="1667553378863" duration="2456000" />
+      <workItem from="1667553378863" duration="7984000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1666104453857</created>
@@ -464,7 +467,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667501708946</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="add code for server">
+      <created>1667555849807</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1667555849807</updated>
+    </task>
+    <option name="localTasksCounter" value="44" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
