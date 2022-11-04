@@ -21,7 +21,7 @@ public class PaintModel {
     private final ObjectProperty<Color> colorPicker;
     private final StringProperty size;
     private SelectedShape selectedShape;
-    private final List<Integer> changeList;
+    private final List<Shape> changeList;
     private final List<List<Shape>> undoList = new ArrayList<>();
     private final Server server;
     private final StringProperty connectToServer;
@@ -156,19 +156,30 @@ public class PaintModel {
         undoList.add(tempList);
     }
 
-    private void copyShapesToTempList(List<Shape> tempList) {
+    public void copyShapesToTempList(List<Shape> tempList) {
         getShapes().forEach(shape -> tempList.add(shape.copyOf()));
     }
 
-    public void checkIfSelectedAndAddOrRemove(int i){
-        if(alreadySelected(i))
+    public void checkIfSelectedAndAddOrRemove(int i) {
+        if (alreadySelected(i))
             removeFromChangeList(i);
         else
             addToChangeList(i);
     }
 
+    public void checkIfSelectedAndAddOrRemove(Shape shape) {
+        if (alreadySelected(shape))
+            removeFromChangeList(shape);
+        else
+            addToChangeList(shape);
+    }
+
     private boolean alreadySelected(int i) {
         return this.changeList.contains(i);
+    }
+
+    private boolean alreadySelected(Shape shape) {
+        return this.changeList.contains(shape);
     }
 
     private void removeFromChangeList(int i) {
@@ -176,10 +187,19 @@ public class PaintModel {
         removeClickedShapeFromList(i);
     }
 
+    private void removeFromChangeList(Shape shape) {
+        shape.setBorderColor(shape.getColor());
+        removeClickedShapeFromList(shape);
+    }
+
     private void removeClickedShapeFromList(int i) {
         List<Integer> tempList = getListWithoutClickedShape(i);
         this.changeList.clear();
-        this.changeList.addAll(tempList);
+        // this.changeList.addAll(tempList);
+    }
+
+    private void removeClickedShapeFromList(Shape shape) {
+        this.changeList.remove(shape);
     }
 
     private List<Integer> getListWithoutClickedShape(int i) {
@@ -198,31 +218,48 @@ public class PaintModel {
         this.changeList.add(i);
     }
 
-    public void clearChangeList(){
+    private void addToChangeList(Shape shape) {
+        shape.setBorderColor(Color.VIOLET);
+        this.changeList.add(shape);
+    }
+
+    public void clearChangeList() {
         this.changeList.clear();
     }
 
-    public void changeSelectedShapes(ChangeOption selectedOption){
+    public void changeSelectedShapes(ChangeOption selectedOption) {
         setChange(selectedOption);
         setMatchingBorderColor();
         clearChangeList();
     }
 
-    private void setChange(ChangeOption selectedOption) {
+    private void setChangea(ChangeOption selectedOption) {
         for (var index : this.changeList)
             changeSelectedAttribute(selectedOption, index);
     }
 
-    private void changeSelectedAttribute(ChangeOption selectedOption, Integer index) {
+    private void setChange(ChangeOption selectedOption) {
+        for (var shape : this.changeList)
+            changeSelectedAttribute(selectedOption, shape);
+    }
+
+    private void changeSelectedAttributea(ChangeOption selectedOption, Integer index) {
         switch (selectedOption) {
             case SIZE -> setNewSize(index);
             case COLOR -> setNewColor(index);
         }
     }
 
-    private void setNewColor(Integer index) {
-        this.shapes.get(index).setColor(getColorPicker());
-        sendChangeToServerIfConnected(index);
+    private void changeSelectedAttribute(ChangeOption selectedOption, Shape shape) {
+        switch (selectedOption) {
+            case SIZE -> setNewSize(shape);
+            case COLOR -> setNewColor(shape);
+        }
+    }
+
+    private void setNewColor(Shape shape) {
+        shape.setColor(getColorPicker());
+        // sendChangeToServerIfConnected(index);
     }
 
     private void sendChangeToServerIfConnected(Integer index) {
@@ -230,14 +267,19 @@ public class PaintModel {
             server.sendToServer(this.shapes.get(index));
     }
 
-    private void setNewSize(Integer index) {
-        this.shapes.get(index).setSize(getSizeAsDouble());
-        sendChangeToServerIfConnected(index);
+    private void setNewSize(Shape shape) {
+        shape.setSize(getSizeAsDouble());
+        //sendChangeToServerIfConnected(index);
+    }
+
+    private void setMatchingBorderColora() {
+        for (Integer integer : this.changeList)
+            this.shapes.get(integer).setBorderColor(this.shapes.get(integer).getColor());
     }
 
     private void setMatchingBorderColor() {
-        for (Integer integer : this.changeList)
-            this.shapes.get(integer).setBorderColor(this.shapes.get(integer).getColor());
+        for (var shape : this.changeList)
+            shape.setBorderColor(shape.getColor());
     }
 
     public Server getServer() {

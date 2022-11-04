@@ -6,11 +6,9 @@
   <component name="ChangeListManager">
     <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/paint-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/paint-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +83,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Application.PaintApplication">
-    <configuration name="PaintApplication" type="Application" factoryName="Application" singleton="true" temporary="true" nameIsGenerated="true">
+    <configuration name="PaintApplication" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labboration3.labborationjavafx.PaintApplication" />
       <module name="LabborationJavaFX" />
       <extension name="coverage">
@@ -167,7 +165,10 @@
       <workItem from="1667496011551" duration="29000" />
       <workItem from="1667496529587" duration="560000" />
       <workItem from="1667497232745" duration="613000" />
-      <workItem from="1667498976192" duration="2667000" />
+      <workItem from="1667498976192" duration="2719000" />
+      <workItem from="1667507950998" duration="1000" />
+      <workItem from="1667508063175" duration="698000" />
+      <workItem from="1667553378863" duration="2456000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <created>1666104453857</created>
@@ -449,7 +450,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667485572409</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="add code for server">
+      <created>1667501688461</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1667501688461</updated>
+    </task>
+    <task id="LOCAL-00042" summary="add code for server">
+      <created>1667501708946</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1667501708946</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -467,7 +482,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add listener to Shapesizes" />
     <MESSAGE value="refactoring and add point record" />
     <MESSAGE value="refactor constructor from double, double to Point for x and y coordinates" />
     <MESSAGE value="add collistionDetection for circle&#10;rectangle collision started" />
@@ -492,7 +506,13 @@
     <MESSAGE value="add server class" />
     <MESSAGE value="add Server" />
     <MESSAGE value="add connection change functionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="add connection change functionality" />
+    <MESSAGE value="add code for server" />
+    <option name="LAST_COMMIT_MESSAGE" value="add code for server" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/LabborationJavaFX$PaintApplication.ic" NAME="PaintApplication Coverage Results" MODIFIED="1667508066405" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>se.iths.labboration3.labborationjavafx.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -1,6 +1,6 @@
 package se.iths.labboration3.labborationjavafx.controller;
 
-import javafx.application.Platform;
+
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ListChangeListener;
@@ -16,6 +16,9 @@ import se.iths.labboration3.labborationjavafx.model.PaintModel;
 import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 import se.iths.labboration3.labborationjavafx.model.shapes.ShapeDrawer;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import static se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory.*;
 
@@ -44,9 +47,11 @@ public class Paint {
         colorPicker.valueProperty().bindBidirectional(model.colorPickerProperty());
         size.textProperty().bindBidirectional(model.sizeProperty());
         model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
+
         model.addChangesToUndoList();
         connectString.textProperty().bindBidirectional(model.connectToServerProperty());
     }
+
 
     public void onCircleClick() {
         model.setSelectedShape(SelectedShape.CIRCLE);
@@ -66,10 +71,13 @@ public class Paint {
     }
     private void selectOrCreateShape(Point mouseXY) {
         if(selectorOption.get())
-            checkIfInsideShape(mouseXY);
+            checkIfInsideShapes(mouseXY);
         else
             createAndAddNewShape(mouseXY);
+
+
     }
+
 
     private void createAndAddNewShape(Point mouseXY) {
         var newShape = returnNewShape(mouseXY);
@@ -104,8 +112,18 @@ public class Paint {
     }
 
     private void checkIfSelectedIsInside(Point mouseXY, int i) {
-        if(model.getShapes().get(i).insideShape(mouseXY))
+        if (model.getShapes().get(i).insideShape(mouseXY))
             model.checkIfSelectedAndAddOrRemove(i);
+    }
+
+    private void checkIfSelectedIsInside(Point mouseXY, Shape shape) {
+        if (shape.insideShape(mouseXY))
+            model.checkIfSelectedAndAddOrRemove(shape);
+    }
+
+    private void checkIfInsideShapes(Point mouseXY) {
+        for (var shape : model.getShapes())
+            checkIfSelectedIsInside(mouseXY, shape);
     }
 
     public void undoLast() {
