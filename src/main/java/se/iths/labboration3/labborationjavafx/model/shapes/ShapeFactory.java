@@ -58,7 +58,7 @@ public class ShapeFactory {
     }
 
     private static Shape getRectangle(String[] svgString) {
-        String svgID = svgString[1].substring(0, 32);
+        String svgID = svgString[1].substring(0, 36);
         double size = Double.parseDouble(svgString[4].substring(1, 5)) / 2;
         double x = Double.parseDouble(svgString[2].substring(1, 5)) + size / 2;
         double y = Double.parseDouble(svgString[3].substring(1, 5)) + size / 2;
@@ -67,7 +67,7 @@ public class ShapeFactory {
     }
 
     private static Shape getCircle(String[] svgString) {
-        String svgID = svgString[1].substring(0, 32);
+        String svgID = svgString[1].substring(0, 36);
         double size = Double.parseDouble(svgString[4].substring(1, 5));
         double x = Double.parseDouble(svgString[2].substring(1, 5));
         double y = Double.parseDouble(svgString[3].substring(1, 5));

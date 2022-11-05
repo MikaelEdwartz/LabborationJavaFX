@@ -62,10 +62,14 @@ public class PaintModel {
     public void addToShapes(String line) {
         if (line == null || line.contains("joined") || line.contains("left"))
             return;
-        if (getShapes().size() == 0)
-            this.shapes.add(ShapeFactory.svgToShape(line));
 
-        String svgID = line.substring(17, 49);
+        if (getShapes().size() == 0) {
+            this.shapes.add(ShapeFactory.svgToShape(line));
+            return;
+        }
+
+
+        String svgID = line.substring(17, 53);
 
 
         for (var shape : getShapes()) {
@@ -74,6 +78,7 @@ public class PaintModel {
                 return;
             }
         }
+
         this.shapes.add(ShapeFactory.svgToShape(line));
 
     }
