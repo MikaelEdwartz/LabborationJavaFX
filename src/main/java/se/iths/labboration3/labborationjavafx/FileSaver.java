@@ -20,6 +20,7 @@ public class FileSaver {
         setUpSaveWindow();
         Path path = fileChooser.showSaveDialog(stage.getOwner()).toPath();
         writeSVGToPath(model, path);
+
     }
 
     private void setUpSaveWindow() {

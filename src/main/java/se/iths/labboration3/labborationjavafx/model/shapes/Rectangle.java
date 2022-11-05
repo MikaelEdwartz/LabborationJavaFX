@@ -45,12 +45,12 @@ public class Rectangle extends Shape {
     @Override
     public String getAsSVG() {
 
-        return "<rect \"id=\"" + getSvgID() + "\"" +
+        return "<rect \"id=\"" + getSvgID() + "\" " +
                 "x=\"" + (getX() - getSize() / 2) + "\" " +
                 "y=\"" + (getY() - getSize() / 2) + "\" " +
                 "width=\"" + getSize() * 1.75 + "\" " +
                 "height=\"" + getSize() + "\" " +
-                "fill=\"#" + getColor().toString().substring(2, 10) + "\" />";
+                "fill=\"#" + getColor().toString().substring(2, 10) + "\"/>";
     }
 
 

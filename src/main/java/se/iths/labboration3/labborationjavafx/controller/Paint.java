@@ -65,7 +65,7 @@ public class Paint {
     public void onCanvasClick(MouseEvent mouseEvent) {
         var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
         selectOrCreateShape(mouseXY);
-        drawOnCanvas();
+
     }
 
     private void selectOrCreateShape(Point mouseXY) {

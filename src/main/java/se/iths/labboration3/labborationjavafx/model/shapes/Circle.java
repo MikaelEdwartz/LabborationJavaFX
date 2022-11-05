@@ -38,7 +38,7 @@ public class Circle extends Shape {
 
     @Override
     public String getAsSVG() {
-        return "<circle id=" + getSvgID() + "\""
+        return "<circle id=" + getSvgID() + "\" "
                 + "cx=\"" + getX() + "\" "
                 + "cy=\"" + getY() + "\" "
                 + "r=\"" + getSize() / 2 + "\" "

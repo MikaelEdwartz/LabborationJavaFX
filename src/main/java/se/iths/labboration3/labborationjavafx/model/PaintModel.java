@@ -67,10 +67,13 @@ public class PaintModel {
             this.shapes.add(ShapeFactory.svgToShape(line));
             return;
         }
-
-
-        String svgID = line.substring(17, 53);
-
+        System.out.println(line);
+        String svgID;
+        if (line.contains("[you]"))
+            svgID = line.substring(17, 53);
+        else
+            svgID = line.substring(29, 65);
+        System.out.println(svgID);
 
         for (var shape : getShapes()) {
             if (shape.getSvgID().equals(svgID)) {
@@ -87,15 +90,25 @@ public class PaintModel {
 
         Pattern pattern = Pattern.compile("=");
         String[] svgString = pattern.split(line);
-        double size = Double.parseDouble(svgString[4].substring(1, 5)) * 2;
+        double size = Double.parseDouble(svgString[4].substring(1, 5));
         double x = Double.parseDouble(svgString[2].substring(1, 5));
         double y = Double.parseDouble(svgString[3].substring(1, 5));
-        Color color = Color.valueOf(svgString[5].substring(1, 8));
+        Color color;
+        if (line.contains("circle")) {
+            color = Color.valueOf(svgString[5].substring(2, 10));
 
+        } else {
+            color = Color.valueOf(svgString[6].substring(2, 10));
+        }
+        System.out.println(color.toString());
+        System.out.println(shape.getColor());
         shape.setSize(size)
                 .setX(x)
                 .setY(y)
-                .setColor(color);
+                .setColor(color)
+                .setBorderColor(color);
+
+        System.out.println(shape.getColor());
 
     }
 
