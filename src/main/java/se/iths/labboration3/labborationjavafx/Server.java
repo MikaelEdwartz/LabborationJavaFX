@@ -62,12 +62,13 @@ public class Server {
 
     private void saveShapesFromNetworkToList() throws IOException {
         String line = reader.readLine();
-        System.out.println(line);
+        if (line == null || line.contains("joined") || line.contains("left"))
+            return;
+
         Platform.runLater(() -> model.addToShapes(line));
     }
 
     public void sendToServer(Shape shape) {
-        System.out.println(shape.getAsSVG());
         writer.println(shape.getAsSVG());
     }
 

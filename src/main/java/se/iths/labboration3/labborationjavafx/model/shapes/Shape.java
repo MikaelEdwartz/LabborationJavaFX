@@ -17,20 +17,26 @@ public abstract class Shape {
     private final SimpleObjectProperty<Color> color = new SimpleObjectProperty<>();
     private final SimpleObjectProperty<Color> borderColor = new SimpleObjectProperty<>();
     private final SelectedShape shape;
-    private final String id;
+
+
+    private String svgID;
 
     public SelectedShape getShape() {
         return shape;
     }
 
-    protected Shape(Color color, Point coordinates, double size, SelectedShape shape){
+    protected Shape(Color color, Point coordinates, double size, SelectedShape shape) {
         setColor(color);
         setX(coordinates.x());
         setY(coordinates.y());
         setSize(size);
         setBorderColor(color);
         this.shape = shape;
-        this.id = String.valueOf(UUID.randomUUID());
+        this.svgID = String.valueOf(UUID.randomUUID());
+    }
+
+    public String getSvgID() {
+        return svgID;
     }
 
     public Color getBorderColor() {
@@ -53,20 +59,23 @@ public abstract class Shape {
         return x;
     }
 
-    public void setX(double x) {
+    public Shape setX(double x) {
         this.x.set(x);
+        return this;
     }
 
     public double getY() {
         return y.get();
+
     }
 
     public SimpleDoubleProperty yProperty() {
         return y;
     }
 
-    public void setY(double y) {
+    public Shape setY(double y) {
         this.y.set(y);
+        return this;
     }
 
     public double getSize() {
@@ -77,8 +86,9 @@ public abstract class Shape {
         return size;
     }
 
-    public void setSize(double size) {
+    public Shape setSize(double size) {
         this.size.set(size);
+        return this;
     }
 
     public Color getColor() {
@@ -89,13 +99,15 @@ public abstract class Shape {
         return color;
     }
 
-    public void setColor(Color color) {
+    public Shape setColor(Color color) {
         this.color.set(color);
+        return this;
     }
 
-    public String getId() {
-        return id;
+    public void setSvgID(String svgID) {
+        this.svgID = svgID;
     }
+
 
     public abstract boolean insideShape(Point coordinates);
 

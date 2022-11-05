@@ -13,6 +13,7 @@ import se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 
 public class PaintModel {
@@ -51,6 +52,7 @@ public class PaintModel {
     public void checkIfConnectedAndAddToShapes(Shape shape) {
         if (shape == null)
             return;
+
         if (server.isConnected())
             server.sendToServer(shape);
         else
@@ -60,17 +62,36 @@ public class PaintModel {
     public void addToShapes(String line) {
         if (line == null || line.contains("joined") || line.contains("left"))
             return;
+        if (getShapes().size() == 0)
+            this.shapes.add(ShapeFactory.svgToShape(line));
 
-        for (var shapes : this.shapes) {
-            String shape = shapes.getAsSVG();
-            if (shapes.getShape() == SelectedShape.RECTANGLE)
-                if (shape.substring(12, 44).equals(line.substring(12, 44)))
-                    System.out.println("FINNS");
-                else
-                    System.out.println("FINNS INTE");
+        String svgID = line.substring(17, 49);
+
+
+        for (var shape : getShapes()) {
+            if (shape.getSvgID().equals(svgID)) {
+                changeExistingShapeAttributes(shape, line);
+                return;
+            }
         }
-
         this.shapes.add(ShapeFactory.svgToShape(line));
+
+    }
+
+    private void changeExistingShapeAttributes(Shape shape, String line) {
+
+        Pattern pattern = Pattern.compile("=");
+        String[] svgString = pattern.split(line);
+        double size = Double.parseDouble(svgString[4].substring(1, 5)) * 2;
+        double x = Double.parseDouble(svgString[2].substring(1, 5));
+        double y = Double.parseDouble(svgString[3].substring(1, 5));
+        Color color = Color.valueOf(svgString[5].substring(1, 8));
+
+        shape.setSize(size)
+                .setX(x)
+                .setY(y)
+                .setColor(color);
+
     }
 
     public SelectedShape getSelectedShape() {
@@ -207,8 +228,6 @@ public class PaintModel {
         clearChangeList();
     }
 
-
-
     private void setChange(ChangeOption selectedOption) {
         for (var shape : this.changeList)
             changeSelectedAttribute(selectedOption, shape);
@@ -269,4 +288,5 @@ public class PaintModel {
         else
             connectToServer.set("Connect To Server");
     }
+
 }

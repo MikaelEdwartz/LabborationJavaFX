@@ -16,6 +16,7 @@ import se.iths.labboration3.labborationjavafx.model.PaintModel;
 import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 import se.iths.labboration3.labborationjavafx.model.shapes.ShapeDrawer;
+import se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,11 +33,13 @@ public class Paint {
     public Button undoButton;
     private Stage stage;
     public MenuItem connectString;
+    public ShapeFactory shapeFactory;
 
     public Paint() {
         this.model = new PaintModel();
         this.selectorOption = new SimpleBooleanProperty();
         this.size = new TextField();
+        this.shapeFactory = new ShapeFactory();
     }
 
     public void initialize() {
@@ -79,6 +82,7 @@ public class Paint {
     }
 
     private Shape returnNewShape(Point xy) {
+
         return shapeOf(colorPicker.getValue(), xy, model.getSizeAsDouble(), model.getSelectedShape());
     }
 
@@ -102,7 +106,6 @@ public class Paint {
     private void checkIfSelectedIsInside(Point mouseXY, Shape shape) {
         if (shape.insideShape(mouseXY)) {
             model.checkIfSelectedAndAddOrRemove(shape);
-            System.out.println(shape.insideShape(mouseXY));
         }
     }
 
