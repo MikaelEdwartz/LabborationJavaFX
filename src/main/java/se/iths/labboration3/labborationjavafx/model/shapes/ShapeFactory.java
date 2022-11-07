@@ -42,38 +42,41 @@ public class ShapeFactory {
     }
 
     public static Shape svgToShape(String line) {
-
         try {
-            Pattern pattern = Pattern.compile("=");
-
-            String[] svgString = pattern.split(line);
-
+            String[] svgString = getSvgString(line);
             if (line.contains("circle"))
                 return getCircle(svgString);
             else
                 return getRectangle(svgString);
+
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new ArrayIndexOutOfBoundsException();
         }
     }
 
+    public static String[] getSvgString(String line) {
+        var pattern = Pattern.compile("=");
+        var svgString = pattern.split(line);
+        return svgString;
+    }
+
     private static Shape getRectangle(String[] svgString) {
-        String svgID = svgString[1].substring(0, 36);
-        double size = Double.parseDouble(svgString[4].substring(1, 5)) / 2;
-        double x = Double.parseDouble(svgString[2].substring(1, 5)) + size / 2;
-        double y = Double.parseDouble(svgString[3].substring(1, 5)) + size / 2;
-        Color color = Color.valueOf(svgString[6].substring(1, 8));
+        var svgID = svgString[1].substring(0, 36);
+        var size = Double.parseDouble(svgString[4].substring(1, 5)) / 2;
+        var x = Double.parseDouble(svgString[2].substring(1, 5)) + size / 2;
+        var y = Double.parseDouble(svgString[3].substring(1, 5)) + size / 2;
+        var color = Color.valueOf(svgString[6].substring(1, 8));
+
         return shapeOf(color, new Point(x, y), size, SelectedShape.RECTANGLE, svgID);
     }
 
     private static Shape getCircle(String[] svgString) {
-        String svgID = svgString[1].substring(0, 36);
-        double size = Double.parseDouble(svgString[4].substring(1, 5));
-        double x = Double.parseDouble(svgString[2].substring(1, 5));
-        double y = Double.parseDouble(svgString[3].substring(1, 5));
-        Color color = Color.valueOf(svgString[5].substring(1, 8));
+        var svgID = svgString[1].substring(0, 36);
+        var size = Double.parseDouble(svgString[4].substring(1, 5)) * 2;
+        var x = Double.parseDouble(svgString[2].substring(1, 5));
+        var y = Double.parseDouble(svgString[3].substring(1, 5));
+        var color = Color.valueOf(svgString[5].substring(1, 8));
 
         return shapeOf(color, new Point(x, y), size, SelectedShape.CIRCLE, svgID);
     }
-
 }

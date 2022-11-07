@@ -65,7 +65,7 @@ public class Server {
         if (line == null || line.contains("joined") || line.contains("left"))
             return;
 
-        Platform.runLater(() -> model.addToShapes(line));
+        Platform.runLater(() -> model.readFromServer(line));
     }
 
     public void sendToServer(Shape shape) {

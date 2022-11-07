@@ -13,8 +13,6 @@ import se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Pattern;
-
 
 public class PaintModel {
     private final BooleanProperty selectorOption;
@@ -26,7 +24,6 @@ public class PaintModel {
     private final List<List<Shape>> undoList = new ArrayList<>();
     private final Server server;
     private final StringProperty connectToServer;
-
 
     public PaintModel() {
         this.selectorOption = new SimpleBooleanProperty(false);
@@ -59,57 +56,63 @@ public class PaintModel {
             this.shapes.add(shape);
     }
 
-    public void addToShapes(String line) {
-        if (line == null || line.contains("joined") || line.contains("left"))
-            return;
+    public void readFromServer(String line) {
+        if (checkIfDrawableShape(line)) return;
+        addOrChangeShape(line);
+    }
 
+    private boolean checkIfDrawableShape(String line) {
+        if (isServerMessage(line))
+            return true;
+
+        return firstShape(line);
+    }
+
+    private static boolean isServerMessage(String line) {
+        return line == null || line.contains("joined") || line.contains("left");
+    }
+
+    private boolean firstShape(String line) {
         if (getShapes().size() == 0) {
             this.shapes.add(ShapeFactory.svgToShape(line));
-            return;
+            return true;
         }
-        System.out.println(line);
+        return false;
+    }
+
+    private void addOrChangeShape(String line) {
+        if (shapeExistsChangeInstead(line))
+            return;
+        this.shapes.add(ShapeFactory.svgToShape(line));
+    }
+
+    private boolean shapeExistsChangeInstead(String line) {
+        var svgID = getCorrectSvgID(line);
+        for (var shape : getShapes()) {
+            if (shape.getSvgID().equals(svgID)) {
+                changeExistingShapeAttributes(shape, line);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private static String getCorrectSvgID(String line) {
         String svgID;
         if (line.contains("[you]"))
             svgID = line.substring(17, 53);
         else
             svgID = line.substring(29, 65);
-        System.out.println(svgID);
-
-        for (var shape : getShapes()) {
-            if (shape.getSvgID().equals(svgID)) {
-                changeExistingShapeAttributes(shape, line);
-                return;
-            }
-        }
-
-        this.shapes.add(ShapeFactory.svgToShape(line));
-
+        return svgID;
     }
 
     private void changeExistingShapeAttributes(Shape shape, String line) {
-
-        Pattern pattern = Pattern.compile("=");
-        String[] svgString = pattern.split(line);
-        double size = Double.parseDouble(svgString[4].substring(1, 5));
-        double x = Double.parseDouble(svgString[2].substring(1, 5));
-        double y = Double.parseDouble(svgString[3].substring(1, 5));
-        Color color;
-        if (line.contains("circle")) {
-            color = Color.valueOf(svgString[5].substring(2, 10));
-
-        } else {
-            color = Color.valueOf(svgString[6].substring(2, 10));
-        }
-        System.out.println(color.toString());
-        System.out.println(shape.getColor());
-        shape.setSize(size)
-                .setX(x)
-                .setY(y)
-                .setColor(color)
-                .setBorderColor(color);
-
-        System.out.println(shape.getColor());
-
+        var tempShape = ShapeFactory.svgToShape(line);
+        shape.setSize(tempShape.getSize())
+                .setX(tempShape.getX())
+                .setY(tempShape.getY())
+                .setColor(tempShape.getColor())
+                .setBorderColor(tempShape.getColor());
     }
 
     public SelectedShape getSelectedShape() {
@@ -144,7 +147,7 @@ public class PaintModel {
         return selectorOption.get();
     }
 
-    public void setSelectedShape(SelectedShape selectedShape){
+    public void setSelectedShape(SelectedShape selectedShape) {
         switch (selectedShape) {
             case CIRCLE -> setCircleShape();
             case RECTANGLE -> setRectangleShape();
@@ -161,11 +164,11 @@ public class PaintModel {
         setSelectionMode(false);
     }
 
-    public void setSelectionMode(){
+    public void setSelectionMode() {
         this.selectorOption.set(true);
     }
 
-    public void setSelectionMode(boolean option){
+    public void setSelectionMode(boolean option) {
         this.selectorOption.set(option);
     }
 
@@ -174,7 +177,7 @@ public class PaintModel {
     }
 
     public void removeLastChange() {
-        if(undoList.isEmpty())
+        if (undoList.isEmpty())
             return;
         undoChange();
     }
@@ -191,7 +194,7 @@ public class PaintModel {
     }
 
     private void removeLastElementFromUndoList() {
-        if(undoList.size() > 0)
+        if (undoList.size() > 0)
             undoList.remove(undoList.size() - 1);
     }
 
@@ -205,8 +208,6 @@ public class PaintModel {
         getShapes().forEach(shape -> tempList.add(shape.copyOf()));
     }
 
-
-
     public void checkIfSelectedAndAddOrRemove(Shape shape) {
         if (alreadySelected(shape))
             removeFromChangeList(shape);
@@ -214,22 +215,18 @@ public class PaintModel {
             addToChangeList(shape);
     }
 
-
     private boolean alreadySelected(Shape shape) {
         return this.changeList.contains(shape);
     }
-
 
     private void removeFromChangeList(Shape shape) {
         shape.setBorderColor(shape.getColor());
         removeClickedShapeFromList(shape);
     }
 
-
     private void removeClickedShapeFromList(Shape shape) {
         this.changeList.remove(shape);
     }
-
 
     private void addToChangeList(Shape shape) {
         shape.setBorderColor(Color.VIOLET);
@@ -250,7 +247,6 @@ public class PaintModel {
         for (var shape : this.changeList)
             changeSelectedAttribute(selectedOption, shape);
     }
-
 
     private void changeSelectedAttribute(ChangeOption selectedOption, Shape shape) {
         switch (selectedOption) {
@@ -273,7 +269,6 @@ public class PaintModel {
         shape.setSize(getSizeAsDouble());
         sendChangeToServerIfConnected(shape);
     }
-
 
     private void setMatchingBorderColor() {
         for (var shape : this.changeList)

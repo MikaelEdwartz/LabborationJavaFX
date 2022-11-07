@@ -1,6 +1,6 @@
 package se.iths.labboration3.labborationjavafx.controller;
 
-
+import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ListChangeListener;
@@ -59,9 +59,11 @@ public class Paint {
     public void onRectangleClick() {
         model.setSelectedShape(SelectedShape.RECTANGLE);
     }
+
     public void onSelectionClick() {
         model.setSelectionMode();
     }
+
     public void onCanvasClick(MouseEvent mouseEvent) {
         var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
         selectOrCreateShape(mouseXY);
@@ -69,7 +71,7 @@ public class Paint {
     }
 
     private void selectOrCreateShape(Point mouseXY) {
-        if(selectorOption.get())
+        if (selectorOption.get())
             checkIfInsideShapes(mouseXY);
         else
             createAndAddNewShape(mouseXY);
@@ -86,13 +88,13 @@ public class Paint {
         return shapeOf(colorPicker.getValue(), xy, model.getSizeAsDouble(), model.getSelectedShape());
     }
 
-    public void drawOnCanvas(){
+    public void drawOnCanvas() {
         clearCanvas();
         drawAllSavedShapesOnCanvas();
     }
 
     private void clearCanvas() {
-        context.clearRect(0,0, canvas.getWidth(), canvas.getHeight());
+        context.clearRect(0, 0, canvas.getWidth(), canvas.getHeight());
     }
 
     private void drawAllSavedShapesOnCanvas() {
@@ -135,7 +137,6 @@ public class Paint {
     public void save() {
         new FileSaver().save(model, stage);
     }
-
 
     public void connectToServer() {
         model.connectToServer();
