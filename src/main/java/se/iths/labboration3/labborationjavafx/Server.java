@@ -5,10 +5,8 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import se.iths.labboration3.labborationjavafx.model.PaintModel;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
-
 import java.io.*;
 import java.net.Socket;
-
 
 public class Server {
     private PaintModel model;
@@ -18,9 +16,21 @@ public class Server {
 
     public void connect(PaintModel model) {
         this.model = model;
-        if (connectedDisconnect())
+        if (ifConnectedThenDisconnect())
             return;
         runServer();
+    }
+
+    private boolean ifConnectedThenDisconnect() {
+        if (isConnected()) {
+            connected.set(false);
+            return true;
+        }
+        return false;
+    }
+
+    public boolean isConnected() {
+        return connected.get();
     }
 
     private void runServer() {
@@ -32,28 +42,19 @@ public class Server {
         }
     }
 
-    private boolean connectedDisconnect() {
-        if (isConnected()) {
-            connected.set(false);
-            return true;
-        }
-        return isConnected();
-    }
-
     private void initializeServer() throws IOException {
-        Socket socket = new Socket("localhost", 8000);
-        OutputStream output = socket.getOutputStream();
+        var socket = new Socket("localhost", 8000);
+        var output = socket.getOutputStream();
+        var input = socket.getInputStream();
         writer = new PrintWriter(output, true);
-        InputStream input = socket.getInputStream();
         reader = new BufferedReader(new InputStreamReader(input));
         connected.set(true);
     }
 
     private void readFromNetwork() {
         try {
-            while (true) {
+            while (true)
                 saveShapesFromNetworkToList();
-            }
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
@@ -61,7 +62,7 @@ public class Server {
     }
 
     private void saveShapesFromNetworkToList() throws IOException {
-        String line = reader.readLine();
+        var line = reader.readLine();
         if (line == null || line.contains("joined") || line.contains("left"))
             return;
 
@@ -80,7 +81,4 @@ public class Server {
         this.model = model;
     }
 
-    public boolean isConnected() {
-        return connected.get();
-    }
 }
