@@ -174,14 +174,7 @@
       <workItem from="1667690550203" duration="812000" />
       <workItem from="1667807755133" duration="3362000" />
       <workItem from="1667835061155" duration="19000" />
-      <workItem from="1667923507313" duration="5474000" />
-    </task>
-    <task id="LOCAL-00010" summary="add shapes is now added to observable list that prints shapes when change is detected">
-      <created>1666609934249</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1666609934249</updated>
+      <workItem from="1667923507313" duration="6641000" />
     </task>
     <task id="LOCAL-00011" summary="add listener to Shapesizes">
       <created>1666612430609</created>
@@ -519,7 +512,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667928928785</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="refactor Paint.java">
+      <created>1667929012592</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1667929012592</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -554,7 +554,6 @@
     <MESSAGE value="add fix multiple shapes bug" />
     <MESSAGE value="add refactoring for incoming messages from server" />
     <MESSAGE value="add simple redofunctionality" />
-    <MESSAGE value="refactor Paint.java" />
     <MESSAGE value="refactor Circle.java and Shape.java" />
     <MESSAGE value="refactor Rectangle.java" />
     <MESSAGE value="refactor ShapeDrawer.java" />
@@ -562,7 +561,8 @@
     <MESSAGE value="refactor Server.java" />
     <MESSAGE value="refactor PaintApplication.java" />
     <MESSAGE value="refactor FileSaver.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor FileSaver.java" />
+    <MESSAGE value="refactor Paint.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor Paint.java" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
