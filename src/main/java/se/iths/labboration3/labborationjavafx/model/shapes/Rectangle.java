@@ -1,13 +1,10 @@
 package se.iths.labboration3.labborationjavafx.model.shapes;
 
-
 import javafx.scene.paint.Color;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.Point;
 
-
 public class Rectangle extends Shape {
-
 
     public Rectangle(Color color, Point coordinates, double size, SelectedShape shape) {
         super(color, coordinates, size, shape);
@@ -30,21 +27,20 @@ public class Rectangle extends Shape {
     }
 
     private boolean insideYAxis(double mouseY) {
-        double topYBorder = getY() - getSize() / 2;
-        double bottomYBorder = topYBorder + getSize();
+        var topYBorder = getY() - getSize() / 2;
+        var bottomYBorder = topYBorder + getSize();
         return mouseY >= topYBorder && mouseY <= bottomYBorder;
 
     }
 
     private boolean insideXAxis(double mouseX) {
-        double leftXBorder = getX() - getSize() / 2 * 1.75;
-        double rightXBorder = leftXBorder + getSize() * 1.75;
+        var leftXBorder = getX() - getSize() / 2 * 1.75;
+        var rightXBorder = leftXBorder + getSize() * 1.75;
         return mouseX >= leftXBorder && mouseX <= rightXBorder;
     }
 
     @Override
     public String getAsSVG() {
-
         return "<rect \"id=\"" + getSvgID() + "\" " +
                 "x=\"" + (getX() - getSize() / 2) + "\" " +
                 "y=\"" + (getY() - getSize() / 2) + "\" " +
@@ -52,6 +48,5 @@ public class Rectangle extends Shape {
                 "height=\"" + getSize() + "\" " +
                 "fill=\"#" + getColor().toString().substring(2, 10) + "\"/>";
     }
-
 
 }
