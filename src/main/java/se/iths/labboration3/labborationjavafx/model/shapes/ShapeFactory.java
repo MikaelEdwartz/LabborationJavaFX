@@ -1,15 +1,13 @@
 package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.scene.paint.Color;
-import se.iths.labboration3.labborationjavafx.model.PaintModel;
+
 import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 
 import java.util.regex.Pattern;
 
 public class ShapeFactory {
-    private static final PaintModel model = new PaintModel();
-
 
     public static Shape shapeOf(Color color, Point coordinates, double size, SelectedShape option) {
         return switch (option) {
@@ -29,12 +27,12 @@ public class ShapeFactory {
         return new Circle(color, coordinates, size, SelectedShape.CIRCLE);
     }
 
-    private static Rectangle rectangleOf(Color color, Point coordinates, double size) {
-        return new Rectangle(color, coordinates, size, SelectedShape.RECTANGLE);
-    }
-
     public static Circle circleOf(Color color, Point coordinates, double size, String id) {
         return new Circle(color, coordinates, size, SelectedShape.CIRCLE, id);
+    }
+
+    private static Rectangle rectangleOf(Color color, Point coordinates, double size) {
+        return new Rectangle(color, coordinates, size, SelectedShape.RECTANGLE);
     }
 
     private static Rectangle rectangleOf(Color color, Point coordinates, double size, String id) {
@@ -56,8 +54,7 @@ public class ShapeFactory {
 
     public static String[] getSvgString(String line) {
         var pattern = Pattern.compile("=");
-        var svgString = pattern.split(line);
-        return svgString;
+        return pattern.split(line);
     }
 
     private static Shape getRectangle(String[] svgString) {

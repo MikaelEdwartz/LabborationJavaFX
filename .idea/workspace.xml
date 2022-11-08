@@ -5,10 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/paint-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/paint-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/ShapeFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/shapes/ShapeFactory.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -176,35 +173,7 @@
       <workItem from="1667690550203" duration="812000" />
       <workItem from="1667807755133" duration="3362000" />
       <workItem from="1667835061155" duration="19000" />
-      <workItem from="1667923507313" duration="3784000" />
-    </task>
-    <task id="LOCAL-00002" summary="add FXML graphics">
-      <created>1666185886368</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1666185886368</updated>
-    </task>
-    <task id="LOCAL-00003" summary="add FXML graphics">
-      <created>1666186670419</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1666186670419</updated>
-    </task>
-    <task id="LOCAL-00004" summary="refactor">
-      <created>1666356737596</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1666356737596</updated>
-    </task>
-    <task id="LOCAL-00005" summary="add paintBrush">
-      <created>1666517074201</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1666517074201</updated>
+      <workItem from="1667923507313" duration="4179000" />
     </task>
     <task id="LOCAL-00006" summary="add refactoring to paintBrush">
       <created>1666517393986</created>
@@ -521,7 +490,35 @@
       <option name="project" value="LOCAL" />
       <updated>1667926489955</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="refactor Paint.java">
+      <created>1667927325827</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1667927325827</updated>
+    </task>
+    <task id="LOCAL-00052" summary="refactor Circle.java and Shape.java">
+      <created>1667927494013</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1667927494013</updated>
+    </task>
+    <task id="LOCAL-00053" summary="refactor Rectangle.java">
+      <created>1667927539366</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1667927539366</updated>
+    </task>
+    <task id="LOCAL-00054" summary="refactor ShapeDrawer.java">
+      <created>1667927613198</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1667927613198</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,10 +536,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="refactor collision methods in Rectangle.Java" />
-    <MESSAGE value="add stream in draw method" />
-    <MESSAGE value="Add option to change color and size on selected shapes" />
-    <MESSAGE value="add borderColor for selected visibility on Rectangle.java" />
     <MESSAGE value="add borderColor now matches color after change" />
     <MESSAGE value="add some refactoring in model and controller" />
     <MESSAGE value="add bugfix for select shape methods" />
@@ -564,7 +557,11 @@
     <MESSAGE value="add fix multiple shapes bug" />
     <MESSAGE value="add refactoring for incoming messages from server" />
     <MESSAGE value="add simple redofunctionality" />
-    <option name="LAST_COMMIT_MESSAGE" value="add simple redofunctionality" />
+    <MESSAGE value="refactor Paint.java" />
+    <MESSAGE value="refactor Circle.java and Shape.java" />
+    <MESSAGE value="refactor Rectangle.java" />
+    <MESSAGE value="refactor ShapeDrawer.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor ShapeDrawer.java" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
