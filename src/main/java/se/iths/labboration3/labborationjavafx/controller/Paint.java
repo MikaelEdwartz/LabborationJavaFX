@@ -30,9 +30,9 @@ public class Paint {
     public MenuItem connectString;
 
     public Paint() {
-        this.model = new PaintModel();
-        this.selectorOption = new SimpleBooleanProperty();
-        this.size = new TextField();
+        model = new PaintModel();
+        selectorOption = new SimpleBooleanProperty();
+        size = new TextField();
     }
 
     public void initialize() {

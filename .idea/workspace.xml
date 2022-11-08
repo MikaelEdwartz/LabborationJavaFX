@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,28 +174,7 @@
       <workItem from="1667690550203" duration="812000" />
       <workItem from="1667807755133" duration="3362000" />
       <workItem from="1667835061155" duration="19000" />
-      <workItem from="1667923507313" duration="5170000" />
-    </task>
-    <task id="LOCAL-00007" summary="add Shape.java, Circle and Rectangle&#10;also small GUI changes">
-      <created>1666541520508</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1666541520508</updated>
-    </task>
-    <task id="LOCAL-00008" summary="add shape selector to model">
-      <created>1666599496692</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1666599496692</updated>
-    </task>
-    <task id="LOCAL-00009" summary="add code">
-      <created>1666602738584</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1666602738584</updated>
+      <workItem from="1667923507313" duration="5474000" />
     </task>
     <task id="LOCAL-00010" summary="add shapes is now added to observable list that prints shapes when change is detected">
       <created>1666609934249</created>
@@ -519,7 +498,28 @@
       <option name="project" value="LOCAL" />
       <updated>1667927708945</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="refactor Server.java">
+      <created>1667928802484</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1667928802484</updated>
+    </task>
+    <task id="LOCAL-00057" summary="refactor PaintApplication.java">
+      <created>1667928830809</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1667928830809</updated>
+    </task>
+    <task id="LOCAL-00058" summary="refactor FileSaver.java">
+      <created>1667928928785</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1667928928785</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,9 +537,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add some refactoring in model and controller" />
-    <MESSAGE value="add bugfix for select shape methods" />
-    <MESSAGE value="add tests and refactor shapeFactory" />
     <MESSAGE value="add undo functionality" />
     <MESSAGE value="add cleanup" />
     <MESSAGE value="add code" />
@@ -562,7 +559,10 @@
     <MESSAGE value="refactor Rectangle.java" />
     <MESSAGE value="refactor ShapeDrawer.java" />
     <MESSAGE value="refactor ShapeFactory.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor ShapeFactory.java" />
+    <MESSAGE value="refactor Server.java" />
+    <MESSAGE value="refactor PaintApplication.java" />
+    <MESSAGE value="refactor FileSaver.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor FileSaver.java" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
