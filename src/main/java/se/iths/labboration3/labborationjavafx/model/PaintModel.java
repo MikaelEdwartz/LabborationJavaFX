@@ -22,7 +22,9 @@ public class PaintModel {
     private SelectedShape selectedShape;
     private final List<Shape> changeList;
     private final List<List<Shape>> undoList = new ArrayList<>();
+    private final List<List<Shape>> redoList = new ArrayList<>();
     private final Server server;
+
     private final StringProperty connectToServer;
 
     public PaintModel() {
@@ -183,14 +185,16 @@ public class PaintModel {
     }
 
     private void undoChange() {
+        addToRedoList();
         shapes.clear();
         removeLastElementFromUndoList();
         revertToListBeforeChange();
     }
 
-    private void revertToListBeforeChange() {
-        for (var shape : undoList.get(undoList.size() - 1))
-            shapes.add(shape.copyOf());
+    private List<Shape> getTempList() {
+        List<Shape> tempList = new ArrayList<>();
+        getShapes().forEach(shape -> tempList.add(shape.copyOf()));
+        return tempList;
     }
 
     private void removeLastElementFromUndoList() {
@@ -198,14 +202,30 @@ public class PaintModel {
             undoList.remove(undoList.size() - 1);
     }
 
-    public void addChangesToUndoList() {
-        List<Shape> tempList = new ArrayList<>();
-        copyShapesToTempList(tempList);
-        undoList.add(tempList);
+    private void revertToListBeforeChange() {
+        for (var shape : undoList.get(undoList.size() - 1))
+            shapes.add(shape.copyOf());
     }
 
-    public void copyShapesToTempList(List<Shape> tempList) {
-        getShapes().forEach(shape -> tempList.add(shape.copyOf()));
+    public void addChangesToUndoList() {
+        undoList.add(getTempList());
+    }
+
+    private void addToRedoList() {
+        redoList.add(getTempList());
+    }
+
+    public void revertLastUndo() {
+        if (redoList.isEmpty())
+            return;
+        redoLast();
+    }
+
+    private void redoLast() {
+        shapes.clear();
+        for (var shape : redoList.get(redoList.size() - 1))
+            shapes.add(shape.copyOf());
+        redoList.remove(redoList.size() - 1);
     }
 
     public void checkIfSelectedAndAddOrRemove(Shape shape) {

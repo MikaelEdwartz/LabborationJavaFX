@@ -4,6 +4,7 @@ import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ListChangeListener;
+import javafx.event.ActionEvent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
@@ -17,9 +18,6 @@ import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 import se.iths.labboration3.labborationjavafx.model.shapes.ShapeDrawer;
 import se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory;
-
-import java.util.ArrayList;
-import java.util.List;
 
 import static se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory.*;
 
@@ -118,6 +116,10 @@ public class Paint {
 
     public void undoLast() {
         model.removeLastChange();
+    }
+
+    public void redo() {
+        model.revertLastUndo();
     }
 
     public void changeSize() {

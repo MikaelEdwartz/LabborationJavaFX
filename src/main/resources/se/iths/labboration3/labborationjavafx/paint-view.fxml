@@ -1,31 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.canvas.Canvas?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ColorPicker?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuButton?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0" prefWidth="949.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="se.iths.labboration3.labborationjavafx.controller.Paint">
-   <right>
-       <VBox prefHeight="445.0" prefWidth="232.0" BorderPane.alignment="CENTER">
-           <ListView prefHeight="646.0" prefWidth="232.0"/>
-           <TextArea prefHeight="96.0" prefWidth="232.0" text="&#10;"/>
-       </VBox>
-   </right>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0"
+            prefWidth="949.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="se.iths.labboration3.labborationjavafx.controller.Paint">
+    <right>
+        <VBox prefHeight="445.0" prefWidth="232.0" BorderPane.alignment="CENTER">
+            <ListView prefHeight="646.0" prefWidth="232.0"/>
+            <TextArea prefHeight="96.0" prefWidth="232.0" text="&#10;"/>
+        </VBox>
+    </right>
     <Pane prefHeight="668.0" prefWidth="715.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
         <Canvas fx:id="canvas" height="671.0" layoutY="1.0" onMouseClicked="#onCanvasClick" width="715.0"/>
     </Pane>
@@ -72,15 +62,7 @@
                     </ColorPicker>
                     <TextField fx:id="size" prefHeight="37.0" prefWidth="46.0" text="50"/>
                 </HBox>
-                <Pane prefHeight="33.0" prefWidth="269.0"/>
-                <MenuButton contentDisplay="CENTER" mnemonicParsing="false" prefHeight="38.0" prefWidth="115.0"
-                            text="Options">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="Connect to server"/>
-                        <MenuItem mnemonicParsing="false" text="Save"/>
-                        <MenuItem mnemonicParsing="false" text="Exit"/>
-                    </items>
-                </MenuButton>
+                <Pane prefHeight="33.0" prefWidth="332.0"/>
                 <Button fx:id="undoButton" minHeight="-Infinity" minWidth="-Infinity" onAction="#undoLast"
                         prefHeight="33.0" prefWidth="32.0">
                     <graphic>
@@ -89,10 +71,10 @@
                         </ImageView>
                     </graphic>
                 </Button>
-                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="33.0"
-                        prefWidth="32.0">
+                <Button minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#redo"
+                        prefHeight="33.0" prefWidth="32.0">
                     <graphic>
-                        <ImageView fitHeight="36.0" fitWidth="75.0" pickOnBounds="true" preserveRatio="true">
+                        <ImageView fitHeight="36.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
                             <Image url="@pictures/redo.jpg"/>
                         </ImageView>
                     </graphic>
