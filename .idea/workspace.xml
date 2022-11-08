@@ -176,14 +176,7 @@
       <workItem from="1667690550203" duration="812000" />
       <workItem from="1667807755133" duration="3362000" />
       <workItem from="1667835061155" duration="19000" />
-      <workItem from="1667923507313" duration="2825000" />
-    </task>
-    <task id="LOCAL-00001" summary="initial commit">
-      <created>1666104453857</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1666104453857</updated>
+      <workItem from="1667923507313" duration="3784000" />
     </task>
     <task id="LOCAL-00002" summary="add FXML graphics">
       <created>1666185886368</created>
@@ -521,7 +514,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667810526293</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="add simple redofunctionality">
+      <created>1667926489954</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1667926489955</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -539,7 +539,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add collision detection for Rectangle" />
     <MESSAGE value="refactor collision methods in Rectangle.Java" />
     <MESSAGE value="add stream in draw method" />
     <MESSAGE value="Add option to change color and size on selected shapes" />
@@ -564,7 +563,8 @@
     <MESSAGE value="c" />
     <MESSAGE value="add fix multiple shapes bug" />
     <MESSAGE value="add refactoring for incoming messages from server" />
-    <option name="LAST_COMMIT_MESSAGE" value="add refactoring for incoming messages from server" />
+    <MESSAGE value="add simple redofunctionality" />
+    <option name="LAST_COMMIT_MESSAGE" value="add simple redofunctionality" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">

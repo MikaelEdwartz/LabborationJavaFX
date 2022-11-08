@@ -1,10 +1,8 @@
 package se.iths.labboration3.labborationjavafx.controller;
 
-import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.collections.ListChangeListener;
-import javafx.event.ActionEvent;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.*;
@@ -17,7 +15,6 @@ import se.iths.labboration3.labborationjavafx.model.PaintModel;
 import se.iths.labboration3.labborationjavafx.model.Point;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 import se.iths.labboration3.labborationjavafx.model.shapes.ShapeDrawer;
-import se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory;
 
 import static se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory.*;
 
@@ -31,13 +28,11 @@ public class Paint {
     public Button undoButton;
     private Stage stage;
     public MenuItem connectString;
-    public ShapeFactory shapeFactory;
 
     public Paint() {
         this.model = new PaintModel();
         this.selectorOption = new SimpleBooleanProperty();
         this.size = new TextField();
-        this.shapeFactory = new ShapeFactory();
     }
 
     public void initialize() {
@@ -65,7 +60,6 @@ public class Paint {
     public void onCanvasClick(MouseEvent mouseEvent) {
         var mouseXY = new Point(mouseEvent.getX(), mouseEvent.getY());
         selectOrCreateShape(mouseXY);
-
     }
 
     private void selectOrCreateShape(Point mouseXY) {
@@ -75,14 +69,23 @@ public class Paint {
             createAndAddNewShape(mouseXY);
     }
 
+    private void checkIfInsideShapes(Point mouseXY) {
+        for (var shape : model.getShapes())
+            checkIfInsideAndSelect(mouseXY, shape);
+    }
+
+    private void checkIfInsideAndSelect(Point mouseXY, Shape shape) {
+        if (shape.insideShape(mouseXY))
+            model.checkIfSelectedAndAddOrRemove(shape);
+    }
+
     private void createAndAddNewShape(Point mouseXY) {
-        var newShape = returnNewShape(mouseXY);
+        var newShape = createNewShape(mouseXY);
         model.checkIfConnectedAndAddToShapes(newShape);
         model.addChangesToUndoList();
     }
 
-    private Shape returnNewShape(Point xy) {
-
+    private Shape createNewShape(Point xy) {
         return shapeOf(colorPicker.getValue(), xy, model.getSizeAsDouble(), model.getSelectedShape());
     }
 
@@ -101,17 +104,6 @@ public class Paint {
 
     private void drawShapeOnCanvas(Shape shape) {
         ShapeDrawer.draw(shape, context);
-    }
-
-    private void checkIfSelectedIsInside(Point mouseXY, Shape shape) {
-        if (shape.insideShape(mouseXY)) {
-            model.checkIfSelectedAndAddOrRemove(shape);
-        }
-    }
-
-    private void checkIfInsideShapes(Point mouseXY) {
-        for (var shape : model.getShapes())
-            checkIfSelectedIsInside(mouseXY, shape);
     }
 
     public void undoLast() {
@@ -136,7 +128,7 @@ public class Paint {
         this.stage = stage;
     }
 
-    public void save() {
+    public void saveDrawing() {
         new FileSaver().save(model, stage);
     }
 

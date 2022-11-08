@@ -187,7 +187,7 @@ public class PaintModel {
     private void undoChange() {
         addToRedoList();
         shapes.clear();
-        removeLastElementFromUndoList();
+        removeLastElementFromList(undoList);
         revertToListBeforeChange();
     }
 
@@ -197,13 +197,17 @@ public class PaintModel {
         return tempList;
     }
 
-    private void removeLastElementFromUndoList() {
-        if (undoList.size() > 0)
-            undoList.remove(undoList.size() - 1);
+    private void removeLastElementFromList(List<List<Shape>> list) {
+        if (list.size() > 0)
+            list.remove(list.size() - 1);
     }
 
     private void revertToListBeforeChange() {
-        for (var shape : undoList.get(undoList.size() - 1))
+        addShapesToShapeList(undoList);
+    }
+
+    private void addShapesToShapeList(List<List<Shape>> list) {
+        for (var shape : list.get(list.size() - 1))
             shapes.add(shape.copyOf());
     }
 
@@ -218,14 +222,14 @@ public class PaintModel {
     public void revertLastUndo() {
         if (redoList.isEmpty())
             return;
+
         redoLast();
     }
 
     private void redoLast() {
         shapes.clear();
-        for (var shape : redoList.get(redoList.size() - 1))
-            shapes.add(shape.copyOf());
-        redoList.remove(redoList.size() - 1);
+        addShapesToShapeList(redoList);
+        removeLastElementFromList(redoList);
     }
 
     public void checkIfSelectedAndAddOrRemove(Shape shape) {
