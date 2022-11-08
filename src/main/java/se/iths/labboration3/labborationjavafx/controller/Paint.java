@@ -76,7 +76,7 @@ public class Paint {
 
     private void checkIfInsideAndSelect(Point mouseXY, Shape shape) {
         if (shape.insideShape(mouseXY))
-            model.checkIfSelectedAndAddOrRemove(shape);
+            model.checkSelectedShape(shape);
     }
 
     private void createAndAddNewShape(Point mouseXY) {
@@ -107,6 +107,7 @@ public class Paint {
     }
 
     public void undoLast() {
+        model.addToRedoList();
         model.removeLastChange();
     }
 
@@ -134,7 +135,7 @@ public class Paint {
 
     public void connectToServer() {
         model.connectToServer();
-        model.changeConnectionString();
+        model.changeConnectString();
     }
 
 }
