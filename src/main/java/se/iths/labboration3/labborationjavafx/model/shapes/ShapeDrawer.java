@@ -26,8 +26,10 @@ public class ShapeDrawer {
     private static void drawBorder(ShapeValues values, Color color) {
         setContextColor(values, color);
         switch (values.shape()) {
-            case CIRCLE -> values.context().fillOval(values.x() - 2.5, values.y() - 2.5, values.size() + 5, values.size() + 5);
-            case RECTANGLE -> values.context().fillRect(values.x() - 2.5, values.y() - 2.5, values.size() * 1.75 + 5, values.size() + 5);
+            case CIRCLE ->
+                    values.context().fillOval(values.x() - 2.5, values.y() - 2.5, values.size() + 5, values.size() + 5);
+            case RECTANGLE ->
+                    values.context().fillRect(values.x() - 2.5, values.y() - 2.5, values.size() * 1.75 + 5, values.size() + 5);
         }
     }
 
