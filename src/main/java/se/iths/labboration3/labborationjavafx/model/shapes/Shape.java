@@ -2,7 +2,6 @@ package se.iths.labboration3.labborationjavafx.model.shapes;
 
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
-
 import javafx.scene.paint.Color;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.Point;
@@ -10,15 +9,12 @@ import se.iths.labboration3.labborationjavafx.model.Point;
 import java.util.UUID;
 
 public abstract class Shape {
-
     private final SimpleDoubleProperty x = new SimpleDoubleProperty();
     private final SimpleDoubleProperty y = new SimpleDoubleProperty();
     private final SimpleDoubleProperty size = new SimpleDoubleProperty();
     private final SimpleObjectProperty<Color> color = new SimpleObjectProperty<>();
     private final SimpleObjectProperty<Color> borderColor = new SimpleObjectProperty<>();
     private final SelectedShape shape;
-
-
     private String svgID;
 
     public SelectedShape getShape() {
@@ -107,7 +103,6 @@ public abstract class Shape {
     public void setSvgID(String svgID) {
         this.svgID = svgID;
     }
-
 
     public abstract boolean insideShape(Point coordinates);
 

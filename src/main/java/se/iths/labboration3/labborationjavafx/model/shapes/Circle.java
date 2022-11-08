@@ -22,17 +22,17 @@ public class Circle extends Shape {
 
     @Override
     public boolean insideShape(Point coordinates) {
-        double distance = Math.sqrt(distanceX(coordinates) + distanceY(coordinates));
+        var distance = Math.sqrt(distanceX(coordinates) + distanceY(coordinates));
         return distance <= getSize() / 2;
     }
 
     private double distanceY(Point coordinates) {
-        double distanceY = coordinates.y() - getY();
+        var distanceY = coordinates.y() - getY();
         return distanceY * distanceY;
     }
 
     private double distanceX(Point coordinates) {
-        double distanceX = coordinates.x() - getX();
+        var distanceX = coordinates.x() - getX();
         return distanceX * distanceX;
     }
 
