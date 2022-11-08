@@ -11,16 +11,13 @@ import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public class FileSaver {
-
     FileChooser fileChooser = new FileChooser();
 
     public void save(PaintModel model, Stage stage) {
         setUpSaveWindow();
-        Path path = fileChooser.showSaveDialog(stage.getOwner()).toPath();
+        var path = fileChooser.showSaveDialog(stage.getOwner()).toPath();
         writeSVGToPath(model, path);
-
     }
 
     private void setUpSaveWindow() {
