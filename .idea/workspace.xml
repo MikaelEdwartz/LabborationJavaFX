@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
+    <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="Cleaned up classes">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/se/iths/labboration3/labborationjavafx/model/PaintModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/iths/labboration3/labborationjavafx/model/PaintModelTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +80,7 @@
       <recent name="se.iths.labboration3.labborationjavafx.model" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PaintApplication">
+  <component name="RunManager" selected="JUnit.PaintModelTest">
     <configuration name="PaintApplication" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labboration3.labborationjavafx.PaintApplication" />
       <module name="LabborationJavaFX" />
@@ -109,14 +109,32 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PaintModelTest.callingChangeColorMethodsChangesColor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LabborationJavaFX" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="se.iths.labboration3.labborationjavafx.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="se.iths.labboration3.labborationjavafx.model" />
+      <option name="MAIN_CLASS_NAME" value="se.iths.labboration3.labborationjavafx.model.PaintModelTest" />
+      <option name="METHOD_NAME" value="callingChangeColorMethodsChangesColor" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.PaintApplication" />
+      <item itemvalue="JUnit.PaintModelTest.callingChangeColorMethodsChangesColor" />
       <item itemvalue="JUnit.PaintModelTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PaintApplication" />
         <item itemvalue="JUnit.PaintModelTest" />
+        <item itemvalue="JUnit.PaintModelTest.callingChangeColorMethodsChangesColor" />
+        <item itemvalue="Application.PaintApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -174,21 +192,9 @@
       <workItem from="1667690550203" duration="812000" />
       <workItem from="1667807755133" duration="3362000" />
       <workItem from="1667835061155" duration="19000" />
-      <workItem from="1667923507313" duration="6641000" />
-    </task>
-    <task id="LOCAL-00011" summary="add listener to Shapesizes">
-      <created>1666612430609</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1666612430609</updated>
-    </task>
-    <task id="LOCAL-00012" summary="refactoring and add point record">
-      <created>1666779226726</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1666779226726</updated>
+      <workItem from="1667923507313" duration="6721000" />
+      <workItem from="1667934527718" duration="8000" />
+      <workItem from="1668067810272" duration="427000" />
     </task>
     <task id="LOCAL-00013" summary="refactor constructor from double, double to Point for x and y coordinates">
       <created>1666779754501</created>
@@ -519,7 +525,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667929012592</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="refactor PaintModel.java">
+      <created>1667930183617</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1667930183617</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Cleaned up classes">
+      <created>1667930217045</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1667930217045</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -537,8 +557,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add undo functionality" />
-    <MESSAGE value="add cleanup" />
     <MESSAGE value="add code" />
     <MESSAGE value="refactor ShapeDrawer" />
     <MESSAGE value="add FileSaver" />
@@ -562,7 +580,9 @@
     <MESSAGE value="refactor PaintApplication.java" />
     <MESSAGE value="refactor FileSaver.java" />
     <MESSAGE value="refactor Paint.java" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor Paint.java" />
+    <MESSAGE value="refactor PaintModel.java" />
+    <MESSAGE value="Cleaned up classes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up classes" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
