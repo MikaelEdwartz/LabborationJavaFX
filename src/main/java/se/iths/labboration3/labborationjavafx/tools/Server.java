@@ -1,4 +1,4 @@
-package se.iths.labboration3.labborationjavafx;
+package se.iths.labboration3.labborationjavafx.tools;
 
 import javafx.application.Platform;
 import javafx.beans.property.BooleanProperty;

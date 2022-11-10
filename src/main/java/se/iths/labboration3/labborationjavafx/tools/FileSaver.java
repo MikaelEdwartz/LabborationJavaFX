@@ -1,4 +1,4 @@
-package se.iths.labboration3.labborationjavafx;
+package se.iths.labboration3.labborationjavafx.tools;
 
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;

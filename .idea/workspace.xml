@@ -89,7 +89,7 @@
       <module name="LabborationJavaFX" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="se.iths.labboration3.labborationjavafx.*" />
+          <option name="PATTERN" value="se.iths.labboration3.labborationjavafx.tools.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

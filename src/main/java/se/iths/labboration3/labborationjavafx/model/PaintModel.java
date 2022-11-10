@@ -5,7 +5,7 @@ import javafx.beans.property.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.paint.Color;
-import se.iths.labboration3.labborationjavafx.Server;
+import se.iths.labboration3.labborationjavafx.tools.Server;
 import se.iths.labboration3.labborationjavafx.model.Enums.ChangeOption;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
