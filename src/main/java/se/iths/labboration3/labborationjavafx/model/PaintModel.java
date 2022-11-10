@@ -10,6 +10,7 @@ import se.iths.labboration3.labborationjavafx.model.Enums.ChangeOption;
 import se.iths.labboration3.labborationjavafx.model.Enums.SelectedShape;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
 import se.iths.labboration3.labborationjavafx.model.shapes.ShapeFactory;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,7 +24,9 @@ public class PaintModel {
     private final List<List<Shape>> redoList = new ArrayList<>();
     private final StringProperty connectToServer;
     private final Server server;
+    private final ObservableList<String> chatList = FXCollections.observableArrayList();
     private SelectedShape selectedShape;
+    private final StringProperty message;
 
     public PaintModel() {
         selectorOption = new SimpleBooleanProperty(false);
@@ -34,6 +37,7 @@ public class PaintModel {
         selectedShape = SelectedShape.RECTANGLE;
         server = new Server();
         connectToServer = new SimpleStringProperty("Connect To Server");
+        message = new SimpleStringProperty();
     }
 
     private static Observable[] getObservableAttributes(Shape shape) {
@@ -209,27 +213,38 @@ public class PaintModel {
     }
 
     public void readFromServer(String line) {
-        if (isNotDrawableShape(line)) return;
+        if (isMessageOrShape(line)) return;
         addOrChangeShape(line);
     }
 
-    private boolean isNotDrawableShape(String line) {
+    private boolean isMessageOrShape(String line) {
         if (isServerMessage(line))
             return true;
+        else if (isShape(line))
+            ifFirstShapeAddToList(line);
+        else
+            return sendToChat(line);
 
-        return ifFirstShapeAddToList(line);
+        return false;
+    }
+
+    public boolean sendToChat(String line) {
+        chatList.add(line);
+        return true;
     }
 
     private static boolean isServerMessage(String line) {
         return line == null || line.contains("joined") || line.contains("left");
     }
 
-    private boolean ifFirstShapeAddToList(String line) {
-        if (getShapes().size() == 0) {
+    private boolean isShape(String line) {
+        return (line.contains("rect") || line.contains("circle"));
+    }
+
+    private void ifFirstShapeAddToList(String line) {
+        if (getShapes().size() == 0)
             shapes.add(ShapeFactory.svgToShape(line));
-            return true;
-        }
-        return false;
+
     }
 
     private void addOrChangeShape(String line) {
@@ -305,5 +320,39 @@ public class PaintModel {
 
     public StringProperty connectToServerProperty() {
         return connectToServer;
+    }
+
+    public ObservableList getChatList() {
+        return chatList;
+    }
+
+    public String getMessage() {
+        return message.get();
+    }
+
+    public StringProperty messageProperty() {
+        return message;
+    }
+
+    public void sendMessage() {
+        if (server.isConnected())
+            sendMessageIfConnected();
+        else
+            sendMessageIfNotConnected();
+    }
+
+    private void sendMessageIfNotConnected() {
+        chatList.add(getMessage());
+        clearMessage();
+    }
+
+    private void sendMessageIfConnected() {
+        var messageToSend = getMessage();
+        server.sendToServer(messageToSend);
+        clearMessage();
+    }
+
+    public void clearMessage() {
+        this.message.set("");
     }
 }

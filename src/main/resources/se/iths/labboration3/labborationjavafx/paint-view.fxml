@@ -1,37 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.*?>
-<?import javafx.scene.canvas.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="745.0"
-            prefWidth="949.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="949.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="se.iths.labboration3.labborationjavafx.controller.Paint">
     <right>
         <VBox prefHeight="445.0" prefWidth="232.0" BorderPane.alignment="CENTER">
-            <ListView prefHeight="646.0" prefWidth="232.0"/>
-            <TextArea prefHeight="96.0" prefWidth="232.0" text="&#10;"/>
+            <ListView fx:id="chatView" prefHeight="638.0" prefWidth="232.0"/>
+            <HBox prefHeight="51.0" prefWidth="232.0">
+                <TextArea fx:id="messageField" prefHeight="81.0" prefWidth="199.0" text="&#10;"/>
+                <Button mnemonicParsing="false" onAction="#sendMessage" prefHeight="49.0" prefWidth="62.0" text="Send"/>
+            </HBox>
         </VBox>
     </right>
-    <Pane prefHeight="668.0" prefWidth="715.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
-        <Canvas fx:id="canvas" height="671.0" layoutY="1.0" onMouseClicked="#onCanvasClick" width="715.0"/>
-    </Pane>
+    <Pane prefHeight="668.0" prefWidth="715.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER"/>
     <top>
         <VBox prefHeight="60.0" prefWidth="949.0" BorderPane.alignment="CENTER">
             <MenuBar prefHeight="8.0" prefWidth="949.0">
                 <Menu mnemonicParsing="false" text="File">
                     <MenuItem mnemonicParsing="false" onAction="#saveDrawing" text="Save"/>
-                    <MenuItem mnemonicParsing="false" text="Load"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Server">
                     <MenuItem fx:id="connectString" mnemonicParsing="false" onAction="#connectToServer"
                               text="Connect to server"/>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
-                    <MenuItem mnemonicParsing="false" text="Action 1"/>
+                    <MenuItem mnemonicParsing="false" text="No help :("/>
                 </Menu>
             </MenuBar>
             <HBox prefHeight="29.0" prefWidth="949.0" spacing="10.0">
@@ -81,5 +92,10 @@
                 </Button>
             </HBox>
         </VBox>
-   </top>
+    </top>
+    <center>
+        <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER">
+            <Canvas fx:id="canvas" height="688.0" onMouseClicked="#onCanvasClick" width="717.0"/>
+        </Pane>
+    </center>
 </BorderPane>

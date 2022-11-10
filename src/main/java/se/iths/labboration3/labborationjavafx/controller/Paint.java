@@ -28,6 +28,8 @@ public class Paint {
     public Button undoButton;
     private Stage stage;
     public MenuItem connectString;
+    public ListView<String> chatView;
+    public TextArea messageField;
 
     public Paint() {
         model = new PaintModel();
@@ -43,6 +45,8 @@ public class Paint {
         model.getShapes().addListener((ListChangeListener<Shape>) onChange -> drawOnCanvas());
         model.addChangesToUndoList();
         connectString.textProperty().bindBidirectional(model.connectToServerProperty());
+        messageField.textProperty().bindBidirectional(model.messageProperty());
+        chatView.setItems(model.getChatList());
     }
 
     public void onCircleClick() {
@@ -138,4 +142,7 @@ public class Paint {
         model.changeConnectString();
     }
 
+    public void sendMessage() {
+        model.sendMessage();
+    }
 }

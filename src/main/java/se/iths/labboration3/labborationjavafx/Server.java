@@ -5,6 +5,7 @@ import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import se.iths.labboration3.labborationjavafx.model.PaintModel;
 import se.iths.labboration3.labborationjavafx.model.shapes.Shape;
+
 import java.io.*;
 import java.net.Socket;
 
@@ -71,6 +72,10 @@ public class Server {
 
     public void sendToServer(Shape shape) {
         writer.println(shape.getAsSVG());
+    }
+
+    public void sendToServer(String string) {
+        writer.println(string);
     }
 
     public PaintModel getModel() {

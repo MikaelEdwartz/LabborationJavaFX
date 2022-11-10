@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="Cleaned up classes">
+    <list default="true" id="111df23f-7086-4156-825a-800d6d6db456" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/se/iths/labboration3/labborationjavafx/model/PaintModelTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/se/iths/labboration3/labborationjavafx/model/PaintModelTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/controller/Paint.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/se/iths/labboration3/labborationjavafx/model/PaintModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/paint-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/se/iths/labboration3/labborationjavafx/paint-view.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +83,7 @@
       <recent name="se.iths.labboration3.labborationjavafx.model" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PaintModelTest">
+  <component name="RunManager" selected="Application.PaintApplication">
     <configuration name="PaintApplication" type="Application" factoryName="Application" singleton="false" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="se.iths.labboration3.labborationjavafx.PaintApplication" />
       <module name="LabborationJavaFX" />
@@ -132,9 +135,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PaintApplication" />
         <item itemvalue="JUnit.PaintModelTest" />
         <item itemvalue="JUnit.PaintModelTest.callingChangeColorMethodsChangesColor" />
-        <item itemvalue="Application.PaintApplication" />
       </list>
     </recent_temporary>
   </component>
@@ -194,14 +197,7 @@
       <workItem from="1667835061155" duration="19000" />
       <workItem from="1667923507313" duration="6721000" />
       <workItem from="1667934527718" duration="8000" />
-      <workItem from="1668067810272" duration="427000" />
-    </task>
-    <task id="LOCAL-00013" summary="refactor constructor from double, double to Point for x and y coordinates">
-      <created>1666779754501</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1666779754501</updated>
+      <workItem from="1668067810272" duration="5487000" />
     </task>
     <task id="LOCAL-00014" summary="add collistionDetection for circle&#10;rectangle collision started">
       <created>1666790047161</created>
@@ -539,7 +535,14 @@
       <option name="project" value="LOCAL" />
       <updated>1667930217045</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="add more tests">
+      <created>1668068423568</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1668068423569</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -557,7 +560,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add code" />
     <MESSAGE value="refactor ShapeDrawer" />
     <MESSAGE value="add FileSaver" />
     <MESSAGE value="fix color to svg" />
@@ -582,7 +584,8 @@
     <MESSAGE value="refactor Paint.java" />
     <MESSAGE value="refactor PaintModel.java" />
     <MESSAGE value="Cleaned up classes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleaned up classes" />
+    <MESSAGE value="add more tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="add more tests" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
